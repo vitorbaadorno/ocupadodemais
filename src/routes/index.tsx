@@ -205,18 +205,41 @@ function Index() {
             </p>
           </Reveal>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {capitulos.map((cap, i) => (
-              <Reveal key={cap.titulo} delay={i * 70}>
-                <article className="h-full rounded-2xl border border-border/70 bg-card p-6 shadow-soft transition-transform hover:-translate-y-1">
-                  <span className="font-serif text-3xl text-accent">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-3 font-serif text-xl font-semibold">{cap.titulo}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-foreground/75">{cap.frase}</p>
-                </article>
-              </Reveal>
-            ))}
+            {capitulos.map((cap, i) => {
+              const destaque = i === 2;
+              return (
+                <Reveal key={cap.titulo} delay={i * 70}>
+                  <article
+                    className={`h-full rounded-2xl border p-6 transition-transform hover:-translate-y-1 ${
+                      destaque
+                        ? "border-primary/60 bg-secondary/30 shadow-lift"
+                        : "border-border/70 bg-card shadow-soft"
+                    }`}
+                  >
+                    <span className="font-serif text-3xl text-accent">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="mt-3 flex items-start gap-2 font-serif text-xl font-semibold">
+                      {destaque && (
+                        <Star
+                          className="mt-1 size-5 shrink-0 fill-primary text-primary"
+                          aria-hidden="true"
+                        />
+                      )}
+                      {cap.titulo}
+                    </h3>
+                    {destaque && (
+                      <span className="mt-2 inline-flex items-center rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+                        O capítulo que dá nome ao livro
+                      </span>
+                    )}
+                    <p className="mt-2 text-sm leading-relaxed text-foreground/75">{cap.frase}</p>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
+
         </section>
 
         {/* Trechos */}
