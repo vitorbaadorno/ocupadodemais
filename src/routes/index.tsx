@@ -251,7 +251,20 @@ function Index() {
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <Reveal>
               <div className="flex h-full flex-col rounded-3xl border border-border/70 bg-card p-8 shadow-soft">
-                <h3 className="font-serif text-2xl font-semibold">Livro físico</h3>
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <span className="inline-flex items-center rounded-md border border-accent/70 px-2 py-1 font-serif text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                      Uiclap
+                    </span>
+                    <h3 className="mt-3 font-serif text-2xl font-semibold">Livro físico</h3>
+                  </div>
+                  <img
+                    src={capa.url}
+                    loading="lazy"
+                    alt="Capa do livro Ocupado Demais Para Você, de Vitor Adôrno"
+                    className="h-24 w-16 rounded-md border border-border/70 object-cover shadow-soft"
+                  />
+                </div>
                 <p className="mt-4 font-serif text-3xl text-primary">R$ 38,12</p>
                 <p className="text-sm text-foreground/70">mais frete</p>
                 <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-secondary/60 px-4 py-2 text-sm">
@@ -261,15 +274,50 @@ function Index() {
                   href={LINK_FISICO}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-8 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift transition-colors hover:bg-accent hover:text-accent-foreground"
+                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift transition-colors hover:bg-accent hover:text-accent-foreground"
                 >
-                  Comprar na Uiclap
+                  <span aria-hidden="true">🛒</span> Comprar na Uiclap
                 </a>
               </div>
             </Reveal>
             <Reveal delay={100}>
               <div className="flex h-full flex-col rounded-3xl border border-border/70 bg-card p-8 shadow-soft">
-                <h3 className="font-serif text-2xl font-semibold">Livro digital (Kindle)</h3>
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <span className="inline-flex items-center gap-2 rounded-md border border-accent/70 px-2 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                      <svg
+                        viewBox="0 0 40 14"
+                        className="h-3 w-9"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M2 9c7 5 24 5 33-1"
+                          stroke="currentColor"
+                          strokeWidth="2.4"
+                          strokeLinecap="round"
+                        />
+                        <path
+                          d="M31 6.5c2.5-1 5-1 6 .2.9 1.1.2 3.4-1 5"
+                          stroke="currentColor"
+                          strokeWidth="2.4"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      Amazon
+                    </span>
+                    <h3 className="mt-3 font-serif text-2xl font-semibold">
+                      Livro digital (Kindle)
+                    </h3>
+                  </div>
+                  <img
+                    src={capa.url}
+                    loading="lazy"
+                    alt="Capa do livro Ocupado Demais Para Você, de Vitor Adôrno"
+                    className="h-24 w-16 rounded-md border border-border/70 object-cover shadow-soft"
+                  />
+                </div>
                 <p className="mt-4 font-serif text-3xl text-primary">R$ 9,90</p>
                 <p className="text-sm text-foreground/70">leitura imediata</p>
                 <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-secondary/60 px-4 py-2 text-sm">
@@ -280,13 +328,14 @@ function Index() {
                   href={LINK_KINDLE}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-8 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift transition-colors hover:bg-accent hover:text-accent-foreground"
+                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift transition-colors hover:bg-accent hover:text-accent-foreground"
                 >
-                  Comprar na Amazon
+                  <span aria-hidden="true">🛒</span> Comprar na Amazon
                 </a>
               </div>
             </Reveal>
           </div>
+
           <p className="mt-6 text-center text-sm italic text-muted-foreground">
             Preços sujeitos a alteração pelas plataformas de venda.
           </p>
