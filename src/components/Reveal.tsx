@@ -4,10 +4,12 @@ export function Reveal({
   children,
   delay = 0,
   className = "",
+  variant = "fade",
 }: {
   children: ReactNode;
   delay?: number;
   className?: string;
+  variant?: "fade" | "page";
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -34,11 +36,14 @@ export function Reveal({
     return () => observer.disconnect();
   }, []);
 
+  const base = variant === "page" ? "reveal-page" : "reveal";
+  const on = variant === "page" ? "reveal-page-visible" : "reveal-visible";
+
   return (
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={`reveal ${visible ? "reveal-visible" : ""} ${className}`}
+      className={`${base} ${visible ? on : ""} ${className}`}
     >
       {children}
     </div>

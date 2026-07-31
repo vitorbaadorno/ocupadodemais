@@ -1,17 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
   BookOpen,
+  Coffee,
+  Eye,
+  HandHeart,
   Mail,
   ShoppingBag,
   Sparkles,
-  Star,
   Tablet,
   Truck,
+  Users,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { FloatingScenery, Particles } from "@/components/Atmosphere";
+import { Citacoes } from "@/components/Citacoes";
+import { Depoimentos } from "@/components/Depoimentos";
+import { LinhaDoTempo } from "@/components/LinhaDoTempo";
 import capa from "@/assets/capa-livro.webp.asset.json";
 import autor from "@/assets/vitor-adorno.png.asset.json";
-
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,6 +34,8 @@ export const Route = createFileRoute("/")({
         content:
           "Coletânea de prosa reflexiva em sete capítulos sobre tempo, memória e encontros. Livro de Vitor Adôrno, em versão física e Kindle.",
       },
+      { property: "og:type", content: "book" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
@@ -67,15 +75,40 @@ const capitulos = [
   },
 ];
 
-const trechos = [
-  "Existe um tipo de pressa que só percebemos quando alguém, sem querer, nos obriga a parar.",
-  "Guardar uma lembrança é uma forma de continuar visitando as pessoas que ficaram longe.",
-  "A tarde termina do mesmo jeito para todo mundo, mas nem todo mundo repara nela.",
+const sinopse = [
+  "“Ocupado Demais Para Você…” é uma coletânea de prosa reflexiva dividida em sete capítulos que atravessam tempo, memória, amizade, isolamento urbano, amor, família e perdão. São histórias cotidianas, do tipo que acontece enquanto ninguém está prestando muita atenção.",
+  "Um jovem reencontra os pais num feriado e reabre uma caixa de brinquedos de infância. Amizades nascem, se transformam e às vezes se perdem pelo caminho. Numa praça, um encontro casual com um senhor traz de volta tudo aquilo que ele deixou para depois. Há observações sobre um amor moderno que se comunica com mensagens prontas e copiadas, uma amizade que se rompe e volta a existir através do perdão, um casal mais velho revivendo a própria história em álbuns de fotografia, e um capítulo final feito de pequenas cenas vistas numa praça, cada uma revelando uma fagulha de humanidade.",
+  "No fundo, o livro faz um convite simples: desacelerar, olhar para quem está por perto e perceber que a vida ocupada demais também é feita de encontros pequenos que merecem atenção.",
+];
+
+const paraQuem = [
+  {
+    icone: Users,
+    titulo: "Para quem sente falta de amigos de outras épocas",
+    frase: "Aquelas pessoas que você jurou que veria sempre e hoje só aparecem na memória.",
+  },
+  {
+    icone: Coffee,
+    titulo: "Para quem vive numa rotina corrida",
+    frase: "Dias que passam rápido demais e deixam pouco espaço para conversar sem pressa.",
+  },
+  {
+    icone: Eye,
+    titulo: "Para quem gosta de observar",
+    frase: "Cenas de praça, gestos pequenos, conversas alheias que contam histórias inteiras.",
+  },
+  {
+    icone: HandHeart,
+    titulo: "Para quem já precisou perdoar",
+    frase: "Alguém importante, um laço rompido e o caminho lento até voltar a existir.",
+  },
 ];
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen overflow-x-hidden bg-dusk text-foreground">
+      <FloatingScenery />
+
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
         <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
           <a href="#inicio" className="font-serif text-base font-semibold tracking-tight">
@@ -93,7 +126,7 @@ function Index() {
             </a>
             <a
               href="#comprar"
-              className="rounded-full bg-primary px-5 py-2 font-medium text-primary-foreground shadow-soft transition-colors hover:bg-accent hover:text-accent-foreground"
+              className="tap-press rounded-full bg-primary px-5 py-2 font-medium text-primary-foreground shadow-soft hover:bg-accent hover:text-accent-foreground"
             >
               Comprar
             </a>
@@ -101,10 +134,10 @@ function Index() {
         </nav>
       </header>
 
-      <main>
+      <main className="relative">
         {/* Hero */}
         <section id="inicio" className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-warm opacity-70" aria-hidden="true" />
+          <Particles />
           <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 md:grid-cols-2 md:py-28">
             <Reveal>
               <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-background/70 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
@@ -121,13 +154,13 @@ function Index() {
               <div className="mt-9 flex flex-wrap gap-3">
                 <a
                   href="#comprar"
-                  className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground shadow-lift transition-transform hover:-translate-y-0.5 hover:bg-accent hover:text-accent-foreground"
+                  className="tap-press inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground shadow-lift hover:bg-accent hover:text-accent-foreground"
                 >
                   <ShoppingBag className="size-4" aria-hidden="true" /> Garanta o seu exemplar
                 </a>
                 <a
                   href="#livro"
-                  className="inline-flex items-center gap-2 rounded-full border border-foreground/25 px-7 py-3.5 text-base font-medium transition-colors hover:bg-secondary"
+                  className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 px-7 py-3.5 text-base font-medium hover:bg-secondary"
                 >
                   <BookOpen className="size-4" aria-hidden="true" /> Sobre o livro
                 </a>
@@ -148,46 +181,31 @@ function Index() {
                 />
               </div>
             </Reveal>
-
           </div>
         </section>
 
         {/* Sobre o livro */}
-        <section id="livro" className="mx-auto max-w-3xl px-5 py-20 md:py-28">
-          <Reveal>
-            <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o livro</h2>
-            <div className="mt-7 space-y-5 text-lg leading-relaxed text-foreground/85">
-              <p>
-                “Ocupado Demais Para Você…” é uma coletânea de prosa reflexiva dividida em sete
-                capítulos que atravessam tempo, memória, amizade, isolamento urbano, amor, família e
-                perdão. São histórias cotidianas, do tipo que acontece enquanto ninguém está
-                prestando muita atenção.
-              </p>
-              <p>
-                Um jovem reencontra os pais num feriado e reabre uma caixa de brinquedos de
-                infância. Amizades nascem, se transformam e às vezes se perdem pelo caminho. Numa
-                praça, um encontro casual com um senhor traz de volta tudo aquilo que ele deixou
-                para depois. Há observações sobre um amor moderno que se comunica com mensagens
-                prontas e copiadas, uma amizade que se rompe e volta a existir através do perdão, um
-                casal mais velho revivendo a própria história em álbuns de fotografia, e um capítulo
-                final feito de pequenas cenas vistas numa praça, cada uma revelando uma fagulha de
-                humanidade.
-              </p>
-              <p>
-                No fundo, o livro faz um convite simples: desacelerar, olhar para quem está por
-                perto e perceber que a vida ocupada demais também é feita de encontros pequenos que
-                merecem atenção.
-              </p>
+        <section id="livro" className="relative">
+          <div className="paper-grain mx-auto max-w-3xl rounded-3xl bg-background/70 px-6 py-16 md:px-10 md:py-24">
+            <Reveal>
+              <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o livro</h2>
+            </Reveal>
+            <div className="relative mt-7 space-y-5 text-lg leading-relaxed text-foreground/85">
+              {sinopse.map((p, i) => (
+                <Reveal key={i} delay={i * 140}>
+                  <p>{p}</p>
+                </Reveal>
+              ))}
             </div>
-          </Reveal>
+          </div>
         </section>
 
         {/* Autor */}
-        <section id="autor" className="bg-secondary/35 py-20 md:py-28">
-          <div className="mx-auto max-w-3xl px-5">
+        <section id="autor" className="relative py-16 md:py-24">
+          <div className="paper-grain mx-auto max-w-3xl rounded-3xl bg-secondary/35 px-6 py-14 md:px-10 md:py-20">
             <Reveal>
               <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o autor</h2>
-              <div className="mt-7 flex flex-col gap-8 sm:flex-row sm:items-start">
+              <div className="relative mt-7 flex flex-col gap-8 sm:flex-row sm:items-start">
                 <img
                   src={autor.url}
                   loading="lazy"
@@ -215,73 +233,53 @@ function Index() {
               </div>
             </Reveal>
           </div>
-
         </section>
 
-        {/* Capítulos */}
-        <section id="capitulos" className="mx-auto max-w-6xl px-5 py-20 md:py-28">
+        {/* Capítulos, linha do tempo */}
+        <section id="capitulos" className="relative">
+          <div className="paper-grain mx-auto max-w-6xl rounded-3xl bg-background/60 px-5 py-16 md:px-8 md:py-24">
+            <Reveal>
+              <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Os sete capítulos</h2>
+              <p className="mt-3 max-w-xl text-foreground/70">
+                Uma linha do tempo da leitura, do primeiro ao sétimo capítulo.
+              </p>
+            </Reveal>
+            <div className="relative mt-12">
+              <LinhaDoTempo capitulos={capitulos} />
+            </div>
+          </div>
+        </section>
+
+        {/* Citações interativas */}
+        <Citacoes />
+
+        {/* Para quem é este livro */}
+        <section id="para-quem" className="mx-auto max-w-6xl px-5 py-20 md:py-24">
           <Reveal>
-            <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Os sete capítulos</h2>
-            <p className="mt-3 max-w-xl text-foreground/70">
-              Cada capítulo caminha por um tempo diferente da vida.
-            </p>
+            <h2 className="font-serif text-3xl font-semibold sm:text-4xl">
+              Para quem é este livro
+            </h2>
           </Reveal>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {capitulos.map((cap, i) => {
-              const destaque = i === 2;
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {paraQuem.map((item, i) => {
+              const Icone = item.icone;
               return (
-                <Reveal key={cap.titulo} delay={i * 70}>
-                  <article
-                    className={`h-full rounded-2xl border p-6 transition-transform hover:-translate-y-1 ${
-                      destaque
-                        ? "border-primary/60 bg-secondary/30 shadow-lift"
-                        : "border-border/70 bg-card shadow-soft"
-                    }`}
-                  >
-                    <span className="font-serif text-3xl text-accent">
-                      {String(i + 1).padStart(2, "0")}
+                <Reveal key={item.titulo} delay={i * 90}>
+                  <article className="tap-press h-full rounded-2xl border border-border/70 bg-card p-6 shadow-soft">
+                    <span className="grid size-11 place-items-center rounded-full bg-secondary/60 text-primary">
+                      <Icone className="size-5" aria-hidden="true" />
                     </span>
-                    <h3 className="mt-3 flex items-start gap-2 font-serif text-xl font-semibold">
-                      {destaque && (
-                        <Star
-                          className="mt-1 size-5 shrink-0 fill-primary text-primary"
-                          aria-hidden="true"
-                        />
-                      )}
-                      {cap.titulo}
-                    </h3>
-                    {destaque && (
-                      <span className="mt-2 inline-flex items-center rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-                        O capítulo que dá nome ao livro
-                      </span>
-                    )}
-                    <p className="mt-2 text-sm leading-relaxed text-foreground/75">{cap.frase}</p>
+                    <h3 className="mt-4 font-serif text-lg font-semibold">{item.titulo}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-foreground/75">{item.frase}</p>
                   </article>
                 </Reveal>
               );
             })}
           </div>
-
         </section>
 
-        {/* Trechos */}
-        <section className="relative overflow-hidden py-20 md:py-24">
-          <div className="absolute inset-0 bg-gradient-warm opacity-45" aria-hidden="true" />
-          <div className="relative mx-auto max-w-6xl px-5">
-            <Reveal>
-              <h2 className="font-serif text-3xl font-semibold sm:text-4xl">No tom do livro</h2>
-            </Reveal>
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
-              {trechos.map((t, i) => (
-                <Reveal key={t} delay={i * 90}>
-                  <blockquote className="h-full rounded-2xl bg-background/80 p-7 font-serif text-lg italic leading-relaxed shadow-soft">
-                    “{t}”
-                  </blockquote>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* Depoimentos */}
+        <Depoimentos />
 
         {/* Comprar */}
         <section id="comprar" className="mx-auto max-w-5xl px-5 py-20 md:py-28">
@@ -292,6 +290,23 @@ function Index() {
             <p className="mx-auto mt-3 max-w-lg text-center text-foreground/70">
               Escolha o formato que combina com o seu jeito de ler.
             </p>
+            <div className="mx-auto mt-6 flex w-fit items-center gap-3 rounded-full border border-accent/70 bg-background/80 px-5 py-2.5 text-sm font-medium shadow-soft">
+              <Truck className="size-4 text-primary" aria-hidden="true" />
+              Disponível em formato físico e digital
+              <span className="font-serif text-xs uppercase tracking-[0.2em] text-accent">
+                Uiclap
+              </span>
+              <svg viewBox="0 0 40 14" className="h-3 w-9 text-accent" fill="none" aria-hidden="true">
+                <path d="M2 9c7 5 24 5 33-1" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
+                <path
+                  d="M31 6.5c2.5-1 5-1 6 .2.9 1.1.2 3.4-1 5"
+                  stroke="currentColor"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <Reveal>
@@ -319,7 +334,7 @@ function Index() {
                   href={LINK_FISICO}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift transition-colors hover:bg-accent hover:text-accent-foreground"
+                  className="tap-press mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift hover:bg-accent hover:text-accent-foreground"
                 >
                   <span aria-hidden="true">🛒</span> Comprar na Uiclap
                 </a>
@@ -330,12 +345,7 @@ function Index() {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <span className="inline-flex items-center gap-2 rounded-md border border-accent/70 px-2 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-                      <svg
-                        viewBox="0 0 40 14"
-                        className="h-3 w-9"
-                        fill="none"
-                        aria-hidden="true"
-                      >
+                      <svg viewBox="0 0 40 14" className="h-3 w-9" fill="none" aria-hidden="true">
                         <path
                           d="M2 9c7 5 24 5 33-1"
                           stroke="currentColor"
@@ -373,7 +383,7 @@ function Index() {
                   href={LINK_KINDLE}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift transition-colors hover:bg-accent hover:text-accent-foreground"
+                  className="tap-press mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift hover:bg-accent hover:text-accent-foreground"
                 >
                   <span aria-hidden="true">🛒</span> Comprar na Amazon
                 </a>
@@ -387,7 +397,7 @@ function Index() {
         </section>
       </main>
 
-      <footer className="border-t border-border/70 bg-secondary/30 py-10">
+      <footer className="relative border-t border-border/70 bg-secondary/30 py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-5 text-center text-sm text-foreground/75">
           <p className="font-serif text-base">Vitor Adôrno, 2026</p>
           <a
@@ -405,7 +415,7 @@ function Index() {
       {/* CTA flutuante */}
       <a
         href="#comprar"
-        className="fixed bottom-5 left-5 right-5 z-40 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift transition-colors hover:bg-accent hover:text-accent-foreground md:left-auto md:right-8 md:w-auto"
+        className="tap-press fixed bottom-5 left-5 right-5 z-40 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift hover:bg-accent hover:text-accent-foreground md:left-auto md:right-8 md:w-auto"
       >
         <ShoppingBag className="size-4" aria-hidden="true" /> Comprar agora
       </a>
