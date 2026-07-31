@@ -4,11 +4,14 @@ import {
   Mail,
   ShoppingBag,
   Sparkles,
+  Star,
   Tablet,
   Truck,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import hero from "@/assets/praca-entardecer.jpg";
+import capa from "@/assets/capa-livro.webp.asset.json";
+import autor from "@/assets/vitor-adorno.png.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -131,14 +134,21 @@ function Index() {
               </div>
             </Reveal>
             <Reveal delay={120}>
-              <img
-                src={hero}
-                width={1280}
-                height={960}
-                alt="Ilustração de um banco de praça vazio sob uma árvore ao entardecer"
-                className="w-full rounded-3xl border border-border/70 object-cover shadow-lift"
-              />
+              <div className="relative mx-auto max-w-sm">
+                <div
+                  className="absolute -inset-3 rounded-[2rem] bg-gradient-ember opacity-25 blur-xl"
+                  aria-hidden="true"
+                />
+                <img
+                  src={capa.url}
+                  width={1280}
+                  height={1920}
+                  alt="Capa do livro Ocupado Demais Para Você, de Vitor Adôrno"
+                  className="relative w-full rounded-2xl border border-border/70 object-cover shadow-lift"
+                />
+              </div>
             </Reveal>
+
           </div>
         </section>
 
@@ -177,20 +187,35 @@ function Index() {
           <div className="mx-auto max-w-3xl px-5">
             <Reveal>
               <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o autor</h2>
-              <div className="mt-7 space-y-5 text-lg leading-relaxed text-foreground/85">
-                <p>
-                  Vitor Adôrno é um autor brasileiro independente, natural de Uruaçu, Goiás. Este é
-                  seu segundo livro publicado, depois de “Pensamentos de um Jovem Moderno”.
-                </p>
-                <p>
-                  Sua escrita é íntima e observadora. Ele parte de cenas comuns, uma conversa de
-                  calçada, um álbum antigo, uma tarde parada numa praça, e transforma esses momentos
-                  em reflexões sobre presença, memória e o que significa estar perto de alguém de
-                  verdade.
-                </p>
+              <div className="mt-7 flex flex-col gap-8 sm:flex-row sm:items-start">
+                <img
+                  src={autor.url}
+                  loading="lazy"
+                  alt="Foto do autor Vitor Adôrno"
+                  className="size-36 shrink-0 rounded-full border-4 border-accent object-cover shadow-soft"
+                />
+                <div className="space-y-5 text-lg leading-relaxed text-foreground/85">
+                  <p>
+                    Vitor Adôrno é um autor brasileiro independente, natural de Uruaçu, Goiás. Este
+                    é seu segundo livro publicado, depois de “Pensamentos de um Jovem Moderno”.
+                  </p>
+                  <p>
+                    Vitor Adôrno está sediado em Uruaçu (GO). Sua escrita nasce da observação do
+                    cotidiano. A casa dos pais, a padaria de bairro, o banco de praça e se
+                    transforma em reflexões sobre tempo, presença e relações humanas. É autor de
+                    Ocupado Demais Para Você…, obra que reúne sete narrativas independentes sobre
+                    amizade, amor, família e envelhecimento.
+                  </p>
+                  <p>
+                    Boa parte dessas páginas começou em um diário. Anotações feitas sem pretensão,
+                    ao fim do dia, sobre o que ele havia visto e sentido. De tanto escrever o
+                    cotidiano, o cotidiano virou livro.
+                  </p>
+                </div>
               </div>
             </Reveal>
           </div>
+
         </section>
 
         {/* Capítulos */}
@@ -202,18 +227,41 @@ function Index() {
             </p>
           </Reveal>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {capitulos.map((cap, i) => (
-              <Reveal key={cap.titulo} delay={i * 70}>
-                <article className="h-full rounded-2xl border border-border/70 bg-card p-6 shadow-soft transition-transform hover:-translate-y-1">
-                  <span className="font-serif text-3xl text-accent">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-3 font-serif text-xl font-semibold">{cap.titulo}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-foreground/75">{cap.frase}</p>
-                </article>
-              </Reveal>
-            ))}
+            {capitulos.map((cap, i) => {
+              const destaque = i === 2;
+              return (
+                <Reveal key={cap.titulo} delay={i * 70}>
+                  <article
+                    className={`h-full rounded-2xl border p-6 transition-transform hover:-translate-y-1 ${
+                      destaque
+                        ? "border-primary/60 bg-secondary/30 shadow-lift"
+                        : "border-border/70 bg-card shadow-soft"
+                    }`}
+                  >
+                    <span className="font-serif text-3xl text-accent">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="mt-3 flex items-start gap-2 font-serif text-xl font-semibold">
+                      {destaque && (
+                        <Star
+                          className="mt-1 size-5 shrink-0 fill-primary text-primary"
+                          aria-hidden="true"
+                        />
+                      )}
+                      {cap.titulo}
+                    </h3>
+                    {destaque && (
+                      <span className="mt-2 inline-flex items-center rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+                        O capítulo que dá nome ao livro
+                      </span>
+                    )}
+                    <p className="mt-2 text-sm leading-relaxed text-foreground/75">{cap.frase}</p>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
+
         </section>
 
         {/* Trechos */}
@@ -248,7 +296,20 @@ function Index() {
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <Reveal>
               <div className="flex h-full flex-col rounded-3xl border border-border/70 bg-card p-8 shadow-soft">
-                <h3 className="font-serif text-2xl font-semibold">Livro físico</h3>
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <span className="inline-flex items-center rounded-md border border-accent/70 px-2 py-1 font-serif text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                      Uiclap
+                    </span>
+                    <h3 className="mt-3 font-serif text-2xl font-semibold">Livro físico</h3>
+                  </div>
+                  <img
+                    src={capa.url}
+                    loading="lazy"
+                    alt="Capa do livro Ocupado Demais Para Você, de Vitor Adôrno"
+                    className="h-24 w-16 rounded-md border border-border/70 object-cover shadow-soft"
+                  />
+                </div>
                 <p className="mt-4 font-serif text-3xl text-primary">R$ 38,12</p>
                 <p className="text-sm text-foreground/70">mais frete</p>
                 <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-secondary/60 px-4 py-2 text-sm">
@@ -258,15 +319,50 @@ function Index() {
                   href={LINK_FISICO}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-8 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift transition-colors hover:bg-accent hover:text-accent-foreground"
+                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift transition-colors hover:bg-accent hover:text-accent-foreground"
                 >
-                  Comprar na Uiclap
+                  <span aria-hidden="true">🛒</span> Comprar na Uiclap
                 </a>
               </div>
             </Reveal>
             <Reveal delay={100}>
               <div className="flex h-full flex-col rounded-3xl border border-border/70 bg-card p-8 shadow-soft">
-                <h3 className="font-serif text-2xl font-semibold">Livro digital (Kindle)</h3>
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <span className="inline-flex items-center gap-2 rounded-md border border-accent/70 px-2 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                      <svg
+                        viewBox="0 0 40 14"
+                        className="h-3 w-9"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M2 9c7 5 24 5 33-1"
+                          stroke="currentColor"
+                          strokeWidth="2.4"
+                          strokeLinecap="round"
+                        />
+                        <path
+                          d="M31 6.5c2.5-1 5-1 6 .2.9 1.1.2 3.4-1 5"
+                          stroke="currentColor"
+                          strokeWidth="2.4"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      Amazon
+                    </span>
+                    <h3 className="mt-3 font-serif text-2xl font-semibold">
+                      Livro digital (Kindle)
+                    </h3>
+                  </div>
+                  <img
+                    src={capa.url}
+                    loading="lazy"
+                    alt="Capa do livro Ocupado Demais Para Você, de Vitor Adôrno"
+                    className="h-24 w-16 rounded-md border border-border/70 object-cover shadow-soft"
+                  />
+                </div>
                 <p className="mt-4 font-serif text-3xl text-primary">R$ 9,90</p>
                 <p className="text-sm text-foreground/70">leitura imediata</p>
                 <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-secondary/60 px-4 py-2 text-sm">
@@ -277,13 +373,14 @@ function Index() {
                   href={LINK_KINDLE}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-8 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift transition-colors hover:bg-accent hover:text-accent-foreground"
+                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift transition-colors hover:bg-accent hover:text-accent-foreground"
                 >
-                  Comprar na Amazon
+                  <span aria-hidden="true">🛒</span> Comprar na Amazon
                 </a>
               </div>
             </Reveal>
           </div>
+
           <p className="mt-6 text-center text-sm italic text-muted-foreground">
             Preços sujeitos a alteração pelas plataformas de venda.
           </p>
