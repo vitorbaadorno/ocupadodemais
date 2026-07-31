@@ -4,11 +4,14 @@ import {
   Mail,
   ShoppingBag,
   Sparkles,
+  Star,
   Tablet,
   Truck,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import hero from "@/assets/praca-entardecer.jpg";
+import capa from "@/assets/capa-livro.webp.asset.json";
+import autor from "@/assets/vitor-adorno.png.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
