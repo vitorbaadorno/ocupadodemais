@@ -180,20 +180,35 @@ function Index() {
           <div className="mx-auto max-w-3xl px-5">
             <Reveal>
               <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o autor</h2>
-              <div className="mt-7 space-y-5 text-lg leading-relaxed text-foreground/85">
-                <p>
-                  Vitor Adôrno é um autor brasileiro independente, natural de Uruaçu, Goiás. Este é
-                  seu segundo livro publicado, depois de “Pensamentos de um Jovem Moderno”.
-                </p>
-                <p>
-                  Sua escrita é íntima e observadora. Ele parte de cenas comuns, uma conversa de
-                  calçada, um álbum antigo, uma tarde parada numa praça, e transforma esses momentos
-                  em reflexões sobre presença, memória e o que significa estar perto de alguém de
-                  verdade.
-                </p>
+              <div className="mt-7 flex flex-col gap-8 sm:flex-row sm:items-start">
+                <img
+                  src={autor.url}
+                  loading="lazy"
+                  alt="Foto do autor Vitor Adôrno"
+                  className="size-36 shrink-0 rounded-full border-4 border-accent object-cover shadow-soft"
+                />
+                <div className="space-y-5 text-lg leading-relaxed text-foreground/85">
+                  <p>
+                    Vitor Adôrno é um autor brasileiro independente, natural de Uruaçu, Goiás. Este
+                    é seu segundo livro publicado, depois de “Pensamentos de um Jovem Moderno”.
+                  </p>
+                  <p>
+                    Vitor Adôrno está sediado em Uruaçu (GO). Sua escrita nasce da observação do
+                    cotidiano. A casa dos pais, a padaria de bairro, o banco de praça e se
+                    transforma em reflexões sobre tempo, presença e relações humanas. É autor de
+                    Ocupado Demais Para Você…, obra que reúne sete narrativas independentes sobre
+                    amizade, amor, família e envelhecimento.
+                  </p>
+                  <p>
+                    Boa parte dessas páginas começou em um diário. Anotações feitas sem pretensão,
+                    ao fim do dia, sobre o que ele havia visto e sentido. De tanto escrever o
+                    cotidiano, o cotidiano virou livro.
+                  </p>
+                </div>
               </div>
             </Reveal>
           </div>
+
         </section>
 
         {/* Capítulos */}
