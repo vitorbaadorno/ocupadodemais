@@ -217,7 +217,7 @@ function Index() {
         </section>
 
         {/* Trechos */}
-        <section className="bg-gradient-warm/40 relative overflow-hidden py-20 md:py-24">
+        <section className="relative overflow-hidden py-20 md:py-24">
           <div className="absolute inset-0 bg-gradient-warm opacity-45" aria-hidden="true" />
           <div className="relative mx-auto max-w-6xl px-5">
             <Reveal>
