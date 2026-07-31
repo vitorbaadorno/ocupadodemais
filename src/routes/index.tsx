@@ -134,14 +134,21 @@ function Index() {
               </div>
             </Reveal>
             <Reveal delay={120}>
-              <img
-                src={hero}
-                width={1280}
-                height={960}
-                alt="Ilustração de um banco de praça vazio sob uma árvore ao entardecer"
-                className="w-full rounded-3xl border border-border/70 object-cover shadow-lift"
-              />
+              <div className="relative mx-auto max-w-sm">
+                <div
+                  className="absolute -inset-3 rounded-[2rem] bg-gradient-ember opacity-25 blur-xl"
+                  aria-hidden="true"
+                />
+                <img
+                  src={capa.url}
+                  width={1280}
+                  height={1920}
+                  alt="Capa do livro Ocupado Demais Para Você, de Vitor Adôrno"
+                  className="relative w-full rounded-2xl border border-border/70 object-cover shadow-lift"
+                />
+              </div>
             </Reveal>
+
           </div>
         </section>
 
