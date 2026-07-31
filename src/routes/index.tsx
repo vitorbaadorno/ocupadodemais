@@ -22,11 +22,11 @@ export const Route = createFileRoute("/")({
         content:
           "Coletânea de prosa reflexiva em sete capítulos sobre tempo, memória e encontros. Livro de Vitor Adôrno, em versão física e Kindle.",
       },
-      { property: "og:title", content: "Ocupado Demais Para Você… | Vitor Adôrno" },
+      { property: "og:title", content: "Ocupado Demais Para Você… | Livro de Vitor Adôrno" },
       {
         property: "og:description",
         content:
-          "Sete capítulos sobre tempo, memória e as pessoas que passam pela nossa vida. Um convite a desacelerar.",
+          "Coletânea de prosa reflexiva em sete capítulos sobre tempo, memória e encontros. Livro de Vitor Adôrno, em versão física e Kindle.",
       },
     ],
   }),

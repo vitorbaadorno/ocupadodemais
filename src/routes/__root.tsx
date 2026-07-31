@@ -80,6 +80,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "Vitor Adôrno" },
       { property: "og:type", content: "book" },
       { name: "twitter:card", content: "summary_large_image" },
+      { title: "Ocupado Demais Para Você… | Livro de Vitor Adôrno" },
+      { property: "og:title", content: "Ocupado Demais Para Você… | Livro de Vitor Adôrno" },
+      { name: "twitter:title", content: "Ocupado Demais Para Você… | Livro de Vitor Adôrno" },
+      { name: "description", content: "Coletânea de prosa reflexiva em sete capítulos sobre tempo, memória e encontros. Livro de Vitor Adôrno, em versão física e Kindle." },
+      { property: "og:description", content: "Coletânea de prosa reflexiva em sete capítulos sobre tempo, memória e encontros. Livro de Vitor Adôrno, em versão física e Kindle." },
+      { name: "twitter:description", content: "Coletânea de prosa reflexiva em sete capítulos sobre tempo, memória e encontros. Livro de Vitor Adôrno, em versão física e Kindle." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/3238f6ec-3cf3-4e80-8461-8dc76220481d" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/3238f6ec-3cf3-4e80-8461-8dc76220481d" },
     ],
     links: [
       {
@@ -92,7 +100,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;600&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
 
