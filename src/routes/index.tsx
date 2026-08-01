@@ -130,6 +130,8 @@ const paraQuem = [
 ];
 
 function Index() {
+  const [fichaAberta, setFichaAberta] = useState(false);
+
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-dusk text-foreground">
       <FloatingScenery />
