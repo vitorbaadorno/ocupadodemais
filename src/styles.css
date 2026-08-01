@@ -255,3 +255,31 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ===== Grifo (marca-texto animado) ===== */
+@utility grifo {
+  position: relative;
+  display: inline;
+  font-weight: 600;
+  background-image: linear-gradient(
+    to right,
+    color-mix(in oklab, var(--gold) 78%, transparent),
+    color-mix(in oklab, var(--gold) 78%, transparent)
+  );
+  background-repeat: no-repeat;
+  background-position: 0 78%;
+  background-size: 0% 42%;
+  transition: background-size 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@utility grifo-clay {
+  background-image: linear-gradient(
+    to right,
+    color-mix(in oklab, var(--clay) 75%, transparent),
+    color-mix(in oklab, var(--clay) 75%, transparent)
+  );
+}
+
+@utility grifo-on {
+  background-size: 100% 42%;
+}

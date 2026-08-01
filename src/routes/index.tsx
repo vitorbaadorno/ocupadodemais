@@ -1,10 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState, type ReactNode } from "react";
 import {
   BookOpen,
+  ChevronDown,
   Coffee,
   Eye,
   HandHeart,
+  Instagram,
   Mail,
+  PenLine,
   ShoppingBag,
   Sparkles,
   Tablet,
@@ -16,6 +20,9 @@ import { FloatingScenery, Particles } from "@/components/Atmosphere";
 import { Citacoes } from "@/components/Citacoes";
 import { Depoimentos } from "@/components/Depoimentos";
 import { LinhaDoTempo } from "@/components/LinhaDoTempo";
+import { Quiz } from "@/components/Quiz";
+import { Grifo } from "@/components/Grifo";
+import { FichaTecnica } from "@/components/FichaTecnica";
 import capa from "@/assets/capa-livro.webp.asset.json";
 import autor from "@/assets/vitor-adorno.png.asset.json";
 
@@ -75,10 +82,28 @@ const capitulos = [
   },
 ];
 
-const sinopse = [
-  "“Ocupado Demais Para Você…” é uma coletânea de prosa reflexiva dividida em sete capítulos que atravessam tempo, memória, amizade, isolamento urbano, amor, família e perdão. São histórias cotidianas, do tipo que acontece enquanto ninguém está prestando muita atenção.",
-  "Um jovem reencontra os pais num feriado e reabre uma caixa de brinquedos de infância. Amizades nascem, se transformam e às vezes se perdem pelo caminho. Numa praça, um encontro casual com um senhor traz de volta tudo aquilo que ele deixou para depois. Há observações sobre um amor moderno que se comunica com mensagens prontas e copiadas, uma amizade que se rompe e volta a existir através do perdão, um casal mais velho revivendo a própria história em álbuns de fotografia, e um capítulo final feito de pequenas cenas vistas numa praça, cada uma revelando uma fagulha de humanidade.",
-  "No fundo, o livro faz um convite simples: desacelerar, olhar para quem está por perto e perceber que a vida ocupada demais também é feita de encontros pequenos que merecem atenção.",
+const sinopse: ReactNode[] = [
+  <>
+    “Ocupado Demais Para Você…” é uma coletânea de prosa reflexiva dividida em sete capítulos que
+    atravessam <Grifo>tempo</Grifo>, <Grifo>memória</Grifo>, <Grifo>amizade</Grifo>, isolamento
+    urbano, <Grifo tone="clay">amor</Grifo>, <Grifo tone="clay">família</Grifo> e{" "}
+    <Grifo>perdão</Grifo>. São histórias cotidianas, do tipo que acontece enquanto ninguém está
+    prestando muita atenção.
+  </>,
+  <>
+    Um jovem reencontra os pais num feriado e reabre uma caixa de brinquedos de infância. Amizades
+    nascem, se transformam e às vezes se perdem pelo caminho. Numa praça, um encontro casual com um
+    senhor traz de volta tudo aquilo que ele deixou para depois. Há observações sobre um amor
+    moderno que se comunica com mensagens prontas e copiadas, uma amizade que se rompe e volta a
+    existir através do <Grifo tone="clay">perdão</Grifo>, um casal mais velho revivendo a própria
+    história em álbuns de fotografia, e um capítulo final feito de pequenas cenas vistas numa
+    praça, cada uma revelando uma fagulha de humanidade.
+  </>,
+  <>
+    No fundo, o livro faz um convite simples: <Grifo>desacelerar</Grifo>, olhar para quem está por
+    perto e perceber que a vida ocupada demais também é feita de encontros pequenos que merecem
+    atenção.
+  </>,
 ];
 
 const paraQuem = [
@@ -105,6 +130,8 @@ const paraQuem = [
 ];
 
 function Index() {
+  const [fichaAberta, setFichaAberta] = useState(false);
+
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-dusk text-foreground">
       <FloatingScenery />
@@ -214,21 +241,42 @@ function Index() {
                 />
                 <div className="space-y-5 text-lg leading-relaxed text-foreground/85">
                   <p>
-                    Vitor Adôrno é um autor brasileiro independente, natural de Uruaçu, Goiás. Este
-                    é seu segundo livro publicado, depois de “Pensamentos de um Jovem Moderno”.
+                    Vitor Adôrno é um autor brasileiro independente, natural de Uruaçu, Goiás, onde
+                    segue sediado.
                   </p>
                   <p>
-                    Vitor Adôrno está sediado em Uruaçu (GO). Sua escrita nasce da observação do
-                    cotidiano. A casa dos pais, a padaria de bairro, o banco de praça e se
-                    transforma em reflexões sobre tempo, presença e relações humanas. É autor de
-                    Ocupado Demais Para Você…, obra que reúne sete narrativas independentes sobre
-                    amizade, amor, família e envelhecimento.
+                    Sua escrita nasce da observação do cotidiano. A casa dos pais, a padaria de
+                    bairro, o banco de praça e se transforma em reflexões sobre tempo, presença e
+                    relações humanas. É autor de Ocupado Demais Para Você…, nova edição de sua obra
+                    publicada anteriormente sob o título “Pensamentos de um Jovem Moderno”, que
+                    reúne sete narrativas independentes sobre amizade, amor, família e
+                    envelhecimento.
                   </p>
                   <p>
                     Boa parte dessas páginas começou em um diário. Anotações feitas sem pretensão,
                     ao fim do dia, sobre o que ele havia visto e sentido. De tanto escrever o
                     cotidiano, o cotidiano virou livro.
                   </p>
+                  <div className="flex flex-wrap items-center gap-3 pt-1">
+                    <a
+                      href="https://instagram.com/vitorba.adorno"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Instagram do autor: @vitorba.adorno"
+                      className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 text-sm font-medium hover:bg-secondary"
+                    >
+                      <Instagram className="size-4 text-primary" aria-hidden="true" />
+                      Autor, @vitorba.adorno
+                    </a>
+                    <a
+                      href="mailto:vitorba.adorno@gmail.com"
+                      title="Escreva para o autor"
+                      className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 text-sm font-medium hover:bg-secondary"
+                    >
+                      <Mail className="size-4 text-primary" aria-hidden="true" />
+                      vitorba.adorno@gmail.com
+                    </a>
+                  </div>
                 </div>
               </div>
             </Reveal>
@@ -252,6 +300,9 @@ function Index() {
 
         {/* Citações interativas */}
         <Citacoes />
+
+        {/* Quiz */}
+        <Quiz capitulos={capitulos} />
 
         {/* Para quem é este livro */}
         <section id="para-quem" className="mx-auto max-w-6xl px-5 py-20 md:py-24">
@@ -338,6 +389,29 @@ function Index() {
                 >
                   <span aria-hidden="true">🛒</span> Comprar na Uiclap
                 </a>
+                <button
+                  type="button"
+                  onClick={() => setFichaAberta((v) => !v)}
+                  aria-expanded={fichaAberta}
+                  aria-controls="ficha-tecnica"
+                  className="tap-press mt-3 inline-flex items-center justify-center gap-2 rounded-full border border-foreground/25 px-6 py-3 text-sm font-medium hover:bg-secondary"
+                >
+                  Saiba mais
+                  <ChevronDown
+                    className={`size-4 transition-transform duration-300 ${fichaAberta ? "rotate-180" : ""}`}
+                    aria-hidden="true"
+                  />
+                </button>
+                <div
+                  id="ficha-tecnica"
+                  className={`grid transition-all duration-500 ease-out ${
+                    fichaAberta ? "mt-5 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <FichaTecnica />
+                  </div>
+                </div>
               </div>
             </Reveal>
             <Reveal delay={100}>
@@ -395,16 +469,37 @@ function Index() {
             Preços sujeitos a alteração pelas plataformas de venda.
           </p>
         </section>
+        {/* Selo independente */}
+        <section className="mx-auto max-w-3xl px-5 pb-16">
+          <Reveal>
+            <div className="paper-grain rounded-3xl border border-bark/35 bg-clay/25 px-7 py-9 text-center shadow-soft">
+              <span className="inline-flex items-center gap-2 rounded-full border border-bark/35 px-4 py-1.5 font-serif text-xs font-semibold uppercase tracking-[0.2em] text-bark">
+                <PenLine className="size-3.5" aria-hidden="true" />
+                Escrito e publicado de forma independente
+              </span>
+              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-foreground/80">
+                Cada exemplar que sai daqui passou pelas mãos do próprio autor, do primeiro
+                rascunho no diário até a escolha da capa. Quando você leva um livro independente
+                para casa, você não compra só páginas, você dá fôlego para que a próxima história
+                exista. Obrigado por ler com calma e por fazer parte disso.
+              </p>
+            </div>
+          </Reveal>
+        </section>
       </main>
 
       <footer className="relative border-t border-border/70 bg-secondary/30 py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-5 text-center text-sm text-foreground/75">
           <p className="font-serif text-base">Vitor Adôrno, 2026</p>
           <a
-            href="mailto:vitorba.adorno@gmail.com"
-            className="inline-flex items-center gap-2 transition-colors hover:text-primary"
+            href="https://instagram.com/ocupadoparavoce"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Instagram do livro: @ocupadoparavoce"
+            className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 font-medium hover:bg-secondary"
           >
-            <Mail className="size-4" aria-hidden="true" /> vitorba.adorno@gmail.com
+            <Instagram className="size-4 text-primary" aria-hidden="true" />
+            Livro, @ocupadoparavoce
           </a>
           <p className="text-xs text-muted-foreground">
             Ocupado Demais Para Você… Todos os direitos reservados.
