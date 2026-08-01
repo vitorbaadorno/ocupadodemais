@@ -387,6 +387,29 @@ function Index() {
                 >
                   <span aria-hidden="true">🛒</span> Comprar na Uiclap
                 </a>
+                <button
+                  type="button"
+                  onClick={() => setFichaAberta((v) => !v)}
+                  aria-expanded={fichaAberta}
+                  aria-controls="ficha-tecnica"
+                  className="tap-press mt-3 inline-flex items-center justify-center gap-2 rounded-full border border-foreground/25 px-6 py-3 text-sm font-medium hover:bg-secondary"
+                >
+                  Saiba mais
+                  <ChevronDown
+                    className={`size-4 transition-transform duration-300 ${fichaAberta ? "rotate-180" : ""}`}
+                    aria-hidden="true"
+                  />
+                </button>
+                <div
+                  id="ficha-tecnica"
+                  className={`grid transition-all duration-500 ease-out ${
+                    fichaAberta ? "mt-5 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <FichaTecnica />
+                  </div>
+                </div>
               </div>
             </Reveal>
             <Reveal delay={100}>
@@ -444,16 +467,37 @@ function Index() {
             Preços sujeitos a alteração pelas plataformas de venda.
           </p>
         </section>
+        {/* Selo independente */}
+        <section className="mx-auto max-w-3xl px-5 pb-16">
+          <Reveal>
+            <div className="paper-grain rounded-3xl border border-bark/35 bg-clay/25 px-7 py-9 text-center shadow-soft">
+              <span className="inline-flex items-center gap-2 rounded-full border border-bark/35 px-4 py-1.5 font-serif text-xs font-semibold uppercase tracking-[0.2em] text-bark">
+                <PenLine className="size-3.5" aria-hidden="true" />
+                Escrito e publicado de forma independente
+              </span>
+              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-foreground/80">
+                Cada exemplar que sai daqui passou pelas mãos do próprio autor, do primeiro
+                rascunho no diário até a escolha da capa. Quando você leva um livro independente
+                para casa, você não compra só páginas, você dá fôlego para que a próxima história
+                exista. Obrigado por ler com calma e por fazer parte disso.
+              </p>
+            </div>
+          </Reveal>
+        </section>
       </main>
 
       <footer className="relative border-t border-border/70 bg-secondary/30 py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-5 text-center text-sm text-foreground/75">
           <p className="font-serif text-base">Vitor Adôrno, 2026</p>
           <a
-            href="mailto:vitorba.adorno@gmail.com"
-            className="inline-flex items-center gap-2 transition-colors hover:text-primary"
+            href="https://instagram.com/ocupadoparavoce"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Instagram do livro: @ocupadoparavoce"
+            className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 font-medium hover:bg-secondary"
           >
-            <Mail className="size-4" aria-hidden="true" /> vitorba.adorno@gmail.com
+            <Instagram className="size-4 text-primary" aria-hidden="true" />
+            Livro, @ocupadoparavoce
           </a>
           <p className="text-xs text-muted-foreground">
             Ocupado Demais Para Você… Todos os direitos reservados.
