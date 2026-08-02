@@ -467,6 +467,9 @@ function Index() {
           <p className="mt-6 text-center text-sm italic text-muted-foreground">
             Preços sujeitos a alteração pelas plataformas de venda.
           </p>
+
+          <Comparacao />
+
         </section>
         {/* Selo independente */}
         <section className="mx-auto max-w-3xl px-5 pb-16">
