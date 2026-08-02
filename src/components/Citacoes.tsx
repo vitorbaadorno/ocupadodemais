@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import { ChevronRight, Quote } from "lucide-react";
-import balanco from "@/assets/balanco.png.asset.json";
-import { Particles } from "@/components/Atmosphere";
+import cena from "@/assets/cena-parque.png.asset.json";
+import arvores from "@/assets/arvores.png.asset.json";
+import galho from "@/assets/galho.png.asset.json";
+import { Parallax, Particles } from "@/components/Atmosphere";
 
 const CITACOES = [
   "Crescer é isso. Continuar sentado à mesa, mas carregando dentro de si o menino que mal conseguia ficar parado.",
@@ -13,16 +15,22 @@ const CITACOES = [
   "A ciência diz que não existe máquina do tempo. Mas qualquer álbum de fotografias discorda.",
 ];
 
+/** Posições aproximadas das cabeças dos dois personagens na ilustração. */
+const PERSONAGENS = [
+  { nome: "o senhor", left: "68.8%", top: "72.5%" },
+  { nome: "o jovem", left: "73.6%", top: "71.5%" },
+];
+
 export function Citacoes() {
   const [index, setIndex] = useState(0);
   const [fading, setFading] = useState(false);
 
-  const goTo = useCallback((next: number) => {
+  const trocar = useCallback((next: number) => {
     setFading(true);
     window.setTimeout(() => {
-      setIndex((n) => (typeof next === "number" ? (next + CITACOES.length) % CITACOES.length : n));
+      setIndex((n) => (Number.isFinite(next) ? (next + CITACOES.length) % CITACOES.length : n));
       setFading(false);
-    }, 260);
+    }, 280);
   }, []);
 
   useEffect(() => {
@@ -31,72 +39,103 @@ export function Citacoes() {
       window.setTimeout(() => {
         setIndex((n) => (n + 1) % CITACOES.length);
         setFading(false);
-      }, 260);
+      }, 280);
     }, 7000);
     return () => window.clearInterval(timer);
   }, []);
 
-  return (
-    <section id="citacoes" className="relative overflow-hidden py-20 md:py-28">
-      <div className="absolute inset-0 bg-gradient-warm opacity-40" aria-hidden="true" />
-      <Particles />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-2">
-        <button
-          type="button"
-          onClick={() => goTo(index + 1)}
-          aria-label="Ver próxima citação do livro"
-          className="tap-press group relative mx-auto w-full max-w-sm rounded-3xl"
-        >
-          <img
-            src={balanco.url}
-            loading="lazy"
-            alt="Ilustração de um senhor e um jovem sentados juntos em um balanço"
-            className="w-full object-contain"
-          />
-        </button>
+  const personagem = PERSONAGENS[index % PERSONAGENS.length];
 
-        <div>
-          <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Trechos do livro</h2>
-          <figure
-            className={`mt-6 rounded-3xl border border-accent/50 bg-background/80 p-7 shadow-soft transition-opacity duration-300 ${
+  return (
+    <section id="citacoes" className="relative overflow-hidden py-16 md:py-24">
+      {/* Cenário de fundo */}
+      <div className="absolute inset-0" aria-hidden="true">
+        <img
+          src={cena.url}
+          alt=""
+          loading="lazy"
+          className="size-full object-cover object-bottom"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-background/40" />
+      </div>
+
+      {/* Camadas soltas com parallax */}
+      <Parallax speed={0.18} className="left-[-2rem] top-[6%] w-32 opacity-40 md:w-52">
+        <img src={arvores.url} alt="" loading="lazy" className="float-layer w-full" />
+      </Parallax>
+      <Parallax speed={0.3} className="right-[2%] top-[2%] w-24 opacity-45 md:w-40">
+        <img src={galho.url} alt="" loading="lazy" className="float-layer w-full" />
+      </Parallax>
+      <Particles />
+
+      <div className="relative mx-auto max-w-6xl px-5">
+        <h2 className="font-serif text-3xl font-semibold drop-shadow-sm sm:text-4xl">
+          Trechos do livro
+        </h2>
+        <p className="mt-3 max-w-md text-foreground/75">
+          O que passa pela cabeça de quem senta num banco de praça e deixa o tempo correr.
+        </p>
+
+        {/* Cena com balão de pensamento */}
+        <div className="relative mt-8 aspect-[16/9] w-full">
+          {/* Balão */}
+          <button
+            type="button"
+            onClick={() => trocar(index + 1)}
+            aria-label="Ver próxima citação do livro"
+            className={`tap-press absolute left-2 top-2 w-[min(24rem,80%)] rounded-[2rem] border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)] p-5 text-left shadow-soft transition-opacity duration-300 md:left-8 md:top-6 ${
               fading ? "opacity-0" : "opacity-100"
             }`}
           >
-            <Quote className="size-7 text-accent" aria-hidden="true" />
+            <Quote className="size-6 text-accent" aria-hidden="true" />
             <blockquote
               aria-live="polite"
-              className="mt-3 font-serif text-xl italic leading-relaxed sm:text-2xl"
+              className="mt-2 font-serif text-base italic leading-relaxed text-bark sm:text-lg"
             >
               “{CITACOES[index]}”
             </blockquote>
-            <figcaption className="mt-4 text-sm text-muted-foreground">
-              Ocupado Demais Para Você…, Vitor Adôrno
+            <figcaption className="mt-3 text-xs text-bark/70">
+              Pensamento de {personagem.nome}, em Ocupado Demais Para Você…
             </figcaption>
-          </figure>
+          </button>
 
-          <div className="mt-6 flex items-center gap-4">
-            <div className="flex gap-2">
-              {CITACOES.map((c, i) => (
-                <button
-                  key={c}
-                  type="button"
-                  onClick={() => goTo(i)}
-                  aria-label={`Ver citação ${i + 1}`}
-                  aria-current={i === index}
-                  className={`size-2.5 rounded-full transition-transform duration-200 hover:scale-125 ${
-                    i === index ? "scale-125 bg-primary" : "bg-foreground/25"
-                  }`}
-                />
-              ))}
-            </div>
-            <button
-              type="button"
-              onClick={() => goTo(index + 1)}
-              className="tap-press inline-flex items-center gap-1.5 rounded-full border border-foreground/25 px-4 py-2 text-sm font-medium hover:bg-secondary"
-            >
-              Próxima frase <ChevronRight className="size-4" aria-hidden="true" />
-            </button>
+          {/* Caudinha do balão, apontando para a cabeça do personagem */}
+          <div
+            aria-hidden="true"
+            className={`pointer-events-none absolute transition-all duration-500 ${
+              fading ? "opacity-0" : "opacity-100"
+            }`}
+            style={{ left: personagem.left, top: personagem.top }}
+          >
+            <span className="absolute -left-16 -top-16 block size-6 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
+            <span className="absolute -left-9 -top-9 block size-4 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
+            <span className="absolute -left-4 -top-4 block size-2.5 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
           </div>
+        </div>
+
+        <div className="relative mt-4 flex flex-wrap items-center gap-4">
+          <div className="flex gap-2">
+            {CITACOES.map((c, i) => (
+              <button
+                key={c}
+                type="button"
+                onClick={() => trocar(i)}
+                aria-label={`Ver citação ${i + 1}`}
+                aria-current={i === index}
+                className={`size-2.5 rounded-full transition-transform duration-200 hover:scale-125 ${
+                  i === index ? "scale-125 bg-primary" : "bg-foreground/30"
+                }`}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => trocar(index + 1)}
+            className="tap-press inline-flex items-center gap-1.5 rounded-full border border-foreground/25 bg-background/80 px-4 py-2 text-sm font-medium hover:bg-secondary"
+          >
+            Próxima frase <ChevronRight className="size-4" aria-hidden="true" />
+          </button>
         </div>
       </div>
     </section>
