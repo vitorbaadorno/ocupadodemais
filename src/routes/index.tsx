@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import {
+  BadgeCheck,
   BookOpen,
-  ChevronDown,
   Coffee,
   Eye,
   HandHeart,
@@ -22,9 +22,11 @@ import { Depoimentos } from "@/components/Depoimentos";
 import { LinhaDoTempo } from "@/components/LinhaDoTempo";
 import { Quiz } from "@/components/Quiz";
 import { Grifo } from "@/components/Grifo";
-import { FichaTecnica } from "@/components/FichaTecnica";
+import { Comparacao } from "@/components/Comparacao";
+import { ProgressoLeitura } from "@/components/ProgressoLeitura";
 import capa from "@/assets/capa-livro.webp.asset.json";
 import autor from "@/assets/vitor-adorno.png.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
