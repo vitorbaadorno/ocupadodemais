@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
-type Depoimento = { texto: string; autor: string; exemplo?: boolean };
+type Depoimento = { texto: string; autor: string; fonte?: string; exemplo?: boolean };
 
 const DEPOIMENTOS: Depoimento[] = [
+  {
+    texto: "Apaixonada pelo seu livro parabéns continua assim.",
+    autor: "Ferr Batista",
+    fonte: "Avaliação verificada na UICLAP",
+  },
   {
     texto:
       "Li em duas noites e fechei o livro pensando nas pessoas que faz tempo eu não procuro. Deu vontade de ligar para todas elas.",
@@ -17,6 +22,7 @@ const DEPOIMENTOS: Depoimento[] = [
     exemplo: true,
   },
 ];
+
 
 export function Depoimentos() {
   const [i, setI] = useState(0);
