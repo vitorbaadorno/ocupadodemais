@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import {
   BadgeCheck,
   BookOpen,
@@ -135,6 +135,9 @@ function Index() {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-dusk text-foreground">
       <ProgressoLeitura />
+      <FloatingScenery />
+
+
 
 
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
