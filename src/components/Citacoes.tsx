@@ -17,8 +17,8 @@ const CITACOES = [
 
 /** Posições aproximadas das cabeças dos dois personagens na ilustração. */
 const PERSONAGENS = [
-  { nome: "o senhor", left: "68.8%", top: "72.5%" },
-  { nome: "o jovem", left: "73.6%", top: "71.5%" },
+  { nome: "do senhor", left: "69.2%", top: "71%" },
+  { nome: "do jovem", left: "73.8%", top: "70%" },
 ];
 
 export function Citacoes() {
@@ -56,8 +56,8 @@ export function Citacoes() {
           loading="lazy"
           className="size-full object-cover object-bottom"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-background/30" />
       </div>
 
       {/* Camadas soltas com parallax */}
@@ -84,7 +84,7 @@ export function Citacoes() {
             type="button"
             onClick={() => trocar(index + 1)}
             aria-label="Ver próxima citação do livro"
-            className={`tap-press absolute left-2 top-2 w-[min(24rem,80%)] rounded-[2rem] border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)] p-5 text-left shadow-soft transition-opacity duration-300 md:left-8 md:top-6 ${
+            className={`tap-press absolute right-[4%] top-2 w-[min(22rem,78%)] rounded-[2rem] border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)] p-5 text-left shadow-soft transition-opacity duration-300 md:right-[6%] md:top-6 ${
               fading ? "opacity-0" : "opacity-100"
             }`}
           >
@@ -108,9 +108,9 @@ export function Citacoes() {
             }`}
             style={{ left: personagem.left, top: personagem.top }}
           >
-            <span className="absolute -left-16 -top-16 block size-6 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
-            <span className="absolute -left-9 -top-9 block size-4 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
-            <span className="absolute -left-4 -top-4 block size-2.5 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
+            <span className="absolute -left-6 -top-16 block size-6 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
+            <span className="absolute -left-2 -top-9 block size-4 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
+            <span className="absolute -left-0 -top-4 block size-2.5 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
           </div>
         </div>
 
