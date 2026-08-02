@@ -132,11 +132,10 @@ const paraQuem = [
 ];
 
 function Index() {
-  const [fichaAberta, setFichaAberta] = useState(false);
-
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-dusk text-foreground">
-      <FloatingScenery />
+      <ProgressoLeitura />
+
 
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
         <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
