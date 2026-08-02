@@ -96,7 +96,7 @@ export function Citacoes() {
               “{CITACOES[index]}”
             </blockquote>
             <figcaption className="mt-3 text-xs text-bark/70">
-              Pensamento de {personagem.nome}, em Ocupado Demais Para Você…
+              Pensamento {personagem.nome}, em Ocupado Demais Para Você…
             </figcaption>
           </button>
 
