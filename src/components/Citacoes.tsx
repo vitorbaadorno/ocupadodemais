@@ -17,8 +17,8 @@ const CITACOES = [
 
 /** Posições aproximadas das cabeças dos dois personagens na ilustração. */
 const PERSONAGENS = [
-  { nome: "do senhor", left: "69.2%", top: "71%" },
-  { nome: "do jovem", left: "73.8%", top: "70%" },
+  { nome: "do senhor", left: "69.5%", top: "78%" },
+  { nome: "do jovem", left: "74%", top: "77%" },
 ];
 
 export function Citacoes() {
