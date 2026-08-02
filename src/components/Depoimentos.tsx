@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
-type Depoimento = { texto: string; autor: string; exemplo?: boolean };
+type Depoimento = { texto: string; autor: string; fonte?: string; exemplo?: boolean };
 
 const DEPOIMENTOS: Depoimento[] = [
+  {
+    texto: "Apaixonada pelo seu livro parabéns continua assim.",
+    autor: "Ferr Batista",
+    fonte: "Avaliação verificada na UICLAP",
+  },
   {
     texto:
       "Li em duas noites e fechei o livro pensando nas pessoas que faz tempo eu não procuro. Deu vontade de ligar para todas elas.",
@@ -17,6 +22,7 @@ const DEPOIMENTOS: Depoimento[] = [
     exemplo: true,
   },
 ];
+
 
 export function Depoimentos() {
   const [i, setI] = useState(0);
@@ -39,15 +45,23 @@ export function Depoimentos() {
       </p>
 
       <div className="mt-10 rounded-3xl border border-border/70 bg-card p-8 shadow-soft">
-        <div className="flex gap-1 text-accent" aria-hidden="true">
+        <div className="flex gap-1 text-primary" aria-label="Cinco estrelas">
           {Array.from({ length: 5 }).map((_, s) => (
-            <Star key={s} className="size-4 fill-accent" />
+            <Star key={s} className="size-4 fill-primary" aria-hidden="true" />
           ))}
         </div>
         <blockquote className="mt-4 font-serif text-lg italic leading-relaxed sm:text-xl">
           “{atual.texto}”
         </blockquote>
-        <figcaption className="mt-4 text-sm text-muted-foreground">{atual.autor}</figcaption>
+        <figcaption className="mt-4 text-sm text-muted-foreground">
+          {atual.autor}
+          {atual.fonte ? (
+            <span className="ml-2 inline-flex items-center rounded-full border border-accent/70 px-3 py-1 text-xs font-medium text-accent">
+              {atual.fonte}
+            </span>
+          ) : null}
+        </figcaption>
+
 
         <div className="mt-7 flex items-center justify-between">
           <div className="flex gap-2">

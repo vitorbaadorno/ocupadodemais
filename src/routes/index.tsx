@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import {
+  BadgeCheck,
   BookOpen,
-  ChevronDown,
   Coffee,
   Eye,
   HandHeart,
@@ -22,9 +22,11 @@ import { Depoimentos } from "@/components/Depoimentos";
 import { LinhaDoTempo } from "@/components/LinhaDoTempo";
 import { Quiz } from "@/components/Quiz";
 import { Grifo } from "@/components/Grifo";
-import { FichaTecnica } from "@/components/FichaTecnica";
+import { Comparacao } from "@/components/Comparacao";
+import { ProgressoLeitura } from "@/components/ProgressoLeitura";
 import capa from "@/assets/capa-livro.webp.asset.json";
 import autor from "@/assets/vitor-adorno.png.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -130,11 +132,13 @@ const paraQuem = [
 ];
 
 function Index() {
-  const [fichaAberta, setFichaAberta] = useState(false);
-
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-dusk text-foreground">
+      <ProgressoLeitura />
       <FloatingScenery />
+
+
+
 
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
         <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
@@ -361,7 +365,10 @@ function Index() {
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <Reveal>
-              <div className="flex h-full flex-col rounded-3xl border border-border/70 bg-card p-8 shadow-soft">
+              <div className="glow-melhor-preco relative flex h-full flex-col rounded-3xl border border-primary/50 bg-card p-8 shadow-soft">
+                <span className="absolute -top-3 left-8 inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground shadow-soft">
+                  <BadgeCheck className="size-3.5" aria-hidden="true" /> Melhor preço
+                </span>
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <span className="inline-flex items-center rounded-md border border-accent/70 px-2 py-1 font-serif text-xs font-semibold uppercase tracking-[0.2em] text-accent">
@@ -376,8 +383,17 @@ function Index() {
                     className="h-24 w-16 rounded-md border border-border/70 object-cover shadow-soft"
                   />
                 </div>
-                <p className="mt-4 font-serif text-3xl text-primary">R$ 38,12</p>
+                <div className="mt-4 flex flex-wrap items-baseline gap-3">
+                  <span className="font-serif text-lg text-muted-foreground line-through">
+                    R$ 48,15
+                  </span>
+                  <span className="font-serif text-4xl font-bold text-primary">R$ 38,12</span>
+                </div>
                 <p className="text-sm text-foreground/70">mais frete</p>
+                <p className="mt-3 text-sm leading-relaxed text-foreground/75">
+                  O mesmo livro impresso, pelo melhor preço. Na Amazon, a versão física sai por R$
+                  48,15 mais frete.
+                </p>
                 <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-secondary/60 px-4 py-2 text-sm">
                   <Truck className="size-4" aria-hidden="true" /> Entrega para todo o Brasil
                 </p>
@@ -389,31 +405,14 @@ function Index() {
                 >
                   <span aria-hidden="true">🛒</span> Comprar na Uiclap
                 </a>
-                <button
-                  type="button"
-                  onClick={() => setFichaAberta((v) => !v)}
-                  aria-expanded={fichaAberta}
-                  aria-controls="ficha-tecnica"
-                  className="tap-press mt-3 inline-flex items-center justify-center gap-2 rounded-full border border-foreground/25 px-6 py-3 text-sm font-medium hover:bg-secondary"
-                >
-                  Saiba mais
-                  <ChevronDown
-                    className={`size-4 transition-transform duration-300 ${fichaAberta ? "rotate-180" : ""}`}
-                    aria-hidden="true"
-                  />
-                </button>
-                <div
-                  id="ficha-tecnica"
-                  className={`grid transition-all duration-500 ease-out ${
-                    fichaAberta ? "mt-5 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <FichaTecnica />
-                  </div>
-                </div>
+                <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+                  O valor de R$ 48,15 mais frete é o preço da versão impressa vendida na Amazon.
+                  Não confunda com a versão digital para Kindle, que custa R$ 9,90 e aparece no
+                  card ao lado.
+                </p>
               </div>
             </Reveal>
+
             <Reveal delay={100}>
               <div className="flex h-full flex-col rounded-3xl border border-border/70 bg-card p-8 shadow-soft">
                 <div className="flex items-start justify-between gap-4">
@@ -468,6 +467,9 @@ function Index() {
           <p className="mt-6 text-center text-sm italic text-muted-foreground">
             Preços sujeitos a alteração pelas plataformas de venda.
           </p>
+
+          <Comparacao />
+
         </section>
         {/* Selo independente */}
         <section className="mx-auto max-w-3xl px-5 pb-16">
