@@ -283,3 +283,21 @@
 @utility grifo-on {
   background-size: 100% 42%;
 }
+
+/* ===== Destaque discreto do melhor preço ===== */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--ember) 35%, transparent),
+      0 0 18px -6px color-mix(in oklab, var(--ember) 45%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--ember) 55%, transparent),
+      0 0 30px -4px color-mix(in oklab, var(--ember) 60%, transparent);
+  }
+}
+
+@utility glow-melhor-preco {
+  animation: glow-pulse 4.5s ease-in-out infinite;
+}
+

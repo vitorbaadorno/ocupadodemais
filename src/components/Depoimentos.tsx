@@ -45,15 +45,23 @@ export function Depoimentos() {
       </p>
 
       <div className="mt-10 rounded-3xl border border-border/70 bg-card p-8 shadow-soft">
-        <div className="flex gap-1 text-accent" aria-hidden="true">
+        <div className="flex gap-1 text-primary" aria-label="Cinco estrelas">
           {Array.from({ length: 5 }).map((_, s) => (
-            <Star key={s} className="size-4 fill-accent" />
+            <Star key={s} className="size-4 fill-primary" aria-hidden="true" />
           ))}
         </div>
         <blockquote className="mt-4 font-serif text-lg italic leading-relaxed sm:text-xl">
           “{atual.texto}”
         </blockquote>
-        <figcaption className="mt-4 text-sm text-muted-foreground">{atual.autor}</figcaption>
+        <figcaption className="mt-4 text-sm text-muted-foreground">
+          {atual.autor}
+          {atual.fonte ? (
+            <span className="ml-2 inline-flex items-center rounded-full border border-accent/70 px-3 py-1 text-xs font-medium text-accent">
+              {atual.fonte}
+            </span>
+          ) : null}
+        </figcaption>
+
 
         <div className="mt-7 flex items-center justify-between">
           <div className="flex gap-2">
