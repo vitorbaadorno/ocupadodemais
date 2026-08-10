@@ -464,9 +464,15 @@ function Index() {
             </Reveal>
           </div>
 
-          <p className="mt-6 text-center text-sm italic text-muted-foreground">
+          <p className="mt-6 text-center text-sm leading-relaxed text-foreground/80">
+            O livro físico também está disponível na Amazon, por R$ 48,15 mais frete. É o mesmo
+            livro impresso, com o mesmo conteúdo, apenas por um valor mais alto do que na Uiclap.
+          </p>
+
+          <p className="mt-3 text-center text-sm italic text-muted-foreground">
             Preços sujeitos a alteração pelas plataformas de venda.
           </p>
+
 
           <Comparacao />
 
