@@ -283,14 +283,6 @@ function Index() {
                       <Instagram className="size-4 text-primary" aria-hidden="true" />
                       Autor, @vitorba.adorno
                     </a>
-                    <a
-                      href="mailto:vitorba.adorno@gmail.com"
-                      title="Escreva para o autor"
-                      className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 text-sm font-medium hover:bg-secondary"
-                    >
-                      <Mail className="size-4 text-primary" aria-hidden="true" />
-                      vitorba.adorno@gmail.com
-                    </a>
                   </div>
                 </div>
               </div>
