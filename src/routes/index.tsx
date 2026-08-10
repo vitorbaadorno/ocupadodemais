@@ -9,7 +9,7 @@ import {
   Instagram,
   PenLine,
   ShoppingBag,
-  Sparkles,
+  
   Tablet,
   Truck,
   Users,
