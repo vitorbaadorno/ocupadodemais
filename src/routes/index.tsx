@@ -9,7 +9,7 @@ import {
   Instagram,
   PenLine,
   ShoppingBag,
-  Sparkles,
+  
   Tablet,
   Truck,
   Users,
@@ -26,6 +26,7 @@ import { ProgressoLeitura } from "@/components/ProgressoLeitura";
 import capa from "@/assets/capa-livro.webp.asset.json";
 import autor from "@/assets/vitor-adorno.png.asset.json";
 import cenaAutor from "@/assets/cena-autor.png.asset.json";
+import cenaLivro from "@/assets/cena-livro.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
@@ -171,9 +172,6 @@ function Index() {
           <Particles />
           <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 md:grid-cols-2 md:py-28">
             <Reveal>
-              <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-background/70 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                <Sparkles className="size-3.5" aria-hidden="true" /> Novo livro
-              </p>
               <h1 className="font-serif text-4xl font-bold leading-[1.08] sm:text-5xl lg:text-6xl">
                 Ocupado Demais Para Você…
               </h1>
@@ -216,8 +214,17 @@ function Index() {
         </section>
 
         {/* Sobre o livro */}
-        <section id="livro" className="relative">
-          <div className="paper-grain mx-auto max-w-3xl rounded-3xl bg-background/70 px-6 py-16 md:px-10 md:py-24">
+        <section id="livro" className="relative overflow-hidden">
+          <div className="absolute inset-0" aria-hidden="true">
+            <img
+              src={cenaLivro.url}
+              alt=""
+              loading="lazy"
+              className="size-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
+          </div>
+          <div className="paper-grain relative mx-auto max-w-3xl rounded-3xl bg-background/70 px-6 py-16 md:px-10 md:py-24">
             <Reveal>
               <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o livro</h2>
             </Reveal>
@@ -230,6 +237,7 @@ function Index() {
             </div>
           </div>
         </section>
+
 
         {/* Autor */}
         <section id="autor" className="relative overflow-hidden py-16 md:py-24">
@@ -448,16 +456,17 @@ function Index() {
                     className="h-24 w-16 rounded-md border border-border/70 object-cover shadow-soft"
                   />
                 </div>
-                <div className="mt-4 flex flex-wrap items-baseline gap-3">
-                  <span className="font-serif text-3xl text-primary">R$ 9,90</span>
-                  <span className="font-serif text-lg text-foreground/70">R$ 48,15</span>
+                <div className="mt-4 space-y-3">
+                  <div>
+                    <span className="font-serif text-3xl text-primary">R$ 48,15</span>
+                    <p className="text-sm text-foreground/70">Físico</p>
+                  </div>
+                  <div>
+                    <span className="font-serif text-3xl text-primary">R$ 9,90</span>
+                    <p className="text-sm text-foreground/70">Digital</p>
+                  </div>
                 </div>
-                <p className="text-sm text-foreground/70">leitura imediata</p>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/75">
-                  Na Amazon o livro também está disponível em versão física. O valor de R$ 48,15
-                  mais frete é referente ao livro físico e o de R$ 9,90 à versão digital para
-                  Kindle.
-                </p>
+
                 <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-secondary/60 px-4 py-2 text-sm">
                   <Tablet className="size-4" aria-hidden="true" /> Leia na hora, em qualquer
                   dispositivo
