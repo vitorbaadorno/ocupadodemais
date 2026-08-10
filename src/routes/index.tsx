@@ -7,7 +7,6 @@ import {
   Eye,
   HandHeart,
   Instagram,
-  Mail,
   PenLine,
   ShoppingBag,
   Sparkles,

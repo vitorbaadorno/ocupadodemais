@@ -54,7 +54,7 @@ export function Comparacao() {
                     &nbsp;
                   </th>
                   <th scope="col" className="px-5 py-4 text-left font-serif text-base font-semibold">
-                    Físico (UICLAP)
+                    Físico
                   </th>
                   <th scope="col" className="px-5 py-4 text-left font-serif text-base font-semibold">
                     Digital (Kindle)
@@ -80,7 +80,7 @@ export function Comparacao() {
             {/* Cards empilhados no mobile */}
             <div className="space-y-4 p-5 sm:hidden">
               {[
-                { titulo: "Físico (UICLAP)", chave: "fisico" as const },
+                { titulo: "Físico", chave: "fisico" as const },
                 { titulo: "Digital (Kindle)", chave: "digital" as const },
               ].map((col) => (
                 <div key={col.titulo} className="rounded-2xl border border-border/70 bg-background/70 p-4">
