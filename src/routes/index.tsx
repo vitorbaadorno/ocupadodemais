@@ -217,8 +217,17 @@ function Index() {
         </section>
 
         {/* Sobre o livro */}
-        <section id="livro" className="relative">
-          <div className="paper-grain mx-auto max-w-3xl rounded-3xl bg-background/70 px-6 py-16 md:px-10 md:py-24">
+        <section id="livro" className="relative overflow-hidden">
+          <div className="absolute inset-0" aria-hidden="true">
+            <img
+              src={cenaLivro.url}
+              alt=""
+              loading="lazy"
+              className="size-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
+          </div>
+          <div className="paper-grain relative mx-auto max-w-3xl rounded-3xl bg-background/70 px-6 py-16 md:px-10 md:py-24">
             <Reveal>
               <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o livro</h2>
             </Reveal>
@@ -231,6 +240,7 @@ function Index() {
             </div>
           </div>
         </section>
+
 
         {/* Autor */}
         <section id="autor" className="relative overflow-hidden py-16 md:py-24">
