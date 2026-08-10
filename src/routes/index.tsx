@@ -7,7 +7,6 @@ import {
   Eye,
   HandHeart,
   Instagram,
-  Mail,
   PenLine,
   ShoppingBag,
   Sparkles,
@@ -26,6 +25,7 @@ import { Comparacao } from "@/components/Comparacao";
 import { ProgressoLeitura } from "@/components/ProgressoLeitura";
 import capa from "@/assets/capa-livro.webp.asset.json";
 import autor from "@/assets/vitor-adorno.png.asset.json";
+import cenaAutor from "@/assets/cena-autor.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
@@ -232,8 +232,18 @@ function Index() {
         </section>
 
         {/* Autor */}
-        <section id="autor" className="relative py-16 md:py-24">
-          <div className="paper-grain mx-auto max-w-3xl rounded-3xl bg-secondary/35 px-6 py-14 md:px-10 md:py-20">
+        <section id="autor" className="relative overflow-hidden py-16 md:py-24">
+          <div className="absolute inset-0" aria-hidden="true">
+            <img
+              src={cenaAutor.url}
+              alt=""
+              loading="lazy"
+              className="size-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
+          </div>
+          <div className="paper-grain relative mx-auto max-w-3xl rounded-3xl bg-secondary/35 px-6 py-14 md:px-10 md:py-20">
+
             <Reveal>
               <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o autor</h2>
               <div className="relative mt-7 flex flex-col gap-8 sm:flex-row sm:items-start">
@@ -271,14 +281,6 @@ function Index() {
                     >
                       <Instagram className="size-4 text-primary" aria-hidden="true" />
                       Autor, @vitorba.adorno
-                    </a>
-                    <a
-                      href="mailto:vitorba.adorno@gmail.com"
-                      title="Escreva para o autor"
-                      className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 text-sm font-medium hover:bg-secondary"
-                    >
-                      <Mail className="size-4 text-primary" aria-hidden="true" />
-                      vitorba.adorno@gmail.com
                     </a>
                   </div>
                 </div>
@@ -446,12 +448,21 @@ function Index() {
                     className="h-24 w-16 rounded-md border border-border/70 object-cover shadow-soft"
                   />
                 </div>
-                <p className="mt-4 font-serif text-3xl text-primary">R$ 9,90</p>
+                <div className="mt-4 flex flex-wrap items-baseline gap-3">
+                  <span className="font-serif text-3xl text-primary">R$ 9,90</span>
+                  <span className="font-serif text-lg text-foreground/70">R$ 48,15</span>
+                </div>
                 <p className="text-sm text-foreground/70">leitura imediata</p>
+                <p className="mt-3 text-sm leading-relaxed text-foreground/75">
+                  Na Amazon o livro também está disponível em versão física. O valor de R$ 48,15
+                  mais frete é referente ao livro físico e o de R$ 9,90 à versão digital para
+                  Kindle.
+                </p>
                 <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-secondary/60 px-4 py-2 text-sm">
                   <Tablet className="size-4" aria-hidden="true" /> Leia na hora, em qualquer
                   dispositivo
                 </p>
+
                 <a
                   href={LINK_KINDLE}
                   target="_blank"
