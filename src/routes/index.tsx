@@ -172,9 +172,6 @@ function Index() {
           <Particles />
           <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 md:grid-cols-2 md:py-28">
             <Reveal>
-              <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-background/70 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                <Sparkles className="size-3.5" aria-hidden="true" /> Novo livro
-              </p>
               <h1 className="font-serif text-4xl font-bold leading-[1.08] sm:text-5xl lg:text-6xl">
                 Ocupado Demais Para Você…
               </h1>
