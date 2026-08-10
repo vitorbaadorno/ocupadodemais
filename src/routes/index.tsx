@@ -449,16 +449,17 @@ function Index() {
                     className="h-24 w-16 rounded-md border border-border/70 object-cover shadow-soft"
                   />
                 </div>
-                <div className="mt-4 flex flex-wrap items-baseline gap-3">
-                  <span className="font-serif text-3xl text-primary">R$ 9,90</span>
-                  <span className="font-serif text-lg text-foreground/70">R$ 48,15</span>
+                <div className="mt-4 space-y-3">
+                  <div>
+                    <span className="font-serif text-3xl text-primary">R$ 48,15</span>
+                    <p className="text-sm text-foreground/70">Físico</p>
+                  </div>
+                  <div>
+                    <span className="font-serif text-3xl text-primary">R$ 9,90</span>
+                    <p className="text-sm text-foreground/70">Digital</p>
+                  </div>
                 </div>
-                <p className="text-sm text-foreground/70">leitura imediata</p>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/75">
-                  Na Amazon o livro também está disponível em versão física. O valor de R$ 48,15
-                  mais frete é referente ao livro físico e o de R$ 9,90 à versão digital para
-                  Kindle.
-                </p>
+
                 <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-secondary/60 px-4 py-2 text-sm">
                   <Tablet className="size-4" aria-hidden="true" /> Leia na hora, em qualquer
                   dispositivo
