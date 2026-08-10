@@ -26,6 +26,7 @@ import { Comparacao } from "@/components/Comparacao";
 import { ProgressoLeitura } from "@/components/ProgressoLeitura";
 import capa from "@/assets/capa-livro.webp.asset.json";
 import autor from "@/assets/vitor-adorno.png.asset.json";
+import cenaAutor from "@/assets/cena-autor.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
