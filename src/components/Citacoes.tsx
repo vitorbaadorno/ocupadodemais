@@ -17,8 +17,8 @@ const CITACOES = [
 
 /** Posições aproximadas das cabeças dos dois personagens na ilustração. */
 const PERSONAGENS = [
-  { nome: "do senhor", left: "69.5%", top: "78%" },
-  { nome: "do jovem", left: "74%", top: "77%" },
+  { nome: "do senhor", left: "36%", top: "50%" },
+  { nome: "do jovem", left: "38%", top: "53%" },
 ];
 
 export function Citacoes() {
@@ -108,9 +108,9 @@ export function Citacoes() {
             }`}
             style={{ left: personagem.left, top: personagem.top }}
           >
-            <span className="absolute -left-6 -top-16 block size-6 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
-            <span className="absolute -left-2 -top-9 block size-4 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
-            <span className="absolute -left-0 -top-4 block size-2.5 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
+            <span className="absolute left-0 top-0 block size-6 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
+            <span className="absolute left-7 top-8 block size-4 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
+            <span className="absolute left-12 top-14 block size-2.5 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
           </div>
         </div>
 
