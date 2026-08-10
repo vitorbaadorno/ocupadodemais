@@ -84,7 +84,7 @@ export function Citacoes() {
             type="button"
             onClick={() => trocar(index + 1)}
             aria-label="Ver próxima citação do livro"
-            className={`tap-press absolute right-[4%] top-2 w-[min(22rem,78%)] rounded-[2rem] border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)] p-5 text-left shadow-soft transition-opacity duration-300 md:right-[6%] md:top-6 ${
+            className={`tap-press absolute left-[2%] top-2 w-[min(22rem,78%)] rounded-[2rem] border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)] p-5 text-left shadow-soft transition-opacity duration-300 md:left-[4%] md:top-6 ${
               fading ? "opacity-0" : "opacity-100"
             }`}
           >
