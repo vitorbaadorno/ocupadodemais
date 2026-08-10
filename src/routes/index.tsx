@@ -232,8 +232,18 @@ function Index() {
         </section>
 
         {/* Autor */}
-        <section id="autor" className="relative py-16 md:py-24">
-          <div className="paper-grain mx-auto max-w-3xl rounded-3xl bg-secondary/35 px-6 py-14 md:px-10 md:py-20">
+        <section id="autor" className="relative overflow-hidden py-16 md:py-24">
+          <div className="absolute inset-0" aria-hidden="true">
+            <img
+              src={cenaAutor.url}
+              alt=""
+              loading="lazy"
+              className="size-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
+          </div>
+          <div className="paper-grain relative mx-auto max-w-3xl rounded-3xl bg-secondary/35 px-6 py-14 md:px-10 md:py-20">
+
             <Reveal>
               <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o autor</h2>
               <div className="relative mt-7 flex flex-col gap-8 sm:flex-row sm:items-start">
