@@ -299,7 +299,7 @@ function Index() {
 
         {/* Capítulos, linha do tempo */}
         <section id="capitulos" className="relative">
-          <div className="paper-grain mx-auto max-w-6xl rounded-3xl bg-[color-mix(in_oklab,var(--clay)_50%,var(--sand))] px-5 py-16 md:px-8 md:py-24">
+          <div className="paper-grain mx-auto max-w-6xl rounded-3xl bg-[#f2e6d8] px-5 py-16 md:px-8 md:py-24">
             <Reveal>
               <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Os sete capítulos</h2>
               <p className="mt-3 max-w-xl text-foreground/70">
