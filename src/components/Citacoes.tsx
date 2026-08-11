@@ -84,18 +84,18 @@ export function Citacoes() {
             type="button"
             onClick={() => trocar(index + 1)}
             aria-label="Ver próxima citação do livro"
-            className={`tap-press absolute left-[2%] top-2 w-[min(22rem,78%)] rounded-[2rem] border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)] p-5 text-left shadow-soft transition-opacity duration-300 md:left-[4%] md:top-6 ${
+            className={`tap-press absolute left-[3%] top-1/2 w-[min(30rem,86%)] -translate-y-1/2 rounded-[2.25rem] border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)] p-7 text-left shadow-soft transition-opacity duration-300 md:left-[5%] md:p-8 ${
               fading ? "opacity-0" : "opacity-100"
             }`}
           >
-            <Quote className="size-6 text-accent" aria-hidden="true" />
+            <Quote className="size-8 text-accent" aria-hidden="true" />
             <blockquote
               aria-live="polite"
-              className="mt-2 font-serif text-base italic leading-relaxed text-bark sm:text-lg"
+              className="mt-3 font-serif text-lg italic leading-relaxed text-bark sm:text-xl md:text-2xl"
             >
               “{CITACOES[index]}”
             </blockquote>
-            <figcaption className="mt-3 text-xs text-bark/70">
+            <figcaption className="mt-4 text-sm text-bark/70">
               Pensamento {personagem.nome}, em Ocupado Demais Para Você…
             </figcaption>
           </button>
