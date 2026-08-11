@@ -2,6 +2,13 @@
 @source "../src";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: "Stack Sans Headline";
+  src: url("/__l5e/assets-v1/938fc7b4-756e-471b-a570-ff98b209bb27/stack-sans-headline.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 /*
