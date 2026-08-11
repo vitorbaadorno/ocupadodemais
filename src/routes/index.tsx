@@ -9,7 +9,7 @@ import {
   Instagram,
   PenLine,
   ShoppingBag,
-  
+  Mail,
   Tablet,
   Truck,
   Users,
@@ -446,7 +446,7 @@ function Index() {
                       Amazon
                     </span>
                     <h3 className="mt-3 font-serif text-2xl font-semibold">
-                      Livro digital (Kindle)
+                      Livro digital (Kindle) e livro físico
                     </h3>
                   </div>
                   <img
@@ -458,11 +458,11 @@ function Index() {
                 </div>
                 <div className="mt-4 space-y-3">
                   <div>
-                    <span className="font-serif text-3xl text-primary">R$ 48,15</span>
+                    <span className="font-serif text-3xl font-bold text-primary">R$ 48,15</span>
                     <p className="text-sm text-foreground/70">Físico</p>
                   </div>
                   <div>
-                    <span className="font-serif text-3xl text-primary">R$ 9,90</span>
+                    <span className="font-serif text-3xl font-bold text-primary">R$ 9,90</span>
                     <p className="text-sm text-foreground/70">Digital</p>
                   </div>
                 </div>
@@ -470,6 +470,9 @@ function Index() {
                 <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-secondary/60 px-4 py-2 text-sm">
                   <Tablet className="size-4" aria-hidden="true" /> Leia na hora, em qualquer
                   dispositivo
+                </p>
+                <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-secondary/60 px-4 py-2 text-sm">
+                  <Truck className="size-4" aria-hidden="true" /> Entrega para todo o Brasil
                 </p>
 
                 <a
@@ -485,8 +488,8 @@ function Index() {
           </div>
 
           <p className="mt-6 text-center text-sm leading-relaxed text-foreground/80">
-            O livro físico também está disponível na Amazon, por R$ 48,15 mais frete. É o mesmo
-            livro impresso, com o mesmo conteúdo, apenas por um valor mais alto do que na Uiclap.
+            Os livros são impressos sob demanda, ou seja, cada exemplar só é produzido depois de
+            vendido. Por isso, os prazos de entrega costumam ser mais longos do que o habitual.
           </p>
 
           <p className="mt-3 text-center text-sm italic text-muted-foreground">
@@ -528,6 +531,13 @@ function Index() {
           >
             <Instagram className="size-4 text-primary" aria-hidden="true" />
             Livro, @ocupadoparavoce
+          </a>
+          <a
+            href="mailto:ocupadoparavoce@gmail.com"
+            className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 font-medium hover:bg-secondary"
+          >
+            <Mail className="size-4 text-primary" aria-hidden="true" />
+            ocupadoparavoce@gmail.com
           </a>
           <p className="text-xs text-muted-foreground">
             Ocupado Demais Para Você… Todos os direitos reservados.
