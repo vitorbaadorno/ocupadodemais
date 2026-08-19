@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { ChevronRight, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 import cena from "@/assets/cena-parque.png.asset.json";
 import arvores from "@/assets/arvores.png.asset.json";
 import galho from "@/assets/galho.png.asset.json";
