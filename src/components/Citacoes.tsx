@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { Quote } from "lucide-react";
-import cena from "@/assets/cena-parque.png.asset.json";
+import cena from "@/assets/imagem-aumentada1.webp.asset.json";
 import arvores from "@/assets/arvores.png.asset.json";
 import galho from "@/assets/galho.png.asset.json";
 import { Parallax, Particles } from "@/components/Atmosphere";
@@ -13,12 +13,6 @@ const CITACOES = [
   "No fundo, ele ainda era meu amigo. Meu melhor amigo. Nada do que aconteceu foi suficiente para apagar isso completamente.",
   "Amor, às vezes, é isso: caminhar junto até que o outro saiba pedalar sozinho. Mesmo que isso custe vê-lo partir.",
   "A ciência diz que não existe máquina do tempo. Mas qualquer álbum de fotografias discorda.",
-];
-
-/** Posições aproximadas das cabeças dos dois personagens na ilustração. */
-const PERSONAGENS = [
-  { nome: "do senhor", left: "36%", top: "50%" },
-  { nome: "do jovem", left: "38%", top: "53%" },
 ];
 
 export function Citacoes() {
@@ -44,8 +38,6 @@ export function Citacoes() {
     return () => window.clearInterval(timer);
   }, []);
 
-  const personagem = PERSONAGENS[index % PERSONAGENS.length];
-
   return (
     <section id="citacoes" className="relative overflow-hidden py-16 md:py-24">
       {/* Cenário de fundo */}
@@ -54,7 +46,7 @@ export function Citacoes() {
           src={cena.url}
           alt=""
           loading="lazy"
-          className="size-full object-cover object-bottom"
+          className="size-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background/90" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-background/30" />
@@ -91,9 +83,6 @@ export function Citacoes() {
             >
               “{CITACOES[index]}”
             </blockquote>
-            <figcaption className="mt-4 text-sm text-bark/70">
-              Pensamento {personagem.nome}, em Ocupado Demais Para Você…
-            </figcaption>
           </div>
         </div>
 
