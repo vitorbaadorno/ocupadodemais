@@ -21,7 +21,6 @@ import { Depoimentos } from "@/components/Depoimentos";
 import { LinhaDoTempo } from "@/components/LinhaDoTempo";
 import { Quiz } from "@/components/Quiz";
 import { Grifo } from "@/components/Grifo";
-import { Comparacao } from "@/components/Comparacao";
 import { ProgressoLeitura } from "@/components/ProgressoLeitura";
 import capa from "@/assets/capa-livro.webp.asset.json";
 import autor from "@/assets/vitor-adorno.png.asset.json";
@@ -259,25 +258,33 @@ function Index() {
                   src={autor.url}
                   loading="lazy"
                   alt="Foto do autor Vitor Adôrno"
-                  className="size-36 shrink-0 rounded-full border-4 border-accent object-cover shadow-soft"
+                  className="size-56 shrink-0 self-start rounded-full border-4 border-accent object-cover shadow-soft md:size-64"
                 />
                 <div className="space-y-5 text-lg leading-relaxed text-foreground/85">
                   <p>
-                    Vitor Adôrno é um autor brasileiro independente, natural de Uruaçu, Goiás, onde
-                    segue sediado.
+                    Eu sou Vitor Adôrno, autor brasileiro independente, natural de Niquelândia,
+                    Goiás, e atualmente moro em Uruaçu, onde continuo vivendo e escrevendo.
                   </p>
                   <p>
-                    Sua escrita nasce da observação do cotidiano. A casa dos pais, a padaria de
-                    bairro, o banco de praça e se transforma em reflexões sobre tempo, presença e
-                    relações humanas. É autor de Ocupado Demais Para Você…, nova edição de sua obra
-                    publicada anteriormente sob o título “Pensamentos de um Jovem Moderno”, que
-                    reúne sete narrativas independentes sobre amizade, amor, família e
-                    envelhecimento.
+                    Minha escrita nasce principalmente da observação do cotidiano. Da casa dos meus
+                    pais, de uma padaria de bairro, de um banco de praça ou de uma conversa
+                    aparentemente comum. Gosto de transformar esses pequenos momentos em reflexões
+                    sobre o tempo, a presença e as relações que construímos uns com os outros.
                   </p>
                   <p>
-                    Boa parte dessas páginas começou em um diário. Anotações feitas sem pretensão,
-                    ao fim do dia, sobre o que ele havia visto e sentido. De tanto escrever o
-                    cotidiano, o cotidiano virou livro.
+                    Sou autor de “Ocupado Demais Para Você…”, uma nova edição da obra que publiquei
+                    anteriormente sob o título <em>Pensamentos de um Jovem Moderno</em>. O livro
+                    reúne sete narrativas independentes que passam por temas como amizade, amor,
+                    família e envelhecimento.
+                  </p>
+                  <p>
+                    Boa parte dessas páginas começou em um diário. Eram anotações que eu fazia sem
+                    muita pretensão, geralmente no fim do dia, sobre alguma coisa que tinha visto,
+                    pensado ou sentido. Aos poucos, percebi que escrever sobre o cotidiano também
+                    era uma forma de entendê-lo.
+                  </p>
+                  <p>
+                    De tanto escrever sobre a vida como ela é, o cotidiano acabou virando livro.
                   </p>
                   <div className="flex flex-wrap items-center gap-3 pt-1">
                     <a
@@ -288,7 +295,7 @@ function Index() {
                       className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 text-sm font-medium hover:bg-secondary"
                     >
                       <Instagram className="size-4 text-primary" aria-hidden="true" />
-                      Autor, @vitorba.adorno
+                      @vitorba.adorno
                     </a>
                   </div>
                 </div>
@@ -355,23 +362,6 @@ function Index() {
             <p className="mx-auto mt-3 max-w-lg text-center text-foreground/70">
               Escolha o formato que combina com o seu jeito de ler.
             </p>
-            <div className="mx-auto mt-6 flex w-fit items-center gap-3 rounded-full border border-accent/70 bg-background/80 px-5 py-2.5 text-sm font-medium shadow-soft">
-              <Truck className="size-4 text-primary" aria-hidden="true" />
-              Disponível em formato físico e digital
-              <span className="font-serif text-xs uppercase tracking-[0.2em] text-accent">
-                Uiclap
-              </span>
-              <svg viewBox="0 0 40 14" className="h-3 w-9 text-accent" fill="none" aria-hidden="true">
-                <path d="M2 9c7 5 24 5 33-1" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
-                <path
-                  d="M31 6.5c2.5-1 5-1 6 .2.9 1.1.2 3.4-1 5"
-                  stroke="currentColor"
-                  strokeWidth="2.4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <Reveal>
@@ -413,7 +403,7 @@ function Index() {
                   rel="noopener noreferrer"
                   className="tap-press mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift hover:bg-accent hover:text-accent-foreground"
                 >
-                  <span aria-hidden="true">🛒</span> Comprar na Uiclap
+                  Comprar na Uiclap
                 </a>
                 <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
                   O valor de R$ 48,15 mais frete é o preço da versão impressa vendida na Amazon.
@@ -481,7 +471,7 @@ function Index() {
                   rel="noopener noreferrer"
                   className="tap-press mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift hover:bg-accent hover:text-accent-foreground"
                 >
-                  <span aria-hidden="true">🛒</span> Comprar na Amazon
+                  Comprar na Amazon
                 </a>
               </div>
             </Reveal>
@@ -497,7 +487,6 @@ function Index() {
           </p>
 
 
-          <Comparacao />
 
         </section>
         {/* Selo independente */}
@@ -545,13 +534,6 @@ function Index() {
         </div>
       </footer>
 
-      {/* CTA flutuante */}
-      <a
-        href="#comprar"
-        className="tap-press fixed bottom-5 left-5 right-5 z-40 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift hover:bg-accent hover:text-accent-foreground md:left-auto md:right-8 md:w-auto"
-      >
-        <ShoppingBag className="size-4" aria-hidden="true" /> Comprar agora
-      </a>
       <div className="h-20 md:h-0" aria-hidden="true" />
     </div>
   );

@@ -54,9 +54,9 @@ export function Depoimentos() {
           “{atual.texto}”
         </blockquote>
         <figcaption className="mt-4 text-sm text-muted-foreground">
-          {atual.autor}
+          <span className="block">{atual.autor}</span>
           {atual.fonte ? (
-            <span className="ml-2 inline-flex items-center rounded-full border border-accent/70 px-3 py-1 text-xs font-medium text-accent">
+            <span className="mt-2 inline-flex items-center rounded-full border border-accent/70 px-3 py-1 text-xs font-medium text-accent">
               {atual.fonte}
             </span>
           ) : null}

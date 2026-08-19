@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RotateCcw, ShoppingBag, Sparkles } from "lucide-react";
+import { RotateCcw, ShoppingBag } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 type Chave = 1 | 2 | 3 | 4 | 5 | 6 | 7;
@@ -108,9 +108,6 @@ export function Quiz({
           </div>
         ) : (
           <div className="reveal reveal-visible text-center">
-            <span className="inline-flex items-center gap-2 rounded-full bg-secondary/60 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em]">
-              <Sparkles className="size-3.5" aria-hidden="true" /> Seu capítulo
-            </span>
             <h3 className="mt-5 font-serif text-3xl font-semibold">{capitulo?.titulo}</h3>
             <p className="mx-auto mt-3 max-w-md text-foreground/75">{capitulo?.frase}</p>
             <p className="mx-auto mt-5 max-w-lg font-serif text-lg italic text-foreground/85">

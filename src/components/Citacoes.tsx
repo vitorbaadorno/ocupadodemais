@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { ChevronRight, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 import cena from "@/assets/cena-parque.png.asset.json";
 import arvores from "@/assets/arvores.png.asset.json";
 import galho from "@/assets/galho.png.asset.json";
@@ -77,40 +77,23 @@ export function Citacoes() {
           O que passa pela cabeça de quem senta num banco de praça e deixa o tempo correr.
         </p>
 
-        {/* Cena com balão de pensamento */}
+        {/* Citação */}
         <div className="relative mt-8 aspect-[16/9] w-full">
-          {/* Balão */}
-          <button
-            type="button"
-            onClick={() => trocar(index + 1)}
-            aria-label="Ver próxima citação do livro"
-            className={`tap-press absolute left-[3%] top-1/2 w-[min(30rem,86%)] -translate-y-1/2 rounded-[2.25rem] border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)] p-7 text-left shadow-soft transition-opacity duration-300 md:left-[5%] md:p-8 ${
+          <div
+            className={`absolute left-[3%] top-1/2 w-[min(34rem,90%)] -translate-y-1/2 text-left transition-opacity duration-300 md:left-[5%] ${
               fading ? "opacity-0" : "opacity-100"
             }`}
           >
             <Quote className="size-8 text-accent" aria-hidden="true" />
             <blockquote
               aria-live="polite"
-              className="mt-3 font-serif text-lg italic leading-relaxed text-bark sm:text-xl md:text-2xl"
+              className="mt-3 font-serif text-xl italic leading-relaxed text-bark sm:text-2xl md:text-3xl"
             >
               “{CITACOES[index]}”
             </blockquote>
             <figcaption className="mt-4 text-sm text-bark/70">
               Pensamento {personagem.nome}, em Ocupado Demais Para Você…
             </figcaption>
-          </button>
-
-          {/* Caudinha do balão, apontando para a cabeça do personagem */}
-          <div
-            aria-hidden="true"
-            className={`pointer-events-none absolute transition-all duration-500 ${
-              fading ? "opacity-0" : "opacity-100"
-            }`}
-            style={{ left: personagem.left, top: personagem.top }}
-          >
-            <span className="absolute left-0 top-0 block size-6 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
-            <span className="absolute left-7 top-8 block size-4 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
-            <span className="absolute left-12 top-14 block size-2.5 rounded-full border border-accent/70 bg-[color-mix(in_oklab,var(--sand)_92%,white)]" />
           </div>
         </div>
 
@@ -129,13 +112,6 @@ export function Citacoes() {
               />
             ))}
           </div>
-          <button
-            type="button"
-            onClick={() => trocar(index + 1)}
-            className="tap-press inline-flex items-center gap-1.5 rounded-full border border-foreground/25 bg-background/80 px-4 py-2 text-sm font-medium hover:bg-secondary"
-          >
-            Próxima frase <ChevronRight className="size-4" aria-hidden="true" />
-          </button>
         </div>
       </div>
     </section>
