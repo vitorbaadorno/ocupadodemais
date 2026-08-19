@@ -355,23 +355,6 @@ function Index() {
             <p className="mx-auto mt-3 max-w-lg text-center text-foreground/70">
               Escolha o formato que combina com o seu jeito de ler.
             </p>
-            <div className="mx-auto mt-6 flex w-fit items-center gap-3 rounded-full border border-accent/70 bg-background/80 px-5 py-2.5 text-sm font-medium shadow-soft">
-              <Truck className="size-4 text-primary" aria-hidden="true" />
-              Disponível em formato físico e digital
-              <span className="font-serif text-xs uppercase tracking-[0.2em] text-accent">
-                Uiclap
-              </span>
-              <svg viewBox="0 0 40 14" className="h-3 w-9 text-accent" fill="none" aria-hidden="true">
-                <path d="M2 9c7 5 24 5 33-1" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" />
-                <path
-                  d="M31 6.5c2.5-1 5-1 6 .2.9 1.1.2 3.4-1 5"
-                  stroke="currentColor"
-                  strokeWidth="2.4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <Reveal>
