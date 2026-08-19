@@ -481,7 +481,7 @@ function Index() {
                   rel="noopener noreferrer"
                   className="tap-press mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift hover:bg-accent hover:text-accent-foreground"
                 >
-                  <span aria-hidden="true">🛒</span> Comprar na Amazon
+                  Comprar na Amazon
                 </a>
               </div>
             </Reveal>
