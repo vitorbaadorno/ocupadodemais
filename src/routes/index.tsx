@@ -259,25 +259,33 @@ function Index() {
                   src={autor.url}
                   loading="lazy"
                   alt="Foto do autor Vitor Adôrno"
-                  className="size-36 shrink-0 rounded-full border-4 border-accent object-cover shadow-soft"
+                  className="size-56 shrink-0 self-start rounded-full border-4 border-accent object-cover shadow-soft md:size-64"
                 />
                 <div className="space-y-5 text-lg leading-relaxed text-foreground/85">
                   <p>
-                    Vitor Adôrno é um autor brasileiro independente, natural de Uruaçu, Goiás, onde
-                    segue sediado.
+                    Eu sou Vitor Adôrno, autor brasileiro independente, natural de Niquelândia,
+                    Goiás, e atualmente moro em Uruaçu, onde continuo vivendo e escrevendo.
                   </p>
                   <p>
-                    Sua escrita nasce da observação do cotidiano. A casa dos pais, a padaria de
-                    bairro, o banco de praça e se transforma em reflexões sobre tempo, presença e
-                    relações humanas. É autor de Ocupado Demais Para Você…, nova edição de sua obra
-                    publicada anteriormente sob o título “Pensamentos de um Jovem Moderno”, que
-                    reúne sete narrativas independentes sobre amizade, amor, família e
-                    envelhecimento.
+                    Minha escrita nasce principalmente da observação do cotidiano. Da casa dos meus
+                    pais, de uma padaria de bairro, de um banco de praça ou de uma conversa
+                    aparentemente comum. Gosto de transformar esses pequenos momentos em reflexões
+                    sobre o tempo, a presença e as relações que construímos uns com os outros.
                   </p>
                   <p>
-                    Boa parte dessas páginas começou em um diário. Anotações feitas sem pretensão,
-                    ao fim do dia, sobre o que ele havia visto e sentido. De tanto escrever o
-                    cotidiano, o cotidiano virou livro.
+                    Sou autor de “Ocupado Demais Para Você…”, uma nova edição da obra que publiquei
+                    anteriormente sob o título <em>Pensamentos de um Jovem Moderno</em>. O livro
+                    reúne sete narrativas independentes que passam por temas como amizade, amor,
+                    família e envelhecimento.
+                  </p>
+                  <p>
+                    Boa parte dessas páginas começou em um diário. Eram anotações que eu fazia sem
+                    muita pretensão, geralmente no fim do dia, sobre alguma coisa que tinha visto,
+                    pensado ou sentido. Aos poucos, percebi que escrever sobre o cotidiano também
+                    era uma forma de entendê-lo.
+                  </p>
+                  <p>
+                    De tanto escrever sobre a vida como ela é, o cotidiano acabou virando livro.
                   </p>
                   <div className="flex flex-wrap items-center gap-3 pt-1">
                     <a
@@ -288,7 +296,7 @@ function Index() {
                       className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 text-sm font-medium hover:bg-secondary"
                     >
                       <Instagram className="size-4 text-primary" aria-hidden="true" />
-                      Autor, @vitorba.adorno
+                      @vitorba.adorno
                     </a>
                   </div>
                 </div>
