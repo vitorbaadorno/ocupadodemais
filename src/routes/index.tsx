@@ -545,13 +545,6 @@ function Index() {
         </div>
       </footer>
 
-      {/* CTA flutuante */}
-      <a
-        href="#comprar"
-        className="tap-press fixed bottom-5 left-5 right-5 z-40 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift hover:bg-accent hover:text-accent-foreground md:left-auto md:right-8 md:w-auto"
-      >
-        <ShoppingBag className="size-4" aria-hidden="true" /> Comprar agora
-      </a>
       <div className="h-20 md:h-0" aria-hidden="true" />
     </div>
   );
