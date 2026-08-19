@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RotateCcw, ShoppingBag, Sparkles } from "lucide-react";
+import { RotateCcw, ShoppingBag } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 type Chave = 1 | 2 | 3 | 4 | 5 | 6 | 7;
