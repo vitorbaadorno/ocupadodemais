@@ -497,7 +497,6 @@ function Index() {
           </p>
 
 
-          <Comparacao />
 
         </section>
         {/* Selo independente */}
