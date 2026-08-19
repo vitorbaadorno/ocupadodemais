@@ -249,18 +249,17 @@ function Index() {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
           </div>
-          <div className="paper-grain relative mx-auto max-w-3xl rounded-3xl bg-secondary/35 px-6 py-14 md:px-10 md:py-20">
-
+          <div className="paper-grain relative mx-auto max-w-4xl rounded-3xl bg-secondary/35 px-6 py-14 md:px-10 md:py-20">
             <Reveal>
-              <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o autor</h2>
-              <div className="relative mt-7 flex flex-col gap-8 sm:flex-row sm:items-start">
+              <div className="relative flex flex-col gap-8 md:flex-row md:items-start md:gap-10">
                 <img
                   src={autor.url}
                   loading="lazy"
                   alt="Foto do autor Vitor Adôrno"
-                  className="size-56 shrink-0 self-start rounded-full border-4 border-accent object-cover shadow-soft md:size-64"
+                  className="shrink-0 self-start rounded-3xl border-4 border-accent object-cover shadow-soft md:-ml-4 md:h-80 md:w-56"
                 />
                 <div className="space-y-5 text-lg leading-relaxed text-foreground/85">
+                  <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o autor</h2>
                   <p>
                     Eu sou Vitor Adôrno, autor brasileiro independente, natural de Niquelândia,
                     Goiás, e atualmente moro em Uruaçu, onde continuo vivendo e escrevendo.
