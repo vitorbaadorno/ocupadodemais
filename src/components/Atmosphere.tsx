@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import arvores from "@/assets/arvores.png.asset.json";
+import arvore1 from "@/assets/arvore1.png.asset.json";
+import arvore4 from "@/assets/arvore4.png.asset.json";
 import galho from "@/assets/galho.png.asset.json";
 import ramo from "@/assets/ramo.png.asset.json";
 
@@ -90,7 +91,7 @@ export function FloatingScenery() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
       <Parallax speed={0.12} className="left-[-3rem] top-[8%] w-40 opacity-25 md:w-64">
-        <img src={arvores.url} alt="" loading="lazy" className="float-layer w-full" />
+        <img src={arvore4.url} alt="" loading="lazy" className="float-layer w-full" />
       </Parallax>
       <Parallax speed={0.22} className="right-[-2rem] top-[34%] w-28 opacity-20 md:w-44">
         <img src={galho.url} alt="" loading="lazy" className="float-layer w-full" />
@@ -99,7 +100,7 @@ export function FloatingScenery() {
         <img src={ramo.url} alt="" loading="lazy" className="float-layer w-full" />
       </Parallax>
       <Parallax speed={0.28} className="right-[6%] top-[84%] w-32 opacity-20 md:w-48">
-        <img src={arvores.url} alt="" loading="lazy" className="float-layer w-full" />
+        <img src={arvore1.url} alt="" loading="lazy" className="float-layer w-full" />
       </Parallax>
     </div>
   );
