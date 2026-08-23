@@ -216,10 +216,13 @@ function Index() {
             <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
           </div>
           <div className="relative mx-auto grid max-w-6xl gap-14 px-5 py-16 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:py-24">
-            <div className="text-center">
+            <div className="text-left">
               <Reveal>
-                <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o livro</h2>
+                <h2 className="text-center font-serif text-3xl font-semibold sm:text-4xl">
+                  Sobre o livro
+                </h2>
               </Reveal>
+
               <div className="relative mt-7 space-y-5 text-lg leading-relaxed text-foreground/85">
                 {sinopse.map((p, i) => (
                   <Reveal key={i} delay={i * 140}>
