@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import {
   BookOpen,
   Instagram,
-  PenLine,
   ShoppingBag,
   Mail,
   Tablet,
