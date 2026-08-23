@@ -366,10 +366,10 @@ function Index() {
                 </span>
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <span className="inline-flex items-center rounded-md border border-accent/70 px-2 py-1 font-serif text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                    <span className="inline-flex items-center rounded-md border border-accent/70 px-2 py-1 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-accent">
                       Uiclap
                     </span>
-                    <h3 className="mt-3 font-serif text-2xl font-semibold">Livro físico</h3>
+                    <h3 className="mt-3 font-sans text-2xl font-semibold">Livro físico</h3>
                   </div>
                   <img
                     src={capa.url}
@@ -379,10 +379,10 @@ function Index() {
                   />
                 </div>
                 <div className="mt-4 flex flex-wrap items-baseline gap-3">
-                  <span className="font-serif text-lg text-muted-foreground line-through">
+                  <span className="font-sans text-lg text-muted-foreground line-through">
                     R$ 48,15
                   </span>
-                  <span className="font-serif text-4xl font-bold text-primary">R$ 38,12</span>
+                  <span className="font-sans text-4xl font-bold text-primary">R$ 38,12</span>
                 </div>
                 <p className="text-sm text-foreground/70">mais frete</p>
                 <p className="mt-3 text-sm leading-relaxed text-foreground/75">
@@ -430,7 +430,7 @@ function Index() {
                       </svg>
                       Amazon
                     </span>
-                    <h3 className="mt-3 font-serif text-2xl font-semibold">
+                    <h3 className="mt-3 font-sans text-2xl font-semibold">
                       Livro digital (Kindle) e livro físico
                     </h3>
                   </div>
@@ -443,11 +443,11 @@ function Index() {
                 </div>
                 <div className="mt-4 space-y-3">
                   <div>
-                    <span className="font-serif text-3xl font-bold text-primary">R$ 48,15</span>
+                    <span className="font-sans text-3xl font-bold text-primary">R$ 48,15</span>
                     <p className="text-sm text-foreground/70">Físico</p>
                   </div>
                   <div>
-                    <span className="font-serif text-3xl font-bold text-primary">R$ 9,90</span>
+                    <span className="font-sans text-3xl font-bold text-primary">R$ 9,90</span>
                     <p className="text-sm text-foreground/70">Digital</p>
                   </div>
                 </div>
