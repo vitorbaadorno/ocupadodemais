@@ -323,8 +323,10 @@ function Index() {
         <section id="capitulos" className="section-fade relative overflow-hidden">
           <div className="paper-grain mx-auto max-w-6xl rounded-3xl bg-[#f2e6d8] px-5 py-16 md:px-8 md:py-24">
             <Reveal>
-              <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Os sete capítulos</h2>
-              <p className="mt-3 max-w-xl text-foreground/70">
+              <h2 className="text-center font-serif text-3xl font-semibold sm:text-4xl">
+                Os sete capítulos
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl text-center text-foreground/70">
                 Uma linha do tempo da leitura, do primeiro ao sétimo capítulo.
               </p>
             </Reveal>
