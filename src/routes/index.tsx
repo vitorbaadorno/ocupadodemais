@@ -496,23 +496,23 @@ function Index() {
       <footer className="relative border-t border-bark/40 bg-bark py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-5 text-center text-sm text-sand/85">
           <p className="font-serif text-base text-sand">Vitor Adôrno, 2026</p>
+          <p className="max-w-md text-sand/85">
+            Conheça as outras redes sociais da obra e acompanhe os próximos textos.
+          </p>
           <a
-            href="https://instagram.com/ocupadoparavoce"
+            href="https://linktr.ee/ocupadoparavoce"
             target="_blank"
             rel="noopener noreferrer"
-            title="Instagram do livro: @ocupadoparavoce"
-            className="tap-press inline-flex items-center gap-2 rounded-full border border-sand/40 bg-sand/10 px-4 py-2 font-medium text-sand hover:bg-gold hover:text-bark"
+            className="tap-press inline-flex items-center gap-2 font-medium text-gold underline underline-offset-4 hover:text-sand"
           >
-            <Instagram className="size-4" aria-hidden="true" />
-            Livro, @ocupadoparavoce
+            <LinkIcon className="size-4" aria-hidden="true" />
+            linktr.ee/ocupadoparavoce
           </a>
-          <a
-            href="mailto:ocupadoparavoce@gmail.com"
-            className="tap-press inline-flex items-center gap-2 rounded-full border border-sand/40 bg-sand/10 px-4 py-2 font-medium text-sand hover:bg-gold hover:text-bark"
-          >
-            <Mail className="size-4" aria-hidden="true" />
+          <p className="text-sand/80">
+            <Mail className="mr-1 inline size-4" aria-hidden="true" />
             ocupadoparavoce@gmail.com
-          </a>
+          </p>
+
           <p className="text-xs text-sand/65">
             Ocupado Demais Para Você… Todos os direitos reservados.
           </p>
