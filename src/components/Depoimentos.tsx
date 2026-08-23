@@ -14,6 +14,8 @@ const DEPOIMENTOS: Depoimento[] = [
       "No geral, é uma leitura gostosa e descomplicada, mas que ainda consegue deixar algumas reflexões depois que terminamos.",
     autor: "Pietra Yassmin",
     fonte: "Avaliação no Instagram @enjoeidesselivro",
+  },
+
 
   {
     texto:
