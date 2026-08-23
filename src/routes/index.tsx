@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import {
   BookOpen,
   Instagram,
-  PenLine,
   ShoppingBag,
   Mail,
   Tablet,
@@ -265,15 +264,27 @@ function Index() {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
           </div>
-          <div className="paper-grain relative mx-auto max-w-4xl rounded-3xl bg-secondary/35 px-6 py-14 md:px-10 md:py-20">
+          <div className="relative mx-auto max-w-5xl px-6 md:px-8">
             <Reveal>
-              <div className="relative flex flex-col gap-8 md:flex-row md:items-start md:gap-10">
-                <img
-                  src={autor.url}
-                  loading="lazy"
-                  alt="Foto do autor Vitor Adôrno"
-                  className="shrink-0 self-start rounded-3xl border-4 border-accent object-cover shadow-soft md:-ml-4 md:h-80 md:w-56"
-                />
+              <div className="relative flex flex-col gap-10 md:flex-row md:items-start md:gap-12">
+                <div className="flex shrink-0 flex-col items-center gap-4 self-center md:self-start">
+                  <img
+                    src={autor.url}
+                    loading="lazy"
+                    alt="Foto do autor Vitor Adôrno"
+                    className="w-64 rounded-3xl border-4 border-accent object-cover shadow-soft md:h-[26rem] md:w-72"
+                  />
+                  <a
+                    href="https://instagram.com/vitorba.adorno"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Instagram do autor: @vitorba.adorno"
+                    className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 text-sm font-medium hover:bg-secondary"
+                  >
+                    <Instagram className="size-4 text-primary" aria-hidden="true" />
+                    @vitorba.adorno
+                  </a>
+                </div>
                 <div className="space-y-5 text-lg leading-relaxed text-foreground/85">
                   <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o autor</h2>
                   <p>
@@ -301,18 +312,6 @@ function Index() {
                   <p>
                     De tanto escrever sobre a vida como ela é, o cotidiano acabou virando livro.
                   </p>
-                  <div className="flex flex-wrap items-center gap-3 pt-1">
-                    <a
-                      href="https://instagram.com/vitorba.adorno"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title="Instagram do autor: @vitorba.adorno"
-                      className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 text-sm font-medium hover:bg-secondary"
-                    >
-                      <Instagram className="size-4 text-primary" aria-hidden="true" />
-                      @vitorba.adorno
-                    </a>
-                  </div>
                 </div>
               </div>
             </Reveal>
@@ -323,8 +322,10 @@ function Index() {
         <section id="capitulos" className="section-fade relative overflow-hidden">
           <div className="paper-grain mx-auto max-w-6xl rounded-3xl bg-[#f2e6d8] px-5 py-16 md:px-8 md:py-24">
             <Reveal>
-              <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Os sete capítulos</h2>
-              <p className="mt-3 max-w-xl text-foreground/70">
+              <h2 className="text-center font-serif text-3xl font-semibold sm:text-4xl">
+                Os sete capítulos
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl text-center text-foreground/70">
                 Uma linha do tempo da leitura, do primeiro ao sétimo capítulo.
               </p>
             </Reveal>
@@ -364,10 +365,10 @@ function Index() {
                 </span>
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <span className="inline-flex items-center rounded-md border border-accent/70 px-2 py-1 font-serif text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+                    <span className="inline-flex items-center rounded-md border border-accent/70 px-2 py-1 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-accent">
                       Uiclap
                     </span>
-                    <h3 className="mt-3 font-serif text-2xl font-semibold">Livro físico</h3>
+                    <h3 className="mt-3 font-sans text-2xl font-semibold">Livro físico</h3>
                   </div>
                   <img
                     src={capa.url}
@@ -377,10 +378,10 @@ function Index() {
                   />
                 </div>
                 <div className="mt-4 flex flex-wrap items-baseline gap-3">
-                  <span className="font-serif text-lg text-muted-foreground line-through">
+                  <span className="font-sans text-lg text-muted-foreground line-through">
                     R$ 48,15
                   </span>
-                  <span className="font-serif text-4xl font-bold text-primary">R$ 38,12</span>
+                  <span className="font-sans text-4xl font-bold text-primary">R$ 38,12</span>
                 </div>
                 <p className="text-sm text-foreground/70">mais frete</p>
                 <p className="mt-3 text-sm leading-relaxed text-foreground/75">
@@ -428,7 +429,7 @@ function Index() {
                       </svg>
                       Amazon
                     </span>
-                    <h3 className="mt-3 font-serif text-2xl font-semibold">
+                    <h3 className="mt-3 font-sans text-2xl font-semibold">
                       Livro digital (Kindle) e livro físico
                     </h3>
                   </div>
@@ -441,11 +442,11 @@ function Index() {
                 </div>
                 <div className="mt-4 space-y-3">
                   <div>
-                    <span className="font-serif text-3xl font-bold text-primary">R$ 48,15</span>
+                    <span className="font-sans text-3xl font-bold text-primary">R$ 48,15</span>
                     <p className="text-sm text-foreground/70">Físico</p>
                   </div>
                   <div>
-                    <span className="font-serif text-3xl font-bold text-primary">R$ 9,90</span>
+                    <span className="font-sans text-3xl font-bold text-primary">R$ 9,90</span>
                     <p className="text-sm text-foreground/70">Digital</p>
                   </div>
                 </div>
@@ -482,46 +483,29 @@ function Index() {
 
 
         </section>
-        {/* Selo independente */}
-        <section className="mx-auto max-w-3xl px-5 pb-16">
-          <Reveal>
-            <div className="paper-grain rounded-3xl border border-bark/35 bg-clay/25 px-7 py-9 text-center shadow-soft">
-              <span className="inline-flex items-center gap-2 rounded-full border border-bark/35 px-4 py-1.5 font-serif text-xs font-semibold uppercase tracking-[0.2em] text-bark">
-                <PenLine className="size-3.5" aria-hidden="true" />
-                Escrito e publicado de forma independente
-              </span>
-              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-foreground/80">
-                Cada exemplar que sai daqui passou pelas mãos do próprio autor, do primeiro
-                rascunho no diário até a escolha da capa. Quando você leva um livro independente
-                para casa, você não compra só páginas, você dá fôlego para que a próxima história
-                exista. Obrigado por ler com calma e por fazer parte disso.
-              </p>
-            </div>
-          </Reveal>
-        </section>
       </main>
 
-      <footer className="relative border-t border-border/70 bg-secondary/30 py-10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-5 text-center text-sm text-foreground/75">
-          <p className="font-serif text-base">Vitor Adôrno, 2026</p>
+      <footer className="relative border-t border-bark/40 bg-bark py-10">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-5 text-center text-sm text-sand/85">
+          <p className="font-serif text-base text-sand">Vitor Adôrno, 2026</p>
           <a
             href="https://instagram.com/ocupadoparavoce"
             target="_blank"
             rel="noopener noreferrer"
             title="Instagram do livro: @ocupadoparavoce"
-            className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 font-medium hover:bg-secondary"
+            className="tap-press inline-flex items-center gap-2 rounded-full border border-sand/40 bg-sand/10 px-4 py-2 font-medium text-sand hover:bg-gold hover:text-bark"
           >
-            <Instagram className="size-4 text-primary" aria-hidden="true" />
+            <Instagram className="size-4" aria-hidden="true" />
             Livro, @ocupadoparavoce
           </a>
           <a
             href="mailto:ocupadoparavoce@gmail.com"
-            className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 font-medium hover:bg-secondary"
+            className="tap-press inline-flex items-center gap-2 rounded-full border border-sand/40 bg-sand/10 px-4 py-2 font-medium text-sand hover:bg-gold hover:text-bark"
           >
-            <Mail className="size-4 text-primary" aria-hidden="true" />
+            <Mail className="size-4" aria-hidden="true" />
             ocupadoparavoce@gmail.com
           </a>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-xs text-sand/65">
             Ocupado Demais Para Você… Todos os direitos reservados.
           </p>
         </div>

@@ -71,7 +71,7 @@ export function LinhaDoTempo({ capitulos }: { capitulos: Capitulo[] }) {
                     <Star className="size-5 fill-primary text-primary" aria-hidden="true" />
                   )}
                 </div>
-                <h3 className="mt-4 font-serif text-xl font-semibold">{cap.titulo}</h3>
+                <h3 className="mt-4 font-sans text-xl font-semibold">{cap.titulo}</h3>
                 {destaque && (
                   <span className="mt-2 inline-flex w-fit items-center rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary">
                     O capítulo que dá nome ao livro
