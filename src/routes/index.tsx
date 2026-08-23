@@ -206,7 +206,7 @@ function Index() {
         </section>
 
         {/* Sobre o livro + Para quem é este livro */}
-        <section id="livro" className="relative overflow-hidden">
+        <section id="livro" className="section-fade relative overflow-hidden">
           <div className="absolute inset-0" aria-hidden="true">
             <img
               src={cenaLivro.url}
@@ -255,7 +255,7 @@ function Index() {
 
 
         {/* Autor */}
-        <section id="autor" className="relative overflow-hidden py-16 md:py-24">
+        <section id="autor" className="section-fade relative overflow-hidden py-16 md:py-24">
           <div className="absolute inset-0" aria-hidden="true">
             <img
               src={cenaAutor.url}
@@ -320,7 +320,7 @@ function Index() {
         </section>
 
         {/* Capítulos, linha do tempo */}
-        <section id="capitulos" className="relative">
+        <section id="capitulos" className="section-fade relative overflow-hidden">
           <div className="paper-grain mx-auto max-w-6xl rounded-3xl bg-[#f2e6d8] px-5 py-16 md:px-8 md:py-24">
             <Reveal>
               <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Os sete capítulos</h2>
