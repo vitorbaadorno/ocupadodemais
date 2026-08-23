@@ -315,30 +315,8 @@ function Index() {
           </div>
         </section>
 
-        {/* Para quem é este livro */}
-        <section id="para-quem" className="mx-auto max-w-6xl px-5 py-20 md:py-24">
-          <Reveal>
-            <h2 className="font-serif text-3xl font-semibold sm:text-4xl">
-              Para quem é este livro
-            </h2>
-          </Reveal>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {paraQuem.map((item, i) => {
-              const Icone = item.icone;
-              return (
-                <Reveal key={item.titulo} delay={i * 90}>
-                  <article className="tap-press h-full rounded-2xl border border-border/70 bg-card p-6 shadow-soft">
-                    <span className="grid size-11 place-items-center rounded-full bg-secondary/60 text-primary">
-                      <Icone className="size-5" aria-hidden="true" />
-                    </span>
-                    <h3 className="mt-4 font-serif text-lg font-semibold">{item.titulo}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-foreground/75">{item.frase}</p>
-                  </article>
-                </Reveal>
-              );
-            })}
-          </div>
-        </section>
+
+
 
         {/* Citações interativas */}
         <Citacoes />
