@@ -3,11 +3,13 @@ import type { ReactNode } from "react";
 import {
   BookOpen,
   Instagram,
+  Link as LinkIcon,
   ShoppingBag,
   Mail,
   Tablet,
   Truck,
 } from "lucide-react";
+
 
 import { Reveal } from "@/components/Reveal";
 import { FloatingScenery, Particles, Parallax } from "@/components/Atmosphere";
