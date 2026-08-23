@@ -10,17 +10,18 @@ import {
 } from "lucide-react";
 
 import { Reveal } from "@/components/Reveal";
-import { FloatingScenery, Particles } from "@/components/Atmosphere";
+import { FloatingScenery, Particles, Parallax } from "@/components/Atmosphere";
 import { Citacoes } from "@/components/Citacoes";
 import { Depoimentos } from "@/components/Depoimentos";
 import { LinhaDoTempo } from "@/components/LinhaDoTempo";
-import { Quiz } from "@/components/Quiz";
 import { Grifo } from "@/components/Grifo";
 import { ProgressoLeitura } from "@/components/ProgressoLeitura";
 import capa from "@/assets/capa-livro.webp.asset.json";
 import autor from "@/assets/vitor-adorno.png.asset.json";
 import cenaAutor from "@/assets/cena-autor.png.asset.json";
 import cenaLivro from "@/assets/cena-livro.png.asset.json";
+import arvores from "@/assets/arvores.png.asset.json";
+
 
 
 export const Route = createFileRoute("/")({
