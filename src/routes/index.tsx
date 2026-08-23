@@ -360,7 +360,7 @@ function Index() {
             <Reveal>
               <div className="glow-melhor-preco relative flex h-full flex-col rounded-3xl border border-primary/50 bg-card p-8 shadow-soft">
                 <span className="absolute -top-3 left-8 inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground shadow-soft">
-                  <BadgeCheck className="size-3.5" aria-hidden="true" /> Melhor preço
+                  Melhor preço
                 </span>
                 <div className="flex items-start justify-between gap-4">
                   <div>
