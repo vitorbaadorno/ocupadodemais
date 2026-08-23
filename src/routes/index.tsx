@@ -3,24 +3,27 @@ import type { ReactNode } from "react";
 import {
   BookOpen,
   Instagram,
+  Link as LinkIcon,
   ShoppingBag,
   Mail,
   Tablet,
   Truck,
 } from "lucide-react";
 
+
 import { Reveal } from "@/components/Reveal";
-import { FloatingScenery, Particles } from "@/components/Atmosphere";
+import { FloatingScenery, Particles, Parallax } from "@/components/Atmosphere";
 import { Citacoes } from "@/components/Citacoes";
 import { Depoimentos } from "@/components/Depoimentos";
 import { LinhaDoTempo } from "@/components/LinhaDoTempo";
-import { Quiz } from "@/components/Quiz";
 import { Grifo } from "@/components/Grifo";
 import { ProgressoLeitura } from "@/components/ProgressoLeitura";
 import capa from "@/assets/capa-livro.webp.asset.json";
 import autor from "@/assets/vitor-adorno.png.asset.json";
 import cenaAutor from "@/assets/cena-autor.png.asset.json";
 import cenaLivro from "@/assets/cena-livro.png.asset.json";
+import arvores from "@/assets/arvores.png.asset.json";
+
 
 
 export const Route = createFileRoute("/")({
@@ -216,10 +219,13 @@ function Index() {
             <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
           </div>
           <div className="relative mx-auto grid max-w-6xl gap-14 px-5 py-16 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:py-24">
-            <div className="text-center">
+            <div className="text-left">
               <Reveal>
-                <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o livro</h2>
+                <h2 className="text-center font-serif text-3xl font-semibold sm:text-4xl">
+                  Sobre o livro
+                </h2>
               </Reveal>
+
               <div className="relative mt-7 space-y-5 text-lg leading-relaxed text-foreground/85">
                 {sinopse.map((p, i) => (
                   <Reveal key={i} delay={i * 140}>
@@ -318,9 +324,21 @@ function Index() {
           </div>
         </section>
 
+        {/* Citações interativas */}
+        <Citacoes />
+
         {/* Capítulos, linha do tempo */}
-        <section id="capitulos" className="section-fade relative overflow-hidden">
-          <div className="paper-grain mx-auto max-w-6xl rounded-3xl bg-[#f2e6d8] px-5 py-16 md:px-8 md:py-24">
+        <section
+          id="capitulos"
+          className="section-fade paper-grain relative overflow-hidden bg-[#f2e6d8] py-16 md:py-24"
+        >
+          <Parallax speed={0.14} className="left-[-3rem] top-[6%] w-40 opacity-30 md:w-60">
+            <img src={arvores.url} alt="" loading="lazy" className="float-layer w-full" />
+          </Parallax>
+          <Parallax speed={0.24} className="right-[-2.5rem] top-[45%] w-32 opacity-25 md:w-52">
+            <img src={arvores.url} alt="" loading="lazy" className="float-layer w-full" />
+          </Parallax>
+          <div className="relative mx-auto max-w-6xl px-5 md:px-8">
             <Reveal>
               <h2 className="text-center font-serif text-3xl font-semibold sm:text-4xl">
                 Os sete capítulos
@@ -335,17 +353,9 @@ function Index() {
           </div>
         </section>
 
-
-
-
-        {/* Citações interativas */}
-        <Citacoes />
-
-        {/* Quiz */}
-        <Quiz capitulos={capitulos} />
-
         {/* Depoimentos */}
         <Depoimentos />
+
 
         {/* Comprar */}
         <section id="comprar" className="mx-auto max-w-5xl px-5 py-20 md:py-28">
@@ -488,23 +498,23 @@ function Index() {
       <footer className="relative border-t border-bark/40 bg-bark py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-5 text-center text-sm text-sand/85">
           <p className="font-serif text-base text-sand">Vitor Adôrno, 2026</p>
+          <p className="max-w-md text-sand/85">
+            Conheça as outras redes sociais da obra e acompanhe os próximos textos.
+          </p>
           <a
-            href="https://instagram.com/ocupadoparavoce"
+            href="https://linktr.ee/ocupadoparavoce"
             target="_blank"
             rel="noopener noreferrer"
-            title="Instagram do livro: @ocupadoparavoce"
-            className="tap-press inline-flex items-center gap-2 rounded-full border border-sand/40 bg-sand/10 px-4 py-2 font-medium text-sand hover:bg-gold hover:text-bark"
+            className="tap-press inline-flex items-center gap-2 font-medium text-gold underline underline-offset-4 hover:text-sand"
           >
-            <Instagram className="size-4" aria-hidden="true" />
-            Livro, @ocupadoparavoce
+            <LinkIcon className="size-4" aria-hidden="true" />
+            linktr.ee/ocupadoparavoce
           </a>
-          <a
-            href="mailto:ocupadoparavoce@gmail.com"
-            className="tap-press inline-flex items-center gap-2 rounded-full border border-sand/40 bg-sand/10 px-4 py-2 font-medium text-sand hover:bg-gold hover:text-bark"
-          >
-            <Mail className="size-4" aria-hidden="true" />
+          <p className="text-sand/80">
+            <Mail className="mr-1 inline size-4" aria-hidden="true" />
             ocupadoparavoce@gmail.com
-          </a>
+          </p>
+
           <p className="text-xs text-sand/65">
             Ocupado Demais Para Você… Todos os direitos reservados.
           </p>
