@@ -318,12 +318,6 @@ function Index() {
           </div>
         </section>
 
-        {/* Citações interativas */}
-        <Citacoes />
-
-        {/* Quiz */}
-        <Quiz capitulos={capitulos} />
-
         {/* Para quem é este livro */}
         <section id="para-quem" className="mx-auto max-w-6xl px-5 py-20 md:py-24">
           <Reveal>
@@ -348,6 +342,12 @@ function Index() {
             })}
           </div>
         </section>
+
+        {/* Citações interativas */}
+        <Citacoes />
+
+        {/* Quiz */}
+        <Quiz capitulos={capitulos} />
 
         {/* Depoimentos */}
         <Depoimentos />
