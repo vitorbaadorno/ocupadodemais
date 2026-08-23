@@ -22,7 +22,8 @@ import capa from "@/assets/capa-livro.webp.asset.json";
 import autor from "@/assets/vitor-adorno.png.asset.json";
 import cenaAutor from "@/assets/cena-autor.png.asset.json";
 import cenaLivro from "@/assets/cena-livro.png.asset.json";
-import arvores from "@/assets/arvores.png.asset.json";
+import arvore2 from "@/assets/arvore2.png.asset.json";
+import arvore3 from "@/assets/arvore3.png.asset.json";
 
 
 
@@ -333,10 +334,10 @@ function Index() {
           className="section-fade paper-grain relative overflow-hidden bg-[#f2e6d8] py-16 md:py-24"
         >
           <Parallax speed={0.14} className="left-[-3rem] top-[6%] w-40 opacity-30 md:w-60">
-            <img src={arvores.url} alt="" loading="lazy" className="float-layer w-full" />
+            <img src={arvore3.url} alt="" loading="lazy" className="float-layer w-full" />
           </Parallax>
           <Parallax speed={0.24} className="right-[-2.5rem] top-[45%] w-32 opacity-25 md:w-52">
-            <img src={arvores.url} alt="" loading="lazy" className="float-layer w-full" />
+            <img src={arvore2.url} alt="" loading="lazy" className="float-layer w-full" />
           </Parallax>
           <div className="relative mx-auto max-w-6xl px-5 md:px-8">
             <Reveal>
