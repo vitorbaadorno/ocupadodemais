@@ -1,11 +1,11 @@
+import { useEffect, useState } from "react";
 import { Star } from "lucide-react";
 import { Parallax } from "@/components/Atmosphere";
 import arvore1 from "@/assets/arvore1.png.asset.json";
 import arvore4 from "@/assets/arvore4.png.asset.json";
 import balanco from "@/assets/balanco.png.asset.json";
-import banco from "@/assets/banco-novo.png.asset.json";
 
-type Depoimento = { texto: string; autor: string; fonte?: string; exemplo?: boolean };
+type Depoimento = { texto: string; autor: string; fonte?: string };
 
 const DEPOIMENTOS: Depoimento[] = [
   {
@@ -23,17 +23,31 @@ const DEPOIMENTOS: Depoimento[] = [
     texto:
       "Li em duas noites e fechei o livro pensando nas pessoas que faz tempo eu não procuro. Deu vontade de ligar para todas elas.",
     autor: "Depoimento de exemplo, espaço reservado para leitores",
-    exemplo: true,
   },
   {
     texto:
       "Cada capítulo parece uma conversa de fim de tarde. Simples, sem pressa, e ao mesmo tempo difícil de esquecer.",
     autor: "Depoimento de exemplo, espaço reservado para leitores",
-    exemplo: true,
   },
 ];
 
 export function Depoimentos() {
+  const [index, setIndex] = useState(0);
+  const [fading, setFading] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setFading(true);
+      window.setTimeout(() => {
+        setIndex((n) => (n + 1) % DEPOIMENTOS.length);
+        setFading(false);
+      }, 280);
+    }, 2000);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const atual = DEPOIMENTOS[index];
+
   return (
     <section id="leitores" className="paper-grain relative overflow-hidden py-20 md:py-24">
       {/* Cenário */}
@@ -51,13 +65,6 @@ export function Depoimentos() {
         loading="lazy"
         className="pointer-events-none absolute right-0 top-0 hidden w-56 opacity-90 lg:block xl:w-72"
       />
-      <img
-        src={banco.url}
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-        className="pointer-events-none absolute bottom-0 right-4 hidden w-52 opacity-90 lg:block xl:w-64"
-      />
 
       <div className="relative mx-auto max-w-4xl px-5">
         <h2 className="text-center font-serif text-3xl font-semibold sm:text-4xl">
@@ -67,27 +74,32 @@ export function Depoimentos() {
           Espaço reservado para as impressões de quem já leu o livro.
         </p>
 
-        <div className="mt-12 space-y-10 lg:max-w-2xl">
-          {DEPOIMENTOS.map((d) => (
-            <figure key={d.texto}>
-              <div className="flex gap-1 text-primary" aria-label="Cinco estrelas">
-                {Array.from({ length: 5 }).map((_, s) => (
-                  <Star key={s} className="size-4 fill-primary" aria-hidden="true" />
-                ))}
-              </div>
-              <blockquote className="mt-3 font-serif text-lg not-italic leading-relaxed sm:text-xl">
-                “{d.texto}”
-              </blockquote>
-              <figcaption className="mt-3 text-sm text-muted-foreground">
-                <span className="block">{d.autor}</span>
-                {d.fonte ? (
-                  <span className="mt-2 inline-flex items-center rounded-full border border-accent/70 px-3 py-1 text-xs font-medium text-accent">
-                    {d.fonte}
-                  </span>
-                ) : null}
-              </figcaption>
-            </figure>
-          ))}
+        <div className="mt-10 flex min-h-[16rem] items-center justify-center">
+          <figure
+            className={`mx-auto max-w-2xl text-center transition-opacity duration-300 ${
+              fading ? "opacity-0" : "opacity-100"
+            }`}
+          >
+            <div className="flex justify-center gap-1 text-primary" aria-label="Cinco estrelas">
+              {Array.from({ length: 5 }).map((_, s) => (
+                <Star key={s} className="size-4 fill-primary" aria-hidden="true" />
+              ))}
+            </div>
+            <blockquote
+              aria-live="polite"
+              className="mt-4 font-serif text-xl not-italic leading-relaxed sm:text-2xl"
+            >
+              “{atual.texto}”
+            </blockquote>
+            <figcaption className="mt-4 text-sm text-muted-foreground">
+              <span className="block">{atual.autor}</span>
+              {atual.fonte ? (
+                <span className="mt-2 inline-flex items-center rounded-full border border-accent/70 px-3 py-1 text-xs font-medium text-accent">
+                  {atual.fonte}
+                </span>
+              ) : null}
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
