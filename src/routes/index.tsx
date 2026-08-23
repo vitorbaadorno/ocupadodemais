@@ -1,19 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import {
-  BadgeCheck,
   BookOpen,
-  Coffee,
-  Eye,
-  HandHeart,
   Instagram,
   PenLine,
   ShoppingBag,
   Mail,
   Tablet,
   Truck,
-  Users,
 } from "lucide-react";
+
 import { Reveal } from "@/components/Reveal";
 import { FloatingScenery, Particles } from "@/components/Atmosphere";
 import { Citacoes } from "@/components/Citacoes";
