@@ -316,3 +316,25 @@
   animation: glow-pulse 4.5s ease-in-out infinite;
 }
 
+
+/* ===== Transições suaves entre seções ===== */
+@utility section-fade {
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 7rem;
+    pointer-events: none;
+    z-index: 2;
+  }
+  &::before {
+    top: 0;
+    background-image: linear-gradient(to bottom, var(--background), transparent);
+  }
+  &::after {
+    bottom: 0;
+    background-image: linear-gradient(to top, var(--background), transparent);
+  }
+}
