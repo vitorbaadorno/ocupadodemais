@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { Quote } from "lucide-react";
 import cena from "@/assets/imagem-aumentada1.webp.asset.json";
-import arvores from "@/assets/arvores.png.asset.json";
-import galho from "@/assets/galho.png.asset.json";
-import { Parallax, Particles } from "@/components/Atmosphere";
+import { Particles } from "@/components/Atmosphere";
+
 
 const CITACOES = [
   "Crescer é isso. Continuar sentado à mesa, mas carregando dentro de si o menino que mal conseguia ficar parado.",
