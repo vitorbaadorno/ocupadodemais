@@ -321,9 +321,21 @@ function Index() {
           </div>
         </section>
 
+        {/* Citações interativas */}
+        <Citacoes />
+
         {/* Capítulos, linha do tempo */}
-        <section id="capitulos" className="section-fade relative overflow-hidden">
-          <div className="paper-grain mx-auto max-w-6xl rounded-3xl bg-[#f2e6d8] px-5 py-16 md:px-8 md:py-24">
+        <section
+          id="capitulos"
+          className="section-fade paper-grain relative overflow-hidden bg-[#f2e6d8] py-16 md:py-24"
+        >
+          <Parallax speed={0.14} className="left-[-3rem] top-[6%] w-40 opacity-30 md:w-60">
+            <img src={arvores.url} alt="" loading="lazy" className="float-layer w-full" />
+          </Parallax>
+          <Parallax speed={0.24} className="right-[-2.5rem] top-[45%] w-32 opacity-25 md:w-52">
+            <img src={arvores.url} alt="" loading="lazy" className="float-layer w-full" />
+          </Parallax>
+          <div className="relative mx-auto max-w-6xl px-5 md:px-8">
             <Reveal>
               <h2 className="text-center font-serif text-3xl font-semibold sm:text-4xl">
                 Os sete capítulos
@@ -338,17 +350,9 @@ function Index() {
           </div>
         </section>
 
-
-
-
-        {/* Citações interativas */}
-        <Citacoes />
-
-        {/* Quiz */}
-        <Quiz capitulos={capitulos} />
-
         {/* Depoimentos */}
         <Depoimentos />
+
 
         {/* Comprar */}
         <section id="comprar" className="mx-auto max-w-5xl px-5 py-20 md:py-28">
