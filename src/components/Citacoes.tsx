@@ -39,7 +39,7 @@ export function Citacoes() {
   }, []);
 
   return (
-    <section id="citacoes" className="relative overflow-hidden py-16 md:py-24">
+    <section id="citacoes" className="section-fade relative overflow-hidden py-16 md:py-24">
       {/* Cenário de fundo */}
       <div className="absolute inset-0" aria-hidden="true">
         <img

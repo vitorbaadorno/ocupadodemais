@@ -1,19 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import {
-  BadgeCheck,
   BookOpen,
-  Coffee,
-  Eye,
-  HandHeart,
   Instagram,
   PenLine,
   ShoppingBag,
   Mail,
   Tablet,
   Truck,
-  Users,
 } from "lucide-react";
+
 import { Reveal } from "@/components/Reveal";
 import { FloatingScenery, Particles } from "@/components/Atmosphere";
 import { Citacoes } from "@/components/Citacoes";
@@ -110,26 +106,23 @@ const sinopse: ReactNode[] = [
 
 const paraQuem = [
   {
-    icone: Users,
     titulo: "Para quem sente falta de amigos de outras épocas",
     frase: "Aquelas pessoas que você jurou que veria sempre e hoje só aparecem na memória.",
   },
   {
-    icone: Coffee,
     titulo: "Para quem vive numa rotina corrida",
     frase: "Dias que passam rápido demais e deixam pouco espaço para conversar sem pressa.",
   },
   {
-    icone: Eye,
     titulo: "Para quem gosta de observar",
     frase: "Cenas de praça, gestos pequenos, conversas alheias que contam histórias inteiras.",
   },
   {
-    icone: HandHeart,
     titulo: "Para quem já precisou perdoar",
     frase: "Alguém importante, um laço rompido e o caminho lento até voltar a existir.",
   },
 ];
+
 
 function Index() {
   return (
@@ -212,8 +205,8 @@ function Index() {
           </div>
         </section>
 
-        {/* Sobre o livro */}
-        <section id="livro" className="relative overflow-hidden">
+        {/* Sobre o livro + Para quem é este livro */}
+        <section id="livro" className="section-fade relative overflow-hidden">
           <div className="absolute inset-0" aria-hidden="true">
             <img
               src={cenaLivro.url}
@@ -223,23 +216,46 @@ function Index() {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
           </div>
-          <div className="paper-grain relative mx-auto max-w-3xl rounded-3xl bg-background/70 px-6 py-16 md:px-10 md:py-24">
-            <Reveal>
-              <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o livro</h2>
-            </Reveal>
-            <div className="relative mt-7 space-y-5 text-lg leading-relaxed text-foreground/85">
-              {sinopse.map((p, i) => (
-                <Reveal key={i} delay={i * 140}>
-                  <p>{p}</p>
-                </Reveal>
-              ))}
+          <div className="relative mx-auto grid max-w-6xl gap-14 px-5 py-16 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:py-24">
+            <div className="text-center">
+              <Reveal>
+                <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o livro</h2>
+              </Reveal>
+              <div className="relative mt-7 space-y-5 text-lg leading-relaxed text-foreground/85">
+                {sinopse.map((p, i) => (
+                  <Reveal key={i} delay={i * 140}>
+                    <p>{p}</p>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+
+            <div id="para-quem">
+              <Reveal>
+                <h2 className="font-serif text-3xl font-semibold sm:text-4xl">
+                  Para quem é este livro
+                </h2>
+              </Reveal>
+              <div className="mt-8 space-y-6">
+                {paraQuem.map((item, i) => (
+                  <Reveal key={item.titulo} delay={i * 90}>
+                    <div
+                      className={i > 0 ? "border-t border-border/60 pt-6" : undefined}
+                    >
+                      <h3 className="font-serif text-lg font-semibold">{item.titulo}</h3>
+                      <p className="mt-2 leading-relaxed text-foreground/75">{item.frase}</p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
 
+
         {/* Autor */}
-        <section id="autor" className="relative overflow-hidden py-16 md:py-24">
+        <section id="autor" className="section-fade relative overflow-hidden py-16 md:py-24">
           <div className="absolute inset-0" aria-hidden="true">
             <img
               src={cenaAutor.url}
@@ -304,7 +320,7 @@ function Index() {
         </section>
 
         {/* Capítulos, linha do tempo */}
-        <section id="capitulos" className="relative">
+        <section id="capitulos" className="section-fade relative overflow-hidden">
           <div className="paper-grain mx-auto max-w-6xl rounded-3xl bg-[#f2e6d8] px-5 py-16 md:px-8 md:py-24">
             <Reveal>
               <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Os sete capítulos</h2>
@@ -318,30 +334,8 @@ function Index() {
           </div>
         </section>
 
-        {/* Para quem é este livro */}
-        <section id="para-quem" className="mx-auto max-w-6xl px-5 py-20 md:py-24">
-          <Reveal>
-            <h2 className="font-serif text-3xl font-semibold sm:text-4xl">
-              Para quem é este livro
-            </h2>
-          </Reveal>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {paraQuem.map((item, i) => {
-              const Icone = item.icone;
-              return (
-                <Reveal key={item.titulo} delay={i * 90}>
-                  <article className="tap-press h-full rounded-2xl border border-border/70 bg-card p-6 shadow-soft">
-                    <span className="grid size-11 place-items-center rounded-full bg-secondary/60 text-primary">
-                      <Icone className="size-5" aria-hidden="true" />
-                    </span>
-                    <h3 className="mt-4 font-serif text-lg font-semibold">{item.titulo}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-foreground/75">{item.frase}</p>
-                  </article>
-                </Reveal>
-              );
-            })}
-          </div>
-        </section>
+
+
 
         {/* Citações interativas */}
         <Citacoes />
@@ -366,7 +360,7 @@ function Index() {
             <Reveal>
               <div className="glow-melhor-preco relative flex h-full flex-col rounded-3xl border border-primary/50 bg-card p-8 shadow-soft">
                 <span className="absolute -top-3 left-8 inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground shadow-soft">
-                  <BadgeCheck className="size-3.5" aria-hidden="true" /> Melhor preço
+                  Melhor preço
                 </span>
                 <div className="flex items-start justify-between gap-4">
                   <div>
