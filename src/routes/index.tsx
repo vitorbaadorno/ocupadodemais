@@ -209,7 +209,7 @@ function Index() {
           </div>
         </section>
 
-        {/* Sobre o livro */}
+        {/* Sobre o livro + Para quem é este livro */}
         <section id="livro" className="relative overflow-hidden">
           <div className="absolute inset-0" aria-hidden="true">
             <img
@@ -220,19 +220,42 @@ function Index() {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
           </div>
-          <div className="paper-grain relative mx-auto max-w-3xl rounded-3xl bg-background/70 px-6 py-16 md:px-10 md:py-24">
-            <Reveal>
-              <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o livro</h2>
-            </Reveal>
-            <div className="relative mt-7 space-y-5 text-lg leading-relaxed text-foreground/85">
-              {sinopse.map((p, i) => (
-                <Reveal key={i} delay={i * 140}>
-                  <p>{p}</p>
-                </Reveal>
-              ))}
+          <div className="relative mx-auto grid max-w-6xl gap-14 px-5 py-16 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:py-24">
+            <div className="text-center">
+              <Reveal>
+                <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o livro</h2>
+              </Reveal>
+              <div className="relative mt-7 space-y-5 text-lg leading-relaxed text-foreground/85">
+                {sinopse.map((p, i) => (
+                  <Reveal key={i} delay={i * 140}>
+                    <p>{p}</p>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+
+            <div id="para-quem">
+              <Reveal>
+                <h2 className="font-serif text-3xl font-semibold sm:text-4xl">
+                  Para quem é este livro
+                </h2>
+              </Reveal>
+              <div className="mt-8 space-y-6">
+                {paraQuem.map((item, i) => (
+                  <Reveal key={item.titulo} delay={i * 90}>
+                    <div
+                      className={i > 0 ? "border-t border-border/60 pt-6" : undefined}
+                    >
+                      <h3 className="font-serif text-lg font-semibold">{item.titulo}</h3>
+                      <p className="mt-2 leading-relaxed text-foreground/75">{item.frase}</p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
             </div>
           </div>
         </section>
+
 
 
         {/* Autor */}
