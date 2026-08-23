@@ -484,46 +484,29 @@ function Index() {
 
 
         </section>
-        {/* Selo independente */}
-        <section className="mx-auto max-w-3xl px-5 pb-16">
-          <Reveal>
-            <div className="paper-grain rounded-3xl border border-bark/35 bg-clay/25 px-7 py-9 text-center shadow-soft">
-              <span className="inline-flex items-center gap-2 rounded-full border border-bark/35 px-4 py-1.5 font-serif text-xs font-semibold uppercase tracking-[0.2em] text-bark">
-                <PenLine className="size-3.5" aria-hidden="true" />
-                Escrito e publicado de forma independente
-              </span>
-              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-foreground/80">
-                Cada exemplar que sai daqui passou pelas mãos do próprio autor, do primeiro
-                rascunho no diário até a escolha da capa. Quando você leva um livro independente
-                para casa, você não compra só páginas, você dá fôlego para que a próxima história
-                exista. Obrigado por ler com calma e por fazer parte disso.
-              </p>
-            </div>
-          </Reveal>
-        </section>
       </main>
 
-      <footer className="relative border-t border-border/70 bg-secondary/30 py-10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-5 text-center text-sm text-foreground/75">
-          <p className="font-serif text-base">Vitor Adôrno, 2026</p>
+      <footer className="relative border-t border-bark/40 bg-bark py-10">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-5 text-center text-sm text-sand/85">
+          <p className="font-serif text-base text-sand">Vitor Adôrno, 2026</p>
           <a
             href="https://instagram.com/ocupadoparavoce"
             target="_blank"
             rel="noopener noreferrer"
             title="Instagram do livro: @ocupadoparavoce"
-            className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 font-medium hover:bg-secondary"
+            className="tap-press inline-flex items-center gap-2 rounded-full border border-sand/40 bg-sand/10 px-4 py-2 font-medium text-sand hover:bg-gold hover:text-bark"
           >
-            <Instagram className="size-4 text-primary" aria-hidden="true" />
+            <Instagram className="size-4" aria-hidden="true" />
             Livro, @ocupadoparavoce
           </a>
           <a
             href="mailto:ocupadoparavoce@gmail.com"
-            className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 font-medium hover:bg-secondary"
+            className="tap-press inline-flex items-center gap-2 rounded-full border border-sand/40 bg-sand/10 px-4 py-2 font-medium text-sand hover:bg-gold hover:text-bark"
           >
-            <Mail className="size-4 text-primary" aria-hidden="true" />
+            <Mail className="size-4" aria-hidden="true" />
             ocupadoparavoce@gmail.com
           </a>
-          <p className="text-xs text-muted-foreground">
+          <p className="text-xs text-sand/65">
             Ocupado Demais Para Você… Todos os direitos reservados.
           </p>
         </div>

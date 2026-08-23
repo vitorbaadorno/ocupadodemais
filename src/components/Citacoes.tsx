@@ -62,10 +62,10 @@ export function Citacoes() {
       <Particles />
 
       <div className="relative mx-auto max-w-6xl px-5">
-        <h2 className="font-serif text-3xl font-semibold drop-shadow-sm sm:text-4xl">
+        <h2 className="text-center font-serif text-3xl font-semibold drop-shadow-sm sm:text-4xl">
           Trechos do livro
         </h2>
-        <p className="mt-3 max-w-md text-foreground/75">
+        <p className="mx-auto mt-3 max-w-md text-center text-foreground/75">
           O que passa pela cabeça de quem senta num banco de praça e deixa o tempo correr.
         </p>
 
