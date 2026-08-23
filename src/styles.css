@@ -9,6 +9,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Caprasimo";
+  src: url("/__l5e/assets-v1/3579a998-2ce1-4b42-a6ce-27f7168c7633/caprasimo-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+
 @custom-variant dark (&:is(.dark *));
 
 /*
