@@ -52,14 +52,8 @@ export function Citacoes() {
         <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-background/30" />
       </div>
 
-      {/* Camadas soltas com parallax */}
-      <Parallax speed={0.18} className="left-[-2rem] top-[6%] w-32 opacity-40 md:w-52">
-        <img src={arvores.url} alt="" loading="lazy" className="float-layer w-full" />
-      </Parallax>
-      <Parallax speed={0.3} className="right-[2%] top-[2%] w-24 opacity-45 md:w-40">
-        <img src={galho.url} alt="" loading="lazy" className="float-layer w-full" />
-      </Parallax>
       <Particles />
+
 
       <div className="relative mx-auto max-w-6xl px-5">
         <h2 className="text-center font-serif text-3xl font-semibold drop-shadow-sm sm:text-4xl">
