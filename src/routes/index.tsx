@@ -110,26 +110,23 @@ const sinopse: ReactNode[] = [
 
 const paraQuem = [
   {
-    icone: Users,
     titulo: "Para quem sente falta de amigos de outras épocas",
     frase: "Aquelas pessoas que você jurou que veria sempre e hoje só aparecem na memória.",
   },
   {
-    icone: Coffee,
     titulo: "Para quem vive numa rotina corrida",
     frase: "Dias que passam rápido demais e deixam pouco espaço para conversar sem pressa.",
   },
   {
-    icone: Eye,
     titulo: "Para quem gosta de observar",
     frase: "Cenas de praça, gestos pequenos, conversas alheias que contam histórias inteiras.",
   },
   {
-    icone: HandHeart,
     titulo: "Para quem já precisou perdoar",
     frase: "Alguém importante, um laço rompido e o caminho lento até voltar a existir.",
   },
 ];
+
 
 function Index() {
   return (
