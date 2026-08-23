@@ -265,15 +265,27 @@ function Index() {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
           </div>
-          <div className="paper-grain relative mx-auto max-w-4xl rounded-3xl bg-secondary/35 px-6 py-14 md:px-10 md:py-20">
+          <div className="relative mx-auto max-w-5xl px-6 md:px-8">
             <Reveal>
-              <div className="relative flex flex-col gap-8 md:flex-row md:items-start md:gap-10">
-                <img
-                  src={autor.url}
-                  loading="lazy"
-                  alt="Foto do autor Vitor Adôrno"
-                  className="shrink-0 self-start rounded-3xl border-4 border-accent object-cover shadow-soft md:-ml-4 md:h-80 md:w-56"
-                />
+              <div className="relative flex flex-col gap-10 md:flex-row md:items-start md:gap-12">
+                <div className="flex shrink-0 flex-col items-center gap-4 self-center md:self-start">
+                  <img
+                    src={autor.url}
+                    loading="lazy"
+                    alt="Foto do autor Vitor Adôrno"
+                    className="w-64 rounded-3xl border-4 border-accent object-cover shadow-soft md:h-[26rem] md:w-72"
+                  />
+                  <a
+                    href="https://instagram.com/vitorba.adorno"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Instagram do autor: @vitorba.adorno"
+                    className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 text-sm font-medium hover:bg-secondary"
+                  >
+                    <Instagram className="size-4 text-primary" aria-hidden="true" />
+                    @vitorba.adorno
+                  </a>
+                </div>
                 <div className="space-y-5 text-lg leading-relaxed text-foreground/85">
                   <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o autor</h2>
                   <p>
@@ -301,18 +313,6 @@ function Index() {
                   <p>
                     De tanto escrever sobre a vida como ela é, o cotidiano acabou virando livro.
                   </p>
-                  <div className="flex flex-wrap items-center gap-3 pt-1">
-                    <a
-                      href="https://instagram.com/vitorba.adorno"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title="Instagram do autor: @vitorba.adorno"
-                      className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 text-sm font-medium hover:bg-secondary"
-                    >
-                      <Instagram className="size-4 text-primary" aria-hidden="true" />
-                      @vitorba.adorno
-                    </a>
-                  </div>
                 </div>
               </div>
             </Reveal>
