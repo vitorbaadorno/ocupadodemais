@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Star } from "lucide-react";
 import { Parallax } from "@/components/Atmosphere";
-import arvore1 from "@/assets/arvore1.png.asset.json";
-import arvore4 from "@/assets/arvore4.png.asset.json";
-import balanco from "@/assets/balanco.png.asset.json";
+const arvore1 = { url: "/assets/arvore1.png" };
+const arvore4 = { url: "/assets/arvore4.png" };
+const balanco = { url: "/assets/balanco.png" };
 
 type Depoimento = { texto: string; autor: string; fonte?: string };
 

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import arvore1 from "@/assets/arvore1.png.asset.json";
-import arvore4 from "@/assets/arvore4.png.asset.json";
-import galho from "@/assets/galho.png.asset.json";
-import ramo from "@/assets/ramo.png.asset.json";
+const arvore1 = { url: "/assets/arvore1.png" };
+const arvore4 = { url: "/assets/arvore4.png" };
+const galho = { url: "/assets/galho.png" };
+const ramo = { url: "/assets/ramo.png" };
 
 const PARTICLES = Array.from({ length: 16 }, (_, i) => ({
   left: `${(i * 6.4 + (i % 3) * 9) % 96}%`,
