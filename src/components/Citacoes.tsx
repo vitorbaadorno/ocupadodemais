@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { Quote } from "lucide-react";
-import cena from "@/assets/imagem-aumentada1.webp.asset.json";
+const cena = { url: "/assets/imagem-aumentada1.webp" };
 import { Particles } from "@/components/Atmosphere";
 
 

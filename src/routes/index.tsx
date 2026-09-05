@@ -18,12 +18,12 @@ import { Depoimentos } from "@/components/Depoimentos";
 import { LinhaDoTempo } from "@/components/LinhaDoTempo";
 import { Grifo } from "@/components/Grifo";
 import { ProgressoLeitura } from "@/components/ProgressoLeitura";
-import capa from "@/assets/capa-livro.webp.asset.json";
-import autor from "@/assets/vitor-adorno.png.asset.json";
-import cenaAutor from "@/assets/cena-autor.png.asset.json";
-import cenaLivro from "@/assets/cena-livro.png.asset.json";
-import arvore2 from "@/assets/arvore2.png.asset.json";
-import arvore3 from "@/assets/arvore3.png.asset.json";
+const capa = { url: "/assets/capa-livro.webp" };
+const autor = { url: "/assets/vitor-adorno.png" };
+const cenaAutor = { url: "/assets/cena-autor.png" };
+const cenaLivro = { url: "/assets/cena-livro.png" };
+const arvore2 = { url: "/assets/arvore2.png" };
+const arvore3 = { url: "/assets/arvore3.png" };
 
 
 
