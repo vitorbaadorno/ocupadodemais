@@ -32,17 +32,27 @@ export function Depoimentos() {
   const [fading, setFading] = useState(false);
 
   useEffect(() => {
+    let transitionTimer: number | undefined;
     const timer = window.setInterval(() => {
       setFading(true);
-      window.setTimeout(() => {
+      transitionTimer = window.setTimeout(() => {
         setIndex((n) => (n + 1) % DEPOIMENTOS.length);
         setFading(false);
       }, 280);
     }, 2000);
-    return () => window.clearInterval(timer);
+    return () => {
+      window.clearInterval(timer);
+      if (transitionTimer !== undefined) {
+        window.clearTimeout(transitionTimer);
+      }
+    };
   }, []);
 
-  const atual = DEPOIMENTOS[index];
+  const atual = DEPOIMENTOS[index % DEPOIMENTOS.length] ?? DEPOIMENTOS[0];
+
+  if (!atual) {
+    return null;
+  }
 
   return (
     <section id="leitores" className="paper-grain relative overflow-hidden py-20 md:py-24">
