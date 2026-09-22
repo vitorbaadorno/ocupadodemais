@@ -392,7 +392,7 @@ function Index() {
                   <span className="font-sans text-lg text-muted-foreground line-through">
                     R$ 48,15
                   </span>
-                  <span className="font-sans text-4xl font-bold text-primary">R$ 38,12</span>
+                  <span className="font-sans text-4xl font-bold text-primary">R$ 37,77</span>
                 </div>
                 <p className="text-sm text-foreground/70">mais frete</p>
                 <p className="mt-3 text-sm leading-relaxed text-foreground/75">

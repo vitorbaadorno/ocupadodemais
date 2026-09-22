@@ -21,13 +21,9 @@ const DEPOIMENTOS: Depoimento[] = [
   },
   {
     texto:
-      "Li em duas noites e fechei o livro pensando nas pessoas que faz tempo eu não procuro. Deu vontade de ligar para todas elas.",
-    autor: "Depoimento de exemplo, espaço reservado para leitores",
-  },
-  {
-    texto:
-      "Cada capítulo parece uma conversa de fim de tarde. Simples, sem pressa, e ao mesmo tempo difícil de esquecer.",
-    autor: "Depoimento de exemplo, espaço reservado para leitores",
+      "As histórias são leves, mas carregam reflexões que ficam na mente após a leitura.",
+    autor: "Leitor na Amazon",
+    fonte: "Avaliação verificada na Amazon",
   },
 ];
 
