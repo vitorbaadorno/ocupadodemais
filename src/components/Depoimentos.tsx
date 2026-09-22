@@ -22,7 +22,7 @@ const DEPOIMENTOS: Depoimento[] = [
   {
     texto:
       "As histórias são leves, mas carregam reflexões que ficam na mente após a leitura.",
-    autor: "Leitor na Amazon",
+    autor: "ge",
     fonte: "Avaliação verificada na Amazon",
   },
 ];
