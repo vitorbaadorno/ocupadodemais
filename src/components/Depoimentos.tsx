@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
 import { Star } from "lucide-react";
-import { Parallax } from "@/components/Atmosphere";
-const arvore1 = { url: "/assets/arvore1.png" };
-const arvore4 = { url: "/assets/arvore4.png" };
-const balanco = { url: "/assets/balanco.png" };
 
 type Depoimento = { texto: string; autor: string; fonte?: string };
 
@@ -56,21 +52,6 @@ export function Depoimentos() {
 
   return (
     <section id="leitores" className="paper-grain relative overflow-hidden py-20 md:py-24">
-      {/* Cenário */}
-      <Parallax speed={0.16} className="left-[-3rem] top-[10%] w-36 opacity-30 md:w-56">
-        <img src={arvore4.url} alt="" loading="lazy" className="float-layer w-full" />
-      </Parallax>
-      <Parallax speed={0.26} className="left-[8%] bottom-[6%] w-24 opacity-25 md:w-40">
-        <img src={arvore1.url} alt="" loading="lazy" className="float-layer w-full" />
-      </Parallax>
-
-      <img
-        src={balanco.url}
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-        className="pointer-events-none absolute right-0 top-0 hidden w-56 opacity-90 lg:block xl:w-72"
-      />
 
       <div className="relative mx-auto max-w-4xl px-5">
         <h2 className="text-center font-serif text-3xl font-semibold sm:text-4xl">

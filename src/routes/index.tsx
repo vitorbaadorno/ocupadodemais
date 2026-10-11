@@ -1,29 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
-import type { ReactNode } from "react";
-import {
-  BookOpen,
-  Instagram,
-  Link as LinkIcon,
-  ShoppingBag,
-  Mail,
-  Tablet,
-  Truck,
-} from "lucide-react";
-
+import { useState, type ReactNode } from "react";
+import { BookOpen, ChevronDown, Instagram, ShoppingBag, Sparkles, Tablet, Truck } from "lucide-react";
 
 import { Reveal } from "@/components/Reveal";
-import { FloatingScenery, Particles, Parallax } from "@/components/Atmosphere";
+import { Particles } from "@/components/Atmosphere";
 import { Citacoes } from "@/components/Citacoes";
 import { Depoimentos } from "@/components/Depoimentos";
 import { LinhaDoTempo } from "@/components/LinhaDoTempo";
 import { Grifo } from "@/components/Grifo";
 import { ProgressoLeitura } from "@/components/ProgressoLeitura";
+import { Quiz } from "@/components/Quiz";
+import { AutorShowcase } from "@/components/AutorShowcase";
 const capa = { url: "/assets/capa-livro.webp" };
-const autor = { url: "/assets/vitor-adorno.png" };
-const cenaAutor = { url: "/assets/cena-autor.png" };
-const cenaLivro = { url: "/assets/cena-livro.png" };
-const arvore2 = { url: "/assets/arvore2.png" };
-const arvore3 = { url: "/assets/arvore3.png" };
 
 
 
@@ -127,16 +115,45 @@ const paraQuem = [
 ];
 
 
+const faq = [
+  {
+    p: "O livro é uma edição nova de “Pensamentos de um Jovem Moderno”? Preciso comprar se já li o outro?",
+    r: "Sim, é a mesma obra. “Ocupado Demais Para Você…” é a segunda edição, com novo título, de “Pensamentos de um Jovem Moderno”, publicado originalmente em português. O ISBN é o mesmo, então quem já leu a primeira edição já conhece as histórias.",
+  },
+  {
+    p: "Onde posso comprar o livro e qual a diferença entre as versões?",
+    r: "O livro físico está na Uiclap por R$ 37,77 e na Amazon por R$ 48,15, mais frete. A versão digital para Kindle custa R$ 9,90 na Amazon e pode ser lida na hora. O conteúdo é o mesmo nas duas versões.",
+  },
+  {
+    p: "Quanto tempo leva para chegar o livro físico?",
+    r: "Os livros são impressos sob demanda, ou seja, cada exemplar só é produzido depois de vendido. Por isso, o prazo costuma ser mais longo que o habitual. O prazo exato aparece no momento da compra, de acordo com o seu CEP.",
+  },
+  {
+    p: "Posso ler o Kindle sem ter o aparelho?",
+    r: "Sim, a Amazon disponibiliza aplicativos gratuitos de leitura para celular, tablet e computador, então não é necessário ter o leitor físico Kindle.",
+  },
+  {
+    p: "Para qual público o livro é indicado?",
+    r: "Para leitores que se identificam com temas como amizade, amadurecimento, memória afetiva, relações familiares e a sensação de estar sempre ocupado demais para as pessoas que importam. É uma leitura mais reflexiva do que leve, mais contemplativa do que de ritmo acelerado.",
+  },
+  {
+    p: "O livro tem conteúdo sensível?",
+    r: "As histórias tocam em temas como perda, afastamento entre amigos, término de amizades e envelhecimento, sempre de forma reflexiva e sem cenas gráficas.",
+  },
+  {
+    p: "Como entro em contato com o autor?",
+    r: "Por e-mail, em ocupadoparavoce@gmail.com, para dúvidas, permissões ou solicitações.",
+  },
+];
+
 function Index() {
+  const [quizAberto, setQuizAberto] = useState(false);
+  const [brilho, setBrilho] = useState<{ indice: number; chave: number } | null>(null);
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-dusk text-foreground">
+    <div className="relative min-h-screen overflow-x-hidden bg-dusk pt-[3.75rem] text-foreground">
       <ProgressoLeitura />
-      <FloatingScenery />
 
-
-
-
-      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
+      <header className="fixed inset-x-0 top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur">
         <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
           <a href="#inicio" className="font-serif text-base font-semibold tracking-tight">
             Ocupado Demais Para Você…
@@ -210,15 +227,6 @@ function Index() {
 
         {/* Sobre o livro + Para quem é este livro */}
         <section id="livro" className="section-fade relative overflow-hidden">
-          <div className="absolute inset-0" aria-hidden="true">
-            <img
-              src={cenaLivro.url}
-              alt=""
-              loading="lazy"
-              className="size-full object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
-          </div>
           <div className="relative mx-auto grid max-w-6xl gap-14 px-5 py-16 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:py-24">
             <div className="text-left">
               <Reveal>
@@ -227,7 +235,7 @@ function Index() {
                 </h2>
               </Reveal>
 
-              <div className="relative mt-7 space-y-5 text-lg leading-relaxed text-foreground/85">
+              <div className="relative mt-7 space-y-5 text-justify text-lg leading-relaxed text-foreground/85">
                 {sinopse.map((p, i) => (
                   <Reveal key={i} delay={i * 140}>
                     <p>{p}</p>
@@ -262,25 +270,11 @@ function Index() {
 
         {/* Autor */}
         <section id="autor" className="section-fade relative overflow-hidden py-16 md:py-24">
-          <div className="absolute inset-0" aria-hidden="true">
-            <img
-              src={cenaAutor.url}
-              alt=""
-              loading="lazy"
-              className="size-full object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
-          </div>
           <div className="relative mx-auto max-w-5xl px-6 md:px-8">
             <Reveal>
               <div className="relative flex flex-col gap-10 md:flex-row md:items-start md:gap-12">
-                <div className="flex shrink-0 flex-col items-center gap-4 self-center md:self-start">
-                  <img
-                    src={autor.url}
-                    loading="lazy"
-                    alt="Foto do autor Vitor Adôrno"
-                    className="w-64 rounded-3xl border-4 border-accent object-cover shadow-soft md:h-[26rem] md:w-72"
-                  />
+                <div className="flex shrink-0 flex-col items-center gap-6 self-center md:self-start">
+                  <AutorShowcase />
                   <a
                     href="https://instagram.com/vitorba.adorno"
                     target="_blank"
@@ -292,7 +286,7 @@ function Index() {
                     @vitorba.adorno
                   </a>
                 </div>
-                <div className="space-y-5 text-lg leading-relaxed text-foreground/85">
+                <div className="space-y-5 text-justify text-lg leading-relaxed text-foreground/85">
                   <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o autor</h2>
                   <p>
                     Eu sou Vitor Adôrno, autor brasileiro independente, natural de Niquelândia,
@@ -333,12 +327,6 @@ function Index() {
           id="capitulos"
           className="section-fade paper-grain relative overflow-hidden bg-[#f2e6d8] py-16 md:py-24"
         >
-          <Parallax speed={0.14} className="left-[-3rem] top-[6%] w-40 opacity-30 md:w-60">
-            <img src={arvore3.url} alt="" loading="lazy" className="float-layer w-full" />
-          </Parallax>
-          <Parallax speed={0.24} className="right-[-2.5rem] top-[45%] w-32 opacity-25 md:w-52">
-            <img src={arvore2.url} alt="" loading="lazy" className="float-layer w-full" />
-          </Parallax>
           <div className="relative mx-auto max-w-6xl px-5 md:px-8">
             <Reveal>
               <h2 className="text-center font-serif text-3xl font-semibold sm:text-4xl">
@@ -349,8 +337,28 @@ function Index() {
               </p>
             </Reveal>
             <div className="relative mt-12">
-              <LinhaDoTempo capitulos={capitulos} />
+              <LinhaDoTempo capitulos={capitulos} brilho={brilho} />
             </div>
+            <div className="mt-8 text-center">
+              <button
+                type="button"
+                onClick={() => setQuizAberto((v) => !v)}
+                className="tap-press inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-semibold text-primary-foreground shadow-lift hover:bg-accent hover:text-accent-foreground"
+              >
+                <Sparkles className="size-4" aria-hidden="true" /> Descubra seu capítulo preferido
+              </button>
+            </div>
+            {quizAberto && (
+              <Quiz
+                capitulos={capitulos}
+                onResultado={(i) => {
+                  setBrilho({ indice: i, chave: Date.now() });
+                  document
+                    .getElementById("capitulos")
+                    ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
+              />
+            )}
           </div>
         </section>
 
@@ -395,10 +403,6 @@ function Index() {
                   <span className="font-sans text-4xl font-bold text-primary">R$ 37,77</span>
                 </div>
                 <p className="text-sm text-foreground/70">mais frete</p>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/75">
-                  O mesmo livro impresso, pelo melhor preço. Na Amazon, a versão física sai por R$
-                  48,15 mais frete.
-                </p>
                 <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-secondary/60 px-4 py-2 text-sm">
                   <Truck className="size-4" aria-hidden="true" /> Entrega para todo o Brasil
                 </p>
@@ -494,6 +498,27 @@ function Index() {
 
 
         </section>
+
+        {/* FAQ */}
+        <section id="faq" className="mx-auto max-w-3xl px-5 pb-20 md:pb-28">
+          <h2 className="text-center font-serif text-3xl font-semibold sm:text-4xl">
+            Perguntas frequentes
+          </h2>
+          <div className="mt-10 space-y-4">
+            {faq.map((f) => (
+              <details
+                key={f.p}
+                className="group rounded-3xl border border-border/70 bg-card px-6 py-4 shadow-soft"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold">
+                  {f.p}
+                  <ChevronDown className="size-5 shrink-0 text-primary transition-transform group-open:rotate-180" />
+                </summary>
+                <p className="mt-3 text-justify leading-relaxed text-foreground/80">{f.r}</p>
+              </details>
+            ))}
+          </div>
+        </section>
       </main>
 
       <footer className="relative border-t border-bark/40 bg-bark py-10">
@@ -502,19 +527,28 @@ function Index() {
           <p className="max-w-md text-sand/85">
             Conheça as outras redes sociais da obra e acompanhe os próximos textos.
           </p>
-          <a
-            href="https://linktr.ee/ocupadoparavoce"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="tap-press inline-flex items-center gap-2 font-medium text-gold underline underline-offset-4 hover:text-sand"
-          >
-            <LinkIcon className="size-4" aria-hidden="true" />
-            linktr.ee/ocupadoparavoce
-          </a>
-          <p className="text-sand/80">
-            <Mail className="mr-1 inline size-4" aria-hidden="true" />
-            ocupadoparavoce@gmail.com
-          </p>
+          <div className="flex items-center gap-6 text-clay">
+            <a href="https://www.instagram.com/ocupadoparavoce" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="tap-press hover:text-gold">
+              <Instagram className="size-7" />
+            </a>
+            <a href="https://www.skoob.com.br/pt/book/122696536" target="_blank" rel="noopener noreferrer" aria-label="Skoob" className="tap-press hover:text-gold">
+              <svg viewBox="0 0 24 24" className="size-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M3 5.5c3-1.3 6-1.3 9 .7 3-2 6-2 9-.7V19c-3-1.3-6-1.3-9 .7-3-2-6-2-9-.7Z" />
+                <path d="M12 6.2v13.5" />
+              </svg>
+            </a>
+            <a href="https://www.tiktok.com/@ocupadoparavoce" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="tap-press hover:text-gold">
+              <svg viewBox="0 0 24 24" className="size-7" fill="currentColor" aria-hidden="true">
+                <path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.3 7.3 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6Z" />
+              </svg>
+            </a>
+            <a href="https://www.goodreads.com/book/show/251203279-ocupado-demais-para-voc" target="_blank" rel="noopener noreferrer" aria-label="Goodreads" className="tap-press hover:text-gold">
+              <svg viewBox="0 0 24 24" className="size-7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+                <circle cx="11.5" cy="9.5" r="5" />
+                <path d="M16.5 4v11.5a5 5 0 0 1-9.6 2" />
+              </svg>
+            </a>
+          </div>
 
           <p className="text-xs text-sand/65">
             Ocupado Demais Para Você… Todos os direitos reservados.
