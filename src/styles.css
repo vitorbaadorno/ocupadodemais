@@ -346,3 +346,14 @@
     background-image: linear-gradient(to top, var(--background), transparent);
   }
 }
+
+/* ===== Brilho do capítulo do quiz ===== */
+@keyframes brilho-cap {
+  0%, 100% { box-shadow: 0 0 0 2px color-mix(in oklab, var(--gold) 60%, transparent), 0 0 24px -4px var(--gold); }
+  50% { box-shadow: 0 0 0 3px var(--ember), 0 0 48px 4px color-mix(in oklab, var(--gold) 85%, transparent); }
+}
+
+@utility brilho-capitulo {
+  animation: brilho-cap 1.4s ease-in-out 4;
+  border-color: var(--ember);
+}

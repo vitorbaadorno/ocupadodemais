@@ -1,13 +1,27 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Star } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 export type Capitulo = { titulo: string; frase: string };
 
-export function LinhaDoTempo({ capitulos }: { capitulos: Capitulo[] }) {
+export function LinhaDoTempo({
+  capitulos,
+  brilho,
+}: {
+  capitulos: Capitulo[];
+  brilho?: { indice: number; chave: number } | null;
+}) {
   const trilho = useRef<HTMLDivElement>(null);
   const [arrastando, setArrastando] = useState(false);
   const inicio = useRef({ x: 0, scroll: 0 });
+
+  useEffect(() => {
+    if (!brilho) return;
+    const el = trilho.current;
+    const card = el?.querySelector<HTMLElement>(`[data-cap="${brilho.indice}"]`);
+    if (!el || !card) return;
+    el.scrollTo({ left: card.offsetLeft - el.offsetLeft - 8, behavior: "smooth" });
+  }, [brilho]);
 
   const onDown = (e: React.PointerEvent) => {
     const el = trilho.current;
@@ -37,12 +51,13 @@ export function LinhaDoTempo({ capitulos }: { capitulos: Capitulo[] }) {
         onPointerMove={onMove}
         onPointerUp={onUp}
         onPointerCancel={onUp}
-        className={`no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 ${
+        className={`no-scrollbar relative flex snap-x snap-mandatory gap-5 overflow-x-auto px-2 py-4 ${
           arrastando ? "cursor-grabbing select-none" : "cursor-grab"
         }`}
       >
         {capitulos.map((cap, i) => {
           const destaque = i === 2;
+          const brilhando = brilho?.indice === i;
           return (
             <Reveal
               key={cap.titulo}
@@ -51,11 +66,13 @@ export function LinhaDoTempo({ capitulos }: { capitulos: Capitulo[] }) {
               className="w-[17rem] shrink-0 snap-start sm:w-[19rem]"
             >
               <article
+                data-cap={i}
+                key={brilhando ? `b${brilho?.chave}` : "n"}
                 className={`tap-press flex h-full flex-col rounded-2xl border p-6 ${
                   destaque
                     ? "border-primary/60 bg-secondary/35 shadow-lift"
                     : "border-border/70 bg-card shadow-soft"
-                }`}
+                } ${brilhando ? "brilho-capitulo" : ""}`}
               >
                 <div className="flex items-center gap-3">
                   <span
