@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { Particles } from "@/components/Atmosphere";
+import { Button } from "@/components/ui/button";
 
 const CITACOES = [
   "Crescer é isso. Continuar sentado à mesa, mas carregando dentro de si o menino que mal conseguia ficar parado.",
@@ -45,7 +46,7 @@ export function Citacoes() {
 
       <div className="relative mx-auto max-w-4xl px-5">
         <h2 className="text-center font-serif text-3xl font-semibold sm:text-4xl">
-          Trechos do livro
+          Trecho da Obra
         </h2>
         <p className="mx-auto mt-3 max-w-md text-center text-foreground/75">
           O que passa pela cabeça de quem senta num banco de praça e deixa o tempo correr.
@@ -65,22 +66,26 @@ export function Citacoes() {
 
         <div className="relative mt-6 flex flex-col items-center gap-3">
           <div className="flex gap-3">
-            <button
+            <Button
               type="button"
+              variant="outline"
+              size="icon"
               onClick={() => manual((n) => n - 1)}
               aria-label="Trecho anterior"
-              className="tap-press grid size-8 place-items-center rounded-full border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground"
+              className="tap-press size-8 rounded-full border-primary/40 bg-transparent text-primary hover:bg-primary hover:text-primary-foreground"
             >
               <ChevronLeft className="size-4" />
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
+              variant="outline"
+              size="icon"
               onClick={() => manual((n) => n + 1)}
               aria-label="Próximo trecho"
-              className="tap-press grid size-8 place-items-center rounded-full border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground"
+              className="tap-press size-8 rounded-full border-primary/40 bg-transparent text-primary hover:bg-primary hover:text-primary-foreground"
             >
               <ChevronRight className="size-4" />
-            </button>
+            </Button>
           </div>
           <div className="flex gap-2">
             {CITACOES.map((c, i) => (
