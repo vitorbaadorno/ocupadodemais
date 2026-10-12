@@ -1,6 +1,6 @@
 # Requested updates
-- [ ] Center the hero and move its cover beside the synopsis.
-- [ ] Add the author divider and update quote/review headings.
-- [ ] Correct FAQ, simplify purchase copy and quiz button.
-- [ ] Add review navigation and UICLAP book details.
-- [ ] Verify the updated page and interactions.
+- [x] Center the hero and move its cover beside the synopsis.
+- [x] Add the author divider and update quote/review headings.
+- [x] Correct FAQ, simplify purchase copy and quiz button.
+- [x] Add review navigation and UICLAP book details.
+- [x] Verify the updated page and interactions.
