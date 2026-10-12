@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import { BookOpen, ChevronDown, Instagram, ShoppingBag, Sparkles, Tablet, Truck } from "lucide-react";
+import { BookOpen, ChevronDown, Instagram, ShoppingBag, Tablet, Truck } from "lucide-react";
 
 import { Reveal } from "@/components/Reveal";
 import { Particles } from "@/components/Atmosphere";
@@ -11,6 +11,8 @@ import { Grifo } from "@/components/Grifo";
 import { ProgressoLeitura } from "@/components/ProgressoLeitura";
 import { Quiz } from "@/components/Quiz";
 import { AutorShowcase } from "@/components/AutorShowcase";
+import { DetalhesLivro } from "@/components/DetalhesLivro";
+import { Button } from "@/components/ui/button";
 const capa = { url: "/assets/capa-livro.webp" };
 
 
@@ -95,30 +97,10 @@ const sinopse: ReactNode[] = [
   </>,
 ];
 
-const paraQuem = [
-  {
-    titulo: "Para quem sente falta de amigos de outras épocas",
-    frase: "Aquelas pessoas que você jurou que veria sempre e hoje só aparecem na memória.",
-  },
-  {
-    titulo: "Para quem vive numa rotina corrida",
-    frase: "Dias que passam rápido demais e deixam pouco espaço para conversar sem pressa.",
-  },
-  {
-    titulo: "Para quem gosta de observar",
-    frase: "Cenas de praça, gestos pequenos, conversas alheias que contam histórias inteiras.",
-  },
-  {
-    titulo: "Para quem já precisou perdoar",
-    frase: "Alguém importante, um laço rompido e o caminho lento até voltar a existir.",
-  },
-];
-
-
 const faq = [
   {
     p: "O livro é uma edição nova de “Pensamentos de um Jovem Moderno”? Preciso comprar se já li o outro?",
-    r: "Sim, é a mesma obra. “Ocupado Demais Para Você…” é a segunda edição, com novo título, de “Pensamentos de um Jovem Moderno”, publicado originalmente em português. O ISBN é o mesmo, então quem já leu a primeira edição já conhece as histórias.",
+    r: "“Ocupado Demais Para Você…” é a segunda versão de “Pensamentos de um Jovem Moderno”, mas os dois livros são obras diferentes. O ODPV tem outro ISBN e histórias melhoradas. Se você já leu o PDJM, encontrará uma nova versão das narrativas, por isso a leitura pode valer a pena também para quem conhece o livro anterior.",
   },
   {
     p: "Onde posso comprar o livro e qual a diferença entre as versões?",
@@ -182,52 +164,39 @@ function Index() {
         {/* Hero */}
         <section id="inicio" className="relative overflow-hidden">
           <Particles />
-          <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 md:grid-cols-2 md:py-28">
+          <div className="relative mx-auto max-w-4xl px-5 py-16 text-center md:py-20">
             <Reveal>
               <h1 className="font-serif text-4xl font-bold leading-[1.08] sm:text-5xl lg:text-6xl">
                 Ocupado Demais Para Você…
               </h1>
               <p className="mt-4 text-lg font-medium">Vitor Adôrno</p>
-              <p className="mt-6 max-w-md text-lg leading-relaxed text-foreground/80">
+              <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-foreground/80">
                 Sete capítulos sobre o tempo que corre, as pessoas que passam e os encontros que a
                 pressa quase fez a gente perder.
               </p>
-              <div className="mt-9 flex flex-wrap gap-3">
+              <div className="mt-9 flex flex-wrap justify-center gap-3">
+                <Button asChild className="tap-press h-auto whitespace-normal rounded-full px-7 py-3.5 text-base font-semibold shadow-lift hover:bg-accent hover:text-accent-foreground">
                 <a
                   href="#comprar"
-                  className="tap-press inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground shadow-lift hover:bg-accent hover:text-accent-foreground"
                 >
                   <ShoppingBag className="size-4" aria-hidden="true" /> Garanta o seu exemplar
                 </a>
+                </Button>
+                <Button asChild variant="outline" className="tap-press h-auto rounded-full border-foreground/25 bg-transparent px-7 py-3.5 text-base hover:bg-secondary">
                 <a
                   href="#livro"
-                  className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 px-7 py-3.5 text-base font-medium hover:bg-secondary"
                 >
                   <BookOpen className="size-4" aria-hidden="true" /> Sobre o livro
                 </a>
-              </div>
-            </Reveal>
-            <Reveal delay={120}>
-              <div className="relative mx-auto max-w-sm">
-                <div
-                  className="absolute -inset-3 rounded-[2rem] bg-gradient-ember opacity-25 blur-xl"
-                  aria-hidden="true"
-                />
-                <img
-                  src={capa.url}
-                  width={1280}
-                  height={1920}
-                  alt="Capa do livro Ocupado Demais Para Você, de Vitor Adôrno"
-                  className="relative w-full rounded-2xl border border-border/70 object-cover shadow-lift"
-                />
+                </Button>
               </div>
             </Reveal>
           </div>
         </section>
 
-        {/* Sobre o livro + Para quem é este livro */}
+        {/* Sobre o livro e capa */}
         <section id="livro" className="section-fade relative overflow-hidden">
-          <div className="relative mx-auto grid max-w-6xl gap-14 px-5 py-16 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:py-24">
+          <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 py-16 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:py-24">
             <div className="text-left">
               <Reveal>
                 <h2 className="text-center font-serif text-3xl font-semibold sm:text-4xl">
@@ -244,25 +213,15 @@ function Index() {
               </div>
             </div>
 
-            <div id="para-quem">
-              <Reveal>
-                <h2 className="font-serif text-3xl font-semibold sm:text-4xl">
-                  Para quem é este livro
-                </h2>
-              </Reveal>
-              <div className="mt-8 space-y-6">
-                {paraQuem.map((item, i) => (
-                  <Reveal key={item.titulo} delay={i * 90}>
-                    <div
-                      className={i > 0 ? "border-t border-border/60 pt-6" : undefined}
-                    >
-                      <h3 className="font-serif text-lg font-semibold">{item.titulo}</h3>
-                      <p className="mt-2 leading-relaxed text-foreground/75">{item.frase}</p>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
+            <Reveal delay={120}>
+              <img
+                src={capa.url}
+                width={1280}
+                height={1920}
+                alt="Capa do livro Ocupado Demais Para Você, de Vitor Adôrno"
+                className="mx-auto w-full max-w-sm rounded-lg object-contain shadow-lift"
+              />
+            </Reveal>
           </div>
         </section>
 
@@ -272,7 +231,7 @@ function Index() {
         <section id="autor" className="section-fade relative overflow-hidden py-16 md:py-24">
           <div className="relative mx-auto max-w-5xl px-6 md:px-8">
             <Reveal>
-              <div className="relative flex flex-col gap-10 md:flex-row md:items-start md:gap-12">
+              <div className="relative flex flex-col gap-10 md:flex-row md:items-stretch md:gap-12">
                 <div className="flex shrink-0 flex-col items-center gap-6 self-center md:self-start">
                   <AutorShowcase />
                   <a
@@ -286,7 +245,8 @@ function Index() {
                     @vitorba.adorno
                   </a>
                 </div>
-                <div className="space-y-5 text-justify text-lg leading-relaxed text-foreground/85">
+                <div aria-hidden="true" className="hidden w-px shrink-0 self-stretch bg-bark md:block" />
+                <div className="min-w-0 space-y-5 text-justify text-lg leading-relaxed text-foreground/85">
                   <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o autor</h2>
                   <p>
                     Eu sou Vitor Adôrno, autor brasileiro independente, natural de Niquelândia,
@@ -340,13 +300,13 @@ function Index() {
               <LinhaDoTempo capitulos={capitulos} brilho={brilho} />
             </div>
             <div className="mt-8 text-center">
-              <button
+              <Button
                 type="button"
                 onClick={() => setQuizAberto((v) => !v)}
-                className="tap-press inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-semibold text-primary-foreground shadow-lift hover:bg-accent hover:text-accent-foreground"
+                className="tap-press h-auto whitespace-normal rounded-full px-7 py-3.5 text-base font-semibold shadow-lift hover:bg-accent hover:text-accent-foreground"
               >
-                <Sparkles className="size-4" aria-hidden="true" /> Descubra seu capítulo preferido
-              </button>
+                Descubra seu capítulo preferido
+              </Button>
             </div>
             {quizAberto && (
               <Quiz
@@ -414,11 +374,7 @@ function Index() {
                 >
                   Comprar na Uiclap
                 </a>
-                <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-                  O valor de R$ 48,15 mais frete é o preço da versão impressa vendida na Amazon.
-                  Não confunda com a versão digital para Kindle, que custa R$ 9,90 e aparece no
-                  card ao lado.
-                </p>
+                <DetalhesLivro />
               </div>
             </Reveal>
 
@@ -485,11 +441,6 @@ function Index() {
               </div>
             </Reveal>
           </div>
-
-          <p className="mt-6 text-center text-sm leading-relaxed text-foreground/80">
-            Os livros são impressos sob demanda, ou seja, cada exemplar só é produzido depois de
-            vendido. Por isso, os prazos de entrega costumam ser mais longos do que o habitual.
-          </p>
 
           <p className="mt-3 text-center text-sm italic text-muted-foreground">
             Preços sujeitos a alteração pelas plataformas de venda.
