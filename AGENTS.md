@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep the publication-details dialog in a dedicated browser-safe component using the shared Dialog and Button controls, so the purchase card remains focused and accessible.
