@@ -234,7 +234,7 @@ function Index() {
           <div className="relative mx-auto max-w-5xl px-6 md:px-8">
             <Reveal>
               <div className="relative flex flex-col gap-10 md:flex-row md:items-stretch md:gap-12">
-                <div className="flex shrink-0 flex-col items-center gap-6 self-center md:-ml-12 md:mt-16 md:self-center">
+                <div className="flex shrink-0 flex-col items-center gap-6 self-center md:-ml-28 md:mt-16 md:self-center">
                   <AutorShowcase />
                   <a
                     href="https://instagram.com/vitorba.adorno"
