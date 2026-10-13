@@ -45,7 +45,7 @@ export function AutorShowcase() {
       type="button"
       onClick={trocar}
       aria-label="Trocar foto do autor"
-      className="relative h-80 w-64 cursor-pointer md:h-[26rem] md:w-72"
+      className="relative h-96 w-[19.2rem] cursor-pointer md:h-[31.2rem] md:w-[21.6rem]"
     >
       {cartao(0)}
       {cartao(1)}

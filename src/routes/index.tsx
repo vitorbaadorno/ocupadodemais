@@ -166,8 +166,10 @@ function Index() {
           <Particles />
           <div className="relative mx-auto max-w-4xl px-5 py-16 text-center md:py-20">
             <Reveal>
-              <h1 className="font-serif text-4xl font-bold leading-[1.08] sm:text-5xl lg:text-6xl">
-                Ocupado Demais Para Você…
+              <h1 className="mx-auto max-w-3xl text-center font-serif text-4xl font-bold leading-[1.08] sm:text-5xl lg:text-6xl">
+                Ocupado Demais
+                <br />
+                Para Você…
               </h1>
               <p className="mt-4 text-lg font-medium">Vitor Adôrno</p>
               <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-foreground/80">
@@ -232,7 +234,7 @@ function Index() {
           <div className="relative mx-auto max-w-5xl px-6 md:px-8">
             <Reveal>
               <div className="relative flex flex-col gap-10 md:flex-row md:items-stretch md:gap-12">
-                <div className="flex shrink-0 flex-col items-center gap-6 self-center md:self-start">
+                <div className="flex shrink-0 flex-col items-center gap-6 self-center md:-ml-12 md:mt-16 md:self-center">
                   <AutorShowcase />
                   <a
                     href="https://instagram.com/vitorba.adorno"
