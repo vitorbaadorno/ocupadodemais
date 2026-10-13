@@ -247,7 +247,7 @@ function Index() {
                     @vitorba.adorno
                   </a>
                 </div>
-                <div aria-hidden="true" className="hidden w-px shrink-0 self-stretch bg-bark md:block" />
+                <div aria-hidden="true" className="hidden w-px shrink-0 self-stretch origin-center scale-y-[0.6] bg-bark md:block" />
                 <div className="min-w-0 space-y-5 text-justify text-lg leading-relaxed text-foreground/85">
                   <h2 className="font-serif text-3xl font-semibold sm:text-4xl">Sobre o autor</h2>
                   <p>
