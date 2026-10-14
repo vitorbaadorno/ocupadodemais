@@ -197,7 +197,7 @@ function Index() {
         </section>
 
         {/* Sobre o livro e capa */}
-        <section id="livro" className="section-fade relative overflow-hidden">
+        <section id="livro" className="relative overflow-hidden">
           <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 py-16 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:py-24">
             <div className="text-left">
               <Reveal>
@@ -230,11 +230,11 @@ function Index() {
 
 
         {/* Autor */}
-        <section id="autor" className="section-fade relative overflow-hidden py-16 md:py-24">
+        <section id="autor" className="relative overflow-hidden py-16 md:py-24">
           <div className="relative mx-auto max-w-5xl px-6 md:px-8">
             <Reveal>
               <div className="relative flex flex-col gap-10 md:flex-row md:items-stretch md:gap-12">
-                <div className="flex shrink-0 flex-col items-center gap-6 self-center max-md:-translate-x-[min(200px,calc(50vw_-_170px))] md:ml-[calc(-1*min(112px,16px_+_max(0px,(100vw_-_1024px)/2)))] md:mt-16 md:self-center">
+                <div className="flex shrink-0 flex-col items-center gap-6 self-center max-md:-translate-x-[min(300px,calc(50vw_-_170px))] md:ml-[calc(-1*min(312px,16px_+_max(0px,(100vw_-_1024px)/2)))] md:mt-16 md:self-center">
                   <AutorShowcase />
                   <a
                     href="https://instagram.com/vitorba.adorno"
@@ -287,7 +287,7 @@ function Index() {
         {/* Capítulos, linha do tempo */}
         <section
           id="capitulos"
-          className="section-fade paper-grain relative overflow-hidden bg-[#f2e6d8] py-16 md:py-24"
+          className="paper-grain relative overflow-hidden py-16 md:py-24"
         >
           <div className="relative mx-auto max-w-6xl px-5 md:px-8">
             <Reveal>
