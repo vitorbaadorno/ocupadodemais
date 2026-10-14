@@ -41,7 +41,7 @@ export function Citacoes() {
   useEffect(() => () => window.clearTimeout(fadeTimer.current), []);
 
   return (
-    <section id="citacoes" className="section-fade relative overflow-hidden py-16 md:py-24">
+    <section id="citacoes" className="relative overflow-hidden py-16 md:py-24">
       <Particles />
 
       <div className="relative mx-auto max-w-4xl px-5">

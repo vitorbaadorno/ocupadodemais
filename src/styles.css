@@ -325,28 +325,6 @@
 }
 
 
-/* ===== Transições suaves entre seções ===== */
-@utility section-fade {
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 7rem;
-    pointer-events: none;
-    z-index: 2;
-  }
-  &::before {
-    top: 0;
-    background-image: linear-gradient(to bottom, var(--background), transparent);
-  }
-  &::after {
-    bottom: 0;
-    background-image: linear-gradient(to top, var(--background), transparent);
-  }
-}
-
 /* ===== Brilho do capítulo do quiz ===== */
 @keyframes brilho-cap {
   0%, 100% { box-shadow: 0 0 0 2px color-mix(in oklab, var(--gold) 60%, transparent), 0 0 24px -4px var(--gold); }
