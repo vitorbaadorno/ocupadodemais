@@ -368,15 +368,17 @@ function Index() {
                 <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-secondary/60 px-4 py-2 text-sm">
                   <Truck className="size-4" aria-hidden="true" /> Entrega para todo o Brasil
                 </p>
-                <a
-                  href={LINK_FISICO}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="tap-press mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift hover:bg-accent hover:text-accent-foreground"
-                >
-                  Comprar na Uiclap
-                </a>
-                <DetalhesLivro />
+                <div className="mt-auto flex flex-wrap items-center gap-3 pt-8">
+                  <a
+                    href={LINK_FISICO}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="tap-press inline-flex min-w-0 flex-1 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift hover:bg-accent hover:text-accent-foreground"
+                  >
+                    Comprar na Uiclap
+                  </a>
+                  <DetalhesLivro />
+                </div>
               </div>
             </Reveal>
 
