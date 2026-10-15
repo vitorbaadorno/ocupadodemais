@@ -349,6 +349,10 @@
   border-top: 1px solid var(--border);
 }
 
+.reference-layout #autor .reference-section {
+  padding-top: 3rem;
+}
+
 .reference-layout main > section:not(#inicio) .tap-press:hover {
   transform: none;
   box-shadow: none;

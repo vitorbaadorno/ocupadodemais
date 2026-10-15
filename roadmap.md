@@ -6,6 +6,6 @@
 - [x] Verify the updated page and interactions.
 
 # Reference layout adaptation
-- [ ] Apply reference-inspired spacing, borders and controls without changing fonts, palette or hero composition.
-- [ ] Preserve all sections, copy, links and interactions.
-- [ ] Verify the layout and central interactions on desktop and smaller screens.
+- [x] Apply reference-inspired spacing, borders and controls without changing fonts, palette or hero composition.
+- [x] Preserve all sections, copy, links and interactions.
+- [x] Verify the layout and central interactions on desktop and smaller screens.
