@@ -4,3 +4,8 @@
 - [x] Correct FAQ, simplify purchase copy and quiz button.
 - [x] Add review navigation and UICLAP book details.
 - [x] Verify the updated page and interactions.
+
+# Reference layout adaptation
+- [x] Apply reference-inspired spacing, borders and controls without changing fonts, palette or hero composition.
+- [x] Preserve all sections, copy, links and interactions.
+- [x] Verify the layout and central interactions on desktop and smaller screens.

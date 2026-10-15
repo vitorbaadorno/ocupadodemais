@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Keep the publication-details dialog in a dedicated browser-safe component using the shared Dialog and Button controls, so the purchase card remains focused and accessible.
+- Scope reference-inspired layout styling under the page's layout class and exclude the hero composition; this preserves existing content and interactive behavior while keeping layout rules separate from palette and typography tokens.

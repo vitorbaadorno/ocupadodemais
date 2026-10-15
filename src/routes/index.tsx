@@ -132,11 +132,11 @@ function Index() {
   const [quizAberto, setQuizAberto] = useState(false);
   const [brilho, setBrilho] = useState<{ indice: number; chave: number } | null>(null);
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-dusk pt-[3.75rem] text-foreground">
+    <div className="reference-layout relative min-h-screen overflow-x-hidden bg-dusk pt-[3.75rem] text-foreground">
       <ProgressoLeitura />
 
       <header className="fixed inset-x-0 top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
+        <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3 md:px-8">
           <a href="#inicio" className="font-serif text-base font-semibold tracking-tight">
             Ocupado Demais Para Você…
           </a>
@@ -150,12 +150,9 @@ function Index() {
             <a href="#capitulos" className="transition-colors hover:text-primary">
               Capítulos
             </a>
-            <a
-              href="#comprar"
-              className="tap-press rounded-full bg-primary px-5 py-2 font-medium text-primary-foreground shadow-soft hover:bg-accent hover:text-accent-foreground"
-            >
-              Comprar
-            </a>
+            <Button asChild className="rounded-full px-5 shadow-none">
+              <a href="#comprar">Comprar</a>
+            </Button>
           </div>
         </nav>
       </header>
@@ -198,10 +195,10 @@ function Index() {
 
         {/* Sobre o livro e capa */}
         <section id="livro" className="relative overflow-hidden">
-          <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 py-16 md:grid-cols-[1.05fr_0.95fr] md:px-8 md:py-24">
+          <div className="reference-section relative mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:grid-cols-[1.15fr_0.85fr] md:gap-20 md:px-8 md:py-24">
             <div className="text-left">
               <Reveal>
-                <h2 className="text-center font-serif text-3xl font-semibold sm:text-4xl">
+                <h2 className="text-left font-serif text-3xl font-semibold sm:text-4xl">
                   Sobre o livro
                 </h2>
               </Reveal>
@@ -221,7 +218,7 @@ function Index() {
                 width={1280}
                 height={1920}
                 alt="Capa do livro Ocupado Demais Para Você, de Vitor Adôrno"
-                className="mx-auto w-full max-w-sm rounded-lg object-contain shadow-lift"
+                className="mx-auto w-full max-w-xs rounded-lg object-contain shadow-soft"
               />
             </Reveal>
           </div>
@@ -231,21 +228,22 @@ function Index() {
 
         {/* Autor */}
         <section id="autor" className="relative overflow-hidden py-16 md:py-24">
-          <div className="relative mx-auto max-w-5xl px-6 md:px-8">
+          <div className="reference-section relative mx-auto max-w-6xl px-5 md:px-8">
             <Reveal>
-              <div className="relative flex flex-col gap-10 md:flex-row md:items-stretch md:gap-12">
-                <div className="flex shrink-0 flex-col items-center gap-6 self-center max-md:-translate-x-[min(300px,calc(50vw_-_170px))] md:ml-[calc(-1*min(312px,16px_+_max(0px,(100vw_-_1024px)/2)))] md:mt-16 md:self-center">
+              <div className="relative grid items-center gap-10 md:grid-cols-[minmax(0,0.85fr)_1px_minmax(0,1.15fr)] md:gap-10 lg:gap-16">
+                <div className="flex min-w-0 flex-col items-center gap-6 self-center">
                   <AutorShowcase />
+                  <Button asChild variant="outline" className="h-auto rounded-full bg-transparent px-5 py-2.5 shadow-none">
                   <a
                     href="https://instagram.com/vitorba.adorno"
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Instagram do autor: @vitorba.adorno"
-                    className="tap-press inline-flex items-center gap-2 rounded-full border border-foreground/25 bg-background/70 px-4 py-2 text-sm font-medium hover:bg-secondary"
                   >
                     <Instagram className="size-4 text-primary" aria-hidden="true" />
                     @vitorba.adorno
                   </a>
+                  </Button>
                 </div>
                 <div aria-hidden="true" className="hidden w-px shrink-0 self-stretch origin-center scale-y-[0.6] bg-bark md:block" />
                 <div className="min-w-0 space-y-5 text-justify text-lg leading-relaxed text-foreground/85">
@@ -289,7 +287,7 @@ function Index() {
           id="capitulos"
           className="paper-grain relative overflow-hidden py-16 md:py-24"
         >
-          <div className="relative mx-auto max-w-6xl px-5 md:px-8">
+          <div className="reference-section relative mx-auto max-w-6xl px-5 md:px-8">
             <Reveal>
               <h2 className="text-center font-serif text-3xl font-semibold sm:text-4xl">
                 Os sete capítulos
@@ -329,7 +327,7 @@ function Index() {
 
 
         {/* Comprar */}
-        <section id="comprar" className="mx-auto max-w-5xl px-5 py-20 md:py-28">
+        <section id="comprar" className="reference-section mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
           <Reveal>
             <h2 className="text-center font-serif text-3xl font-semibold sm:text-4xl">
               Onde encontrar o livro
@@ -340,7 +338,7 @@ function Index() {
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <Reveal>
-              <div className="glow-melhor-preco relative flex h-full flex-col rounded-3xl border border-primary/50 bg-card p-8 shadow-soft">
+              <div className="purchase-card relative flex h-full flex-col rounded-lg border border-primary/50 bg-card p-6 shadow-soft md:p-8">
                 <span className="absolute -top-3 left-8 inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground shadow-soft">
                   Melhor preço
                 </span>
@@ -369,21 +367,22 @@ function Index() {
                   <Truck className="size-4" aria-hidden="true" /> Entrega para todo o Brasil
                 </p>
                 <div className="mt-auto flex flex-wrap items-center gap-3 pt-8">
+                  <Button asChild className="purchase-action h-12 min-w-0 flex-1 rounded-full px-5 font-semibold shadow-none">
                   <a
                     href={LINK_FISICO}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="tap-press inline-flex min-w-0 flex-1 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift hover:bg-accent hover:text-accent-foreground"
                   >
                     Comprar na Uiclap
                   </a>
+                  </Button>
                   <DetalhesLivro />
                 </div>
               </div>
             </Reveal>
 
             <Reveal delay={100}>
-              <div className="flex h-full flex-col rounded-3xl border border-border/70 bg-card p-8 shadow-soft">
+              <div className="purchase-card flex h-full flex-col rounded-lg border border-border/70 bg-card p-6 shadow-soft md:p-8">
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <span className="inline-flex items-center gap-2 rounded-md border border-accent/70 px-2 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
@@ -434,14 +433,15 @@ function Index() {
                   <Truck className="size-4" aria-hidden="true" /> Entrega para todo o Brasil
                 </p>
 
+                <Button asChild className="purchase-action mt-auto h-12 rounded-full px-5 font-semibold shadow-none">
                 <a
                   href={LINK_KINDLE}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="tap-press mt-auto inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lift hover:bg-accent hover:text-accent-foreground"
                 >
                   Comprar na Amazon
                 </a>
+                </Button>
               </div>
             </Reveal>
           </div>
@@ -455,15 +455,15 @@ function Index() {
         </section>
 
         {/* FAQ */}
-        <section id="faq" className="mx-auto max-w-3xl px-5 pb-20 md:pb-28">
-          <h2 className="text-center font-serif text-3xl font-semibold sm:text-4xl">
+        <section id="faq" className="reference-section mx-auto max-w-4xl px-5 pb-20 md:px-8 md:pb-28">
+          <h2 className="text-left font-serif text-3xl font-semibold sm:text-4xl">
             Perguntas frequentes
           </h2>
-          <div className="mt-10 space-y-4">
+          <div className="mt-10 space-y-2">
             {faq.map((f) => (
               <details
                 key={f.p}
-                className="group rounded-3xl border border-border/70 bg-card px-6 py-4 shadow-soft"
+                className="group rounded-lg border border-border/70 bg-card px-5 py-4"
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold">
                   {f.p}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { RotateCcw } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 // Cada opção soma pontos para um capítulo (índice 0 a 6).
 const PERGUNTAS: { pergunta: string; opcoes: { texto: string; cap: number }[] }[] = [
@@ -90,7 +91,7 @@ export function Quiz({
   };
 
   return (
-    <div className="mx-auto mt-8 max-w-2xl rounded-3xl border border-border/70 bg-card p-6 shadow-soft md:p-8">
+    <div className="mx-auto mt-8 max-w-2xl rounded-lg border border-border/70 bg-card p-6 shadow-soft md:p-8">
       {resultado === null ? (
         <>
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary">
@@ -99,14 +100,15 @@ export function Quiz({
           <h3 className="mt-2 font-sans text-xl font-semibold">{PERGUNTAS[passo].pergunta}</h3>
           <div className="mt-5 grid gap-3">
             {PERGUNTAS[passo].opcoes.map((o) => (
-              <button
+              <Button
                 key={o.texto}
                 type="button"
                 onClick={() => responder(o.cap)}
-                className="tap-press rounded-2xl border border-border/70 bg-background/60 px-5 py-3 text-left hover:border-primary/60 hover:bg-secondary/40"
+                variant="outline"
+                className="h-auto justify-start whitespace-normal rounded-lg border-border/70 bg-background/60 px-5 py-3 text-left text-base shadow-none hover:border-primary/60 hover:bg-secondary/40"
               >
                 {o.texto}
-              </button>
+              </Button>
             ))}
           </div>
         </>
@@ -117,13 +119,14 @@ export function Quiz({
           </p>
           <h3 className="mt-2 font-serif text-2xl font-semibold">{capitulos[resultado].titulo}</h3>
           <p className="mt-3 text-foreground/75">{capitulos[resultado].frase}</p>
-          <button
+          <Button
             type="button"
             onClick={reiniciar}
-            className="tap-press mt-6 inline-flex items-center gap-2 rounded-full border border-foreground/25 px-5 py-2 text-sm font-medium hover:bg-secondary"
+            variant="outline"
+            className="mt-6 h-auto rounded-full border-foreground/25 px-5 py-2 shadow-none hover:bg-secondary"
           >
             <RotateCcw className="size-4" aria-hidden="true" /> Refazer o quiz
-          </button>
+          </Button>
         </div>
       )}
     </div>

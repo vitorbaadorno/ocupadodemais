@@ -104,7 +104,7 @@ export function Citacoes() {
         </div>
 
         {/* Newsletter (espaço reservado) */}
-        <div className="mx-auto mt-14 max-w-xl rounded-3xl border border-border/70 bg-card p-8 text-center shadow-soft">
+        <div className="mx-auto mt-14 max-w-xl border-y border-border/70 px-5 py-8 text-center">
           <h3 className="font-serif text-2xl font-semibold">Newsletter</h3>
           <p className="mt-2 text-foreground/75">
             Em breve, um espaço para receber novos textos e novidades do livro.

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ImageIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const FOTO = "/assets/vitor-adorno.png";
 // Espaço reservado: troque por "/assets/sua-segunda-foto.png" quando tiver a imagem.
@@ -24,7 +25,7 @@ export function AutorShowcase() {
     const pos = naFrente
       ? "z-20 translate-x-0 rotate-0"
       : "z-10 translate-x-6 -translate-y-4 rotate-6 opacity-80 md:translate-x-8";
-    const base = `absolute inset-0 rounded-3xl border-4 border-accent shadow-soft transition-all duration-700 ease-out ${pos}`;
+    const base = `absolute inset-0 rounded-lg border border-accent shadow-soft transition-all duration-700 ease-out ${pos}`;
     if (i === 0) {
       return <img key={i} src={FOTO} alt="Foto do autor Vitor Adôrno" className={`${base} size-full object-cover`} />;
     }
@@ -41,14 +42,15 @@ export function AutorShowcase() {
   };
 
   return (
-    <button
+    <Button
       type="button"
       onClick={trocar}
       aria-label="Trocar foto do autor"
-      className="relative h-96 w-[19.2rem] cursor-pointer md:h-[31.2rem] md:w-[21.6rem]"
+      variant="ghost"
+      className="relative aspect-[9/13] h-auto w-full max-w-[21.6rem] shrink-0 cursor-pointer rounded-lg p-0 hover:bg-transparent"
     >
       {cartao(0)}
       {cartao(1)}
-    </button>
+    </Button>
   );
 }

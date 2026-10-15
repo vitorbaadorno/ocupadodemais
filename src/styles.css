@@ -335,3 +335,51 @@
   animation: brilho-cap 1.4s ease-in-out 4;
   border-color: var(--ember);
 }
+
+/* Reference-inspired framing, without changing the book's palette or type. */
+.reference-layout {
+  --shadow-soft: 0 3px 8px -4px color-mix(in oklab, var(--bark) 18%, transparent);
+}
+
+.reference-layout #inicio {
+  --shadow-soft: 0 18px 40px -24px color-mix(in oklab, var(--bark) 55%, transparent);
+}
+
+.reference-layout .reference-section {
+  border-top: 1px solid var(--border);
+}
+
+.reference-layout #autor .reference-section {
+  padding-top: 3rem;
+}
+
+.reference-layout main > section:not(#inicio) .tap-press:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.reference-layout .purchase-card > p.inline-flex {
+  border-radius: 0;
+  background: transparent;
+  padding-inline: 0;
+}
+
+.reference-layout .chapter-card {
+  min-height: 19rem;
+}
+
+.reference-layout #faq summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .reference-layout #autor button[aria-label="Trocar foto do autor"] {
+    max-width: min(21.6rem, calc(100vw - 6rem));
+  }
+
+  .reference-layout .purchase-action {
+    white-space: normal;
+    height: auto;
+    min-height: 3rem;
+  }
+}
