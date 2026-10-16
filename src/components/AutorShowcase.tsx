@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { ImageIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const FOTO = "/assets/vitor-adorno.png";
+const FOTO = "/assets/autor-1.webp";
 // Espaço reservado: troque por "/assets/sua-segunda-foto.png" quando tiver a imagem.
-const FOTO_2: string | null = null;
+const FOTO_2: string | null = "/assets/autor-2.webp";
 
 export function AutorShowcase() {
   const [frente, setFrente] = useState(0);

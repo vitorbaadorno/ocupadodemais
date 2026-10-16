@@ -383,3 +383,62 @@
     min-height: 3rem;
   }
 }
+
+/* ===== Máquina de escrever no topo ===== */
+@keyframes caret-blink { 50% { opacity: 0; } }
+.typewriter-caret {
+  display: inline-block;
+  width: 0.06em;
+  height: 0.9em;
+  margin-left: 0.04em;
+  vertical-align: -0.08em;
+  background: currentColor;
+  animation: caret-blink 0.8s steps(1) infinite;
+}
+
+/* ===== Elementos das bordas: dissolver para aparecer ===== */
+.dissolve {
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity 1.6s ease, filter 1.8s ease;
+}
+.dissolve.dissolve-on {
+  opacity: 0.85;
+  filter: blur(0);
+}
+@media (max-width: 767px) {
+  .dissolve { width: 3rem !important; }
+  .dissolve.dissolve-on { opacity: 0.45; }
+}
+
+/* ===== Newsletter (Kit) com a identidade do site ===== */
+.newsletter-kit form,
+.newsletter-kit .formkit-form {
+  max-width: 100% !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-family: var(--font-sans) !important;
+}
+.newsletter-kit [data-style="clean"] { padding: 0 !important; }
+.newsletter-kit .formkit-fields { gap: 0.75rem; }
+.newsletter-kit input.formkit-input {
+  border-radius: 9999px !important;
+  border: 1px solid var(--border) !important;
+  background: var(--card) !important;
+  color: var(--foreground) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 1rem !important;
+}
+.newsletter-kit input.formkit-input:focus { border-color: var(--ember) !important; outline: none; }
+.newsletter-kit button.formkit-submit {
+  border-radius: 9999px !important;
+  background: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+}
+.newsletter-kit button.formkit-submit > span { padding: 0.75rem 1.5rem !important; }
+.newsletter-kit .formkit-powered-by-convertkit-container { display: none !important; }
+.newsletter-kit .formkit-guarantee,
+.newsletter-kit .formkit-alert { color: var(--muted-foreground) !important; font-family: var(--font-sans) !important; }

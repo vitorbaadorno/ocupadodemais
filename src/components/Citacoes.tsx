@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { Particles } from "@/components/Atmosphere";
 import { Button } from "@/components/ui/button";
+import { Newsletter } from "@/components/Newsletter";
 
 const CITACOES = [
   "Crescer é isso. Continuar sentado à mesa, mas carregando dentro de si o menino que mal conseguia ficar parado.",
@@ -107,8 +108,9 @@ export function Citacoes() {
         <div className="mx-auto mt-14 max-w-xl border-y border-border/70 px-5 py-8 text-center">
           <h3 className="font-serif text-2xl font-semibold">Newsletter</h3>
           <p className="mt-2 text-foreground/75">
-            Em breve, um espaço para receber novos textos e novidades do livro.
+            Um espaço para receber novos textos e novidades do livro (quem sabe um desconto...).
           </p>
+          <Newsletter />
         </div>
       </div>
     </section>
