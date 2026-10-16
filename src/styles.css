@@ -397,6 +397,16 @@
 }
 
 /* ===== Elementos das bordas: dissolver para aparecer ===== */
+@keyframes border-travel {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-1deg); }
+  35% { transform: translate3d(5px, -12px, 0) rotate(1deg); }
+  70% { transform: translate3d(-4px, 8px, 0) rotate(-0.5deg); }
+}
+.border-illustration {
+  animation: border-travel 28s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.border-illustration-active { animation-play-state: running; }
 .dissolve {
   opacity: 0;
   filter: blur(10px);
@@ -407,8 +417,24 @@
   filter: blur(0);
 }
 @media (max-width: 767px) {
-  .dissolve { width: 3rem !important; }
+  .border-illustration { width: 1.75rem !important; }
+  .dissolve.dissolve-on { opacity: 0.3; }
+  @keyframes border-travel {
+    0%, 100% { transform: translate3d(0, 0, 0) rotate(-1deg); }
+    35% { transform: translate3d(2px, -6px, 0) rotate(1deg); }
+    70% { transform: translate3d(-2px, 4px, 0) rotate(-0.5deg); }
+  }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .border-illustration { width: 2.5rem !important; }
   .dissolve.dissolve-on { opacity: 0.45; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .border-illustration { animation: none; }
+  .dissolve { opacity: 0.85; filter: none; transition: none; }
+}
+@media (prefers-reduced-motion: reduce) and (max-width: 767px) {
+  .dissolve { opacity: 0.3; }
 }
 
 /* ===== Newsletter (Kit) com a identidade do site ===== */

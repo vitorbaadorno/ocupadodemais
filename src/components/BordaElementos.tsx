@@ -11,6 +11,8 @@ const ITENS = Array.from({ length: 32 }, (_, i) => {
     offset: `${-1 + ((i * 7) % 4)}%`,
     width: 4.5 + ((i * 5) % 4),
     rotate: ((i * 13) % 20) - 10,
+    duration: 22 + ((i * 7) % 13),
+    delay: -((i * 11) % 29),
   } as const;
 });
 
@@ -29,8 +31,8 @@ export function BordaElementos() {
         entries.forEach((e) => {
           if (e.isIntersecting) {
             e.target.classList.add("dissolve-on");
-            io.unobserve(e.target);
           }
+          e.target.parentElement?.classList.toggle("border-illustration-active", e.isIntersecting);
         }),
       { threshold: 0.2 },
     );
@@ -41,19 +43,26 @@ export function BordaElementos() {
   return (
     <div ref={ref} aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
       {ITENS.map((it) => (
-        <img
+        <div
           key={it.src}
-          src={it.src}
-          alt=""
-          loading="lazy"
-          className="dissolve absolute h-auto max-w-[9rem]"
+          className="border-illustration absolute max-w-[9rem]"
           style={{
             top: it.top,
             [it.lado]: it.offset,
             width: `${it.width}rem`,
-            transform: `rotate(${it.rotate}deg)`,
+            animationDuration: `${it.duration}s`,
+            animationDelay: `${it.delay}s`,
           }}
-        />
+        >
+          <img
+            src={it.src}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="dissolve block h-auto w-full"
+            style={{ transform: `rotate(${it.rotate}deg)` }}
+          />
+        </div>
       ))}
     </div>
   );

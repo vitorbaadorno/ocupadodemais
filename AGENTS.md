@@ -11,3 +11,4 @@
 
 - Keep the publication-details dialog in a dedicated browser-safe component using the shared Dialog and Button controls, so the purchase card remains focused and accessible.
 - Scope reference-inspired layout styling under the page's layout class and exclude the hero composition; this preserves existing content and interactive behavior while keeping layout rules separate from palette and typography tokens.
+- Keep edge-decoration drift on an outer wrapper, pause it offscreen and honor reduced motion; this preserves image rotation and reveal effects without continuous offscreen animation.
