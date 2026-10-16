@@ -12,8 +12,10 @@ import { ProgressoLeitura } from "@/components/ProgressoLeitura";
 import { Quiz } from "@/components/Quiz";
 import { AutorShowcase } from "@/components/AutorShowcase";
 import { DetalhesLivro } from "@/components/DetalhesLivro";
+import { Typewriter } from "@/components/Typewriter";
+import { BordaElementos } from "@/components/BordaElementos";
 import { Button } from "@/components/ui/button";
-const capa = { url: "/assets/capa-livro.webp" };
+const capa = { url: "/assets/capa-arte.webp" };
 
 
 
@@ -157,18 +159,19 @@ function Index() {
         </nav>
       </header>
 
-      <main className="relative">
+      <BordaElementos />
+      <main className="relative z-[1]">
         {/* Hero */}
         <section id="inicio" className="relative overflow-hidden">
           <Particles />
           <div className="relative mx-auto max-w-4xl px-5 py-16 text-center md:py-20">
             <Reveal>
               <h1 className="mx-auto max-w-3xl text-center font-serif text-4xl font-bold leading-[1.08] sm:text-5xl lg:text-6xl">
-                Ocupado Demais
+                <Typewriter text="Ocupado Demais" />
                 <br />
-                Para Você…
+                <Typewriter text="Para Você…" delay={900} />
               </h1>
-              <p className="mt-4 text-lg font-medium">Vitor Adôrno</p>
+              <p className="mt-4 text-lg font-medium"><Typewriter text="Vitor Adôrno" delay={1800} /></p>
               <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-foreground/80">
                 Sete capítulos sobre o tempo que corre, as pessoas que passam e os encontros que a
                 pressa quase fez a gente perder.
@@ -366,8 +369,8 @@ function Index() {
                 <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-secondary/60 px-4 py-2 text-sm">
                   <Truck className="size-4" aria-hidden="true" /> Entrega para todo o Brasil
                 </p>
-                <div className="mt-auto flex flex-wrap items-center gap-3 pt-8">
-                  <Button asChild className="purchase-action h-12 min-w-0 flex-1 rounded-full px-5 font-semibold shadow-none">
+                <div className="mt-auto flex flex-col gap-3 pt-8">
+                  <Button asChild className="purchase-action h-12 w-full rounded-full px-5 text-lg font-semibold shadow-none">
                   <a
                     href={LINK_FISICO}
                     target="_blank"
@@ -433,7 +436,7 @@ function Index() {
                   <Truck className="size-4" aria-hidden="true" /> Entrega para todo o Brasil
                 </p>
 
-                <Button asChild className="purchase-action mt-auto h-12 rounded-full px-5 font-semibold shadow-none">
+                <Button asChild className="purchase-action mt-auto h-12 rounded-full px-5 text-lg font-semibold shadow-none">
                 <a
                   href={LINK_KINDLE}
                   target="_blank"

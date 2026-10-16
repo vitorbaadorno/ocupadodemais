@@ -18,7 +18,7 @@ export function DetalhesLivro() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" className="h-12 shrink-0 rounded-full border-foreground/25 bg-transparent px-5 text-base shadow-none">
+        <Button variant="outline" className="h-12 w-full rounded-full border-foreground/25 bg-transparent px-5 text-lg shadow-none">
           Detalhes
         </Button>
       </DialogTrigger>
