@@ -9,3 +9,5 @@
 - [x] Apply reference-inspired spacing, borders and controls without changing fonts, palette or hero composition.
 - [x] Preserve all sections, copy, links and interactions.
 - [x] Verify the layout and central interactions on desktop and smaller screens.
+# Oct 16
+- [x] Typewriter hero, Kit newsletter, stacked UICLAP buttons, edge illustrations, new cover and author photos.
