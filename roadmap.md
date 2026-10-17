@@ -11,5 +11,5 @@
 - [x] Verify the layout and central interactions on desktop and smaller screens.
 # Oct 16
 - [x] Typewriter hero, Kit newsletter, stacked UICLAP buttons, edge illustrations, new cover and author photos.
-- [ ] Upscale all edge illustrations and add subtle, accessible drifting motion.
-- [ ] Verify and adapt the existing layout on mobile devices.
+- [x] Upscale all edge illustrations and add subtle, accessible drifting motion.
+- [x] Verify and adapt the existing layout on mobile devices.
