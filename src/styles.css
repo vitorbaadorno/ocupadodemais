@@ -438,6 +438,32 @@
 }
 
 /* ===== Newsletter (Kit) com a identidade do site ===== */
+@media (max-width: 767px) {
+  .reference-layout #citacoes button[aria-label],
+  .reference-layout #leitores button[aria-label] {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+  }
+  .reference-layout footer a[aria-label] {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+  .reference-layout header nav > a {
+    display: flex;
+    align-items: center;
+    min-height: 2.75rem;
+  }
+  .reference-layout .purchase-card > div:first-of-type {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .reference-layout .purchase-card > div:first-of-type > div { min-width: 0; }
+}
+@media (max-width: 359px) {
+  .reference-layout #inicio h1 { font-size: 1.875rem; }
+}
 .newsletter-kit form,
 .newsletter-kit .formkit-form {
   max-width: 100% !important;

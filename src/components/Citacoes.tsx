@@ -88,18 +88,20 @@ export function Citacoes() {
               <ChevronRight className="size-4" />
             </Button>
           </div>
-          <div className="flex gap-2">
+          <div className="flex max-w-full flex-wrap justify-center">
             {CITACOES.map((c, i) => (
-              <button
+              <Button
                 key={c}
                 type="button"
+                variant="ghost"
+                size="icon"
                 onClick={() => manual(() => i)}
                 aria-label={`Ver trecho ${i + 1}`}
                 aria-current={i === index}
-                className={`size-2.5 rounded-full transition-transform duration-200 hover:scale-125 ${
-                  i === index ? "scale-125 bg-primary" : "bg-foreground/30"
-                }`}
-              />
+                className="size-11 rounded-full"
+              >
+                <span aria-hidden="true" className={`size-2.5 rounded-full transition-transform duration-200 ${i === index ? "scale-125 bg-primary" : "bg-foreground/30"}`} />
+              </Button>
             ))}
           </div>
         </div>
