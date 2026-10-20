@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.md whitespace=-blank-at-eol
+*.png binary
+*.woff2 binary
