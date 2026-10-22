@@ -6,20 +6,7 @@ export function TypewriterTitle() {
   useEffect(() => {
     const el = title.current;
     if (!el) return;
-    const key = "odpv:title-seen:v1";
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let seen = false;
-    try {
-      seen = localStorage.getItem(key) === "true";
-    } catch {
-      /* Storage can be unavailable. */
-    }
-    if (seen) return;
-    try {
-      localStorage.setItem(key, "true");
-    } catch {
-      /* Animation still works without persistence. */
-    }
     if (motion.matches) return;
     const letters = Array.from(el.querySelectorAll<HTMLElement>("[data-letter]"));
     letters.forEach((letter) => {

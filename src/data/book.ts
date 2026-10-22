@@ -56,7 +56,15 @@ export const testimonials = [
     text: "As histórias são leves, mas carregam reflexões que ficam na mente após a leitura.",
     name: "Pietra Yassmin",
     source: "Instagram · @enjoeidesselivro",
-    url: "https://www.instagram.com/enjoeidesselivro/",
+    url: "https://www.instagram.com/p/DcRHLHOR6NS/",
+    rating: 4,
+  },
+  {
+    text: "Gostei bastante do livro e da forma como as histórias nos fazem parar por alguns instantes e pensar sobre a vida.",
+    name: "Pandoca Livros",
+    source: "Instagram · Pandoca Livros",
+    url: "https://www.instagram.com/p/DclyYDPDtUK/?img_index=2",
+    rating: 4,
   },
   {
     text: "As histórias são leves, mas carregam reflexões que ficam na mente após a leitura.",

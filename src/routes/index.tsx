@@ -1,40 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  ArrowDown,
-  ArrowUpRight,
-  BookOpen,
-  Heart,
-  Clock3,
-  MessageCircle,
-  Plus,
-  X,
-  Menu,
-} from "lucide-react";
-import { useState } from "react";
-import { book, chapters, testimonials } from "../data/book";
+import { BookOpen, X, Menu } from "lucide-react";
+import { useEffect, useState } from "react";
+import { book, testimonials } from "../data/book";
+import { HeroArtwork } from "../components/HeroArtwork";
 import { TypewriterTitle } from "../components/TypewriterTitle";
 import { Excerpts } from "../components/Excerpts";
 
+import { ChapterTimeline } from "../components/ui/ChapterTimeline";
+import { TestimonialCard } from "../components/ui/TestimonialCard";
+import { ScrollReveal } from "../components/ScrollReveal";
+import { FAQ } from "../components/FAQ";
+import { SocialLinks } from "../components/SocialLinks";
+
 export const Route = createFileRoute("/")({ component: Home });
 
-function ImagePlaceholder({ label, className = "" }: { label: string; className?: string }) {
+function BookCover() {
   return (
-    <div
-      className={`image-placeholder ${className}`}
-      role="img"
-      aria-label={`Espaço reservado: ${label}`}
-    >
-      <span className="placeholder-cross cross-tl" aria-hidden="true">
-        +
-      </span>
-      <span className="placeholder-cross cross-br" aria-hidden="true">
-        +
-      </span>
-      <div className="placeholder-label">
-        <span className="placeholder-line" aria-hidden="true" />
-        <span>{label}</span>
-        <span className="placeholder-note">Espaço reservado para imagem</span>
-      </div>
+    <div className="purchase-cover">
+      <img
+        className="cover-art"
+        src="/artwork/arte-capa-preview.webp"
+        alt="Arte da capa de Ocupado Demais Para Você"
+        width="480"
+        height="720"
+        loading="lazy"
+      />
     </div>
   );
 }
@@ -55,7 +45,7 @@ function Header() {
         </nav>
         <div className="header-actions">
           <a className="button primary small" href="#comprar">
-            Quero ler <ArrowUpRight size={15} aria-hidden="true" />
+            Quero ler
           </a>
           <button
             className="menu-toggle icon-button"
@@ -88,7 +78,6 @@ function Header() {
           ].map(([href, label]) => (
             <a key={href} href={href} onClick={() => setOpen(false)}>
               {label}
-              <ArrowUpRight size={16} aria-hidden="true" />
             </a>
           ))}
         </nav>
@@ -98,20 +87,27 @@ function Header() {
 }
 
 function Home() {
+  const [entrance, setEntrance] = useState(0);
+  useEffect(() => {
+    const replay = (event: PageTransitionEvent) => {
+      if (event.persisted) setEntrance((value) => value + 1);
+    };
+    window.addEventListener("pageshow", replay);
+    return () => window.removeEventListener("pageshow", replay);
+  }, []);
   return (
     <>
       <a className="skip-link" href="#conteudo">
         Pular para o conteúdo
       </a>
       <Header />
+      <ScrollReveal key={`reveal-${entrance}`} />
       <main id="conteudo">
         <section id="inicio" className="hero" aria-label="Apresentação do livro">
+          <HeroArtwork key={`artwork-${entrance}`} />
           <div className="container">
-            <p className="eyebrow hero-eyebrow">
-              <span className="small-dash" />
-              Um livro de Vitor Adôrno
-            </p>
-            <TypewriterTitle />
+            <p className="eyebrow hero-eyebrow">Um livro de Vitor Adôrno</p>
+            <TypewriterTitle key={`title-${entrance}`} />
             <p className="hero-subtitle">Prosa reflexiva sobre tempo, memória e encontros.</p>
             <p className="hero-description">
               Sete capítulos. Um convite a olhar com mais calma
@@ -119,26 +115,11 @@ function Home() {
             </p>
             <div className="hero-buttons">
               <a className="button primary" href="#comprar">
-                Encontre seu exemplar <ArrowUpRight size={18} aria-hidden="true" />
+                Encontre seu exemplar
               </a>
               <a className="text-link" href="#citacoes">
                 <BookOpen size={18} aria-hidden="true" /> Ler um trecho
               </a>
-            </div>
-            <div className="hero-art">
-              <div className="art-caption">
-                <span>Ocupado Demais Para Você…</span>
-                <span>
-                  Nova edição <span aria-hidden="true">↗</span>
-                </span>
-              </div>
-              <ImagePlaceholder label="O universo ODPV" className="landscape-placeholder" />
-              <div className="art-footer">
-                <span>Tempo. Memória. Presença.</span>
-                <a href="#livro" aria-label="Conhecer o livro">
-                  <ArrowDown size={17} aria-hidden="true" />
-                </a>
-              </div>
             </div>
           </div>
         </section>
@@ -163,77 +144,38 @@ function Home() {
                   Uma caixa de brinquedos, uma conversa na praça, um álbum de fotografias. Histórias
                   do cotidiano que convidam a desacelerar e perceber quem está por perto.
                 </p>
-                <a className="text-link underlined" href="#citacoes">
-                  Conheça a escrita <ArrowUpRight size={17} aria-hidden="true" />
+                <a className="button outline" href="#citacoes">
+                  Conheça a escrita
                 </a>
               </div>
-            </div>
-            <div className="audience-heading">
-              <span className="eyebrow">Talvez estas páginas sejam para você</span>
-              <span className="rule" />
-            </div>
-            <div className="audience-grid">
-              {[
-                {
-                  Icon: Clock3,
-                  title: "Se a rotina corre demais",
-                  text: "E faz falta um momento para conversar sem olhar o relógio.",
-                },
-                {
-                  Icon: Heart,
-                  title: "Se a memória faz companhia",
-                  text: "E algumas amizades continuam perto, mesmo de longe.",
-                },
-                {
-                  Icon: MessageCircle,
-                  title: "Se o cotidiano diz muito",
-                  text: "E um gesto pequeno pode contar uma história inteira.",
-                },
-              ].map(({ Icon, title, text }) => (
-                <div className="audience-item" key={title}>
-                  <Icon size={22} strokeWidth={1.5} aria-hidden="true" />
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </div>
-              ))}
             </div>
           </div>
         </section>
 
         <Excerpts />
 
-        <section id="capitulos" className="section chapters" aria-labelledby="chapters-title">
-          <div className="container chapter-grid">
-            <div className="chapter-intro">
-              <span className="eyebrow">O caminho da leitura</span>
-              <h2 id="chapters-title">
-                Sete capítulos. <br />
-                Muitas formas <br />
-                de se encontrar.
-              </h2>
-              <p>Conheça as histórias que atravessam estas páginas, uma de cada vez.</p>
-              <span className="chapter-note">
-                01 — 07 <span aria-hidden="true">↘</span>
-              </span>
-            </div>
-            <div className="chapter-list">
-              {chapters.map((chapter, index) => (
-                <details className="chapter" key={chapter.title}>
-                  <summary>
-                    <span className="chapter-number">0{index + 1}</span>
-                    <h3>{chapter.title}</h3>
-                    <Plus size={18} className="chapter-plus" aria-hidden="true" />
-                  </summary>
-                  <p>{chapter.description}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
+        <ChapterTimeline />
 
         <section id="autor" className="section author" aria-labelledby="author-title">
           <div className="container author-grid">
-            <ImagePlaceholder label="Vitor Adôrno" className="portrait-placeholder" />
+            <div className="author-artwork">
+              <img
+                className="author-photo"
+                src="/artwork/autor-2x.webp"
+                alt="Vitor Adôrno ao ar livre"
+                width="1800"
+                height="1800"
+                loading="lazy"
+              />
+              <img
+                className="author-photo-inset"
+                src="/artwork/autor-retrato-2x.webp"
+                alt="Retrato de Vitor Adôrno usando óculos"
+                width="2160"
+                height="3670"
+                loading="lazy"
+              />
+            </div>
             <div className="author-copy">
               <span className="eyebrow">Quem escreve</span>
               <h2 id="author-title">Vitor Adôrno</h2>
@@ -251,12 +193,12 @@ function Home() {
                 como <em>Pensamentos de um Jovem Moderno</em>.
               </p>
               <a
-                className="text-link underlined"
+                className="button outline"
                 href="https://www.instagram.com/vitorba.adorno/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Acompanhe o autor <ArrowUpRight size={17} aria-hidden="true" />
+                Acompanhe o autor
               </a>
             </div>
           </div>
@@ -274,22 +216,7 @@ function Home() {
             </div>
             <div className="testimonial-grid">
               {testimonials.map((item) => (
-                <figure className="testimonial" key={item.name}>
-                  <span className="testimonial-quote" aria-hidden="true">
-                    “
-                  </span>
-                  <blockquote>“{item.text}”</blockquote>
-                  <figcaption>
-                    <strong>{item.name}</strong>
-                    {item.url ? (
-                      <a href={item.url} target="_blank" rel="noopener noreferrer">
-                        {item.source} <span aria-hidden="true">↗</span>
-                      </a>
-                    ) : (
-                      <span>{item.source}</span>
-                    )}
-                  </figcaption>
-                </figure>
+                <TestimonialCard item={item} key={item.name} />
               ))}
             </div>
           </div>
@@ -305,11 +232,11 @@ function Home() {
             <div className="purchase-grid">
               <article className="purchase-card physical">
                 <div className="purchase-top">
-                  <span className="eyebrow">No papel</span>
-                  <span className="store-name">UICLAP ↗</span>
+                  <span className="edition-badge">Edição física</span>
+                  <span className="store-name">UICLAP</span>
                 </div>
                 <div className="physical-body">
-                  <ImagePlaceholder label="Capa do livro" className="cover-placeholder" />
+                  <BookCover />
                   <div>
                     <h3>Livro físico</h3>
                     <p className="price">{book.physicalPrice}</p>
@@ -322,26 +249,33 @@ function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Comprar na UICLAP <ArrowUpRight size={18} aria-hidden="true" />
+                  Comprar na UICLAP
                 </a>
                 <p className="fine-print">Consulte o prazo de produção e entrega na loja.</p>
               </article>
               <article className="purchase-card digital">
                 <div className="purchase-top">
                   <span className="eyebrow">Na sua tela</span>
-                  <span className="store-name">AMAZON ↗</span>
+                  <span className="store-name">AMAZON</span>
                 </div>
-                <BookOpen size={33} strokeWidth={1.3} aria-hidden="true" />
-                <h3>Livro digital</h3>
-                <p>Para ler no Kindle ou no aplicativo Kindle, no seu ritmo.</p>
-                <p className="digital-price">Consulte o preço na Amazon.</p>
+                <div className="physical-body">
+                  <BookCover />
+                  <div>
+                    <h3>Livro digital</h3>
+                    <p className="price">R$ 9,90</p>
+                    <p className="kindle-unlimited">Incluído na assinatura Kindle Unlimited.</p>
+                    <p className="fine-print">
+                      Para ler no Kindle ou no aplicativo Kindle, no seu ritmo.
+                    </p>
+                  </div>
+                </div>
                 <a
                   className="button outline"
                   href={book.kindleUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Ver edição Kindle <ArrowUpRight size={18} aria-hidden="true" />
+                  Ver edição Kindle
                 </a>
               </article>
             </div>
@@ -351,6 +285,7 @@ function Home() {
             </p>
           </div>
         </section>
+        <FAQ />
       </main>
       <footer className="site-footer">
         <div className="container">
@@ -373,14 +308,12 @@ function Home() {
             <div className="footer-contact">
               <span className="eyebrow">Vamos conversar</span>
               <a href={`mailto:${book.email}`}>{book.email}</a>
-              <a href="https://linktr.ee/ocupadoparavoce" target="_blank" rel="noopener noreferrer">
-                Encontre o ODPV nas redes ↗
-              </a>
+              <SocialLinks />
             </div>
           </div>
           <div className="footer-bottom">
             <p>© 2026 Vitor Adôrno. Todos os direitos reservados.</p>
-            <a href="#inicio">Voltar ao início ↑</a>
+            <a href="#inicio">Voltar ao início</a>
           </div>
         </div>
       </footer>

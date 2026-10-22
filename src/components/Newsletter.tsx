@@ -71,7 +71,7 @@ export function Newsletter() {
           <p className="form-status" role="status">
             {status === "loading" ? "Carregando formulário…" : "O formulário não carregou."}{" "}
             <a href={FORM_URL} target="_blank" rel="noopener noreferrer">
-              Abrir inscrição no Kit ↗
+              Abrir inscrição no Kit
             </a>
           </p>
         )}

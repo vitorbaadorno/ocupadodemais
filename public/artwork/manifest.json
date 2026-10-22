@@ -1,0 +1,422 @@
+[
+  {
+    "source": "Arte da capa.webp",
+    "file": "arte-capa-2x.webp",
+    "original": [
+      4096,
+      6144
+    ],
+    "output": [
+      8192,
+      12288
+    ]
+  },
+  {
+    "source": "elemento-01.webp",
+    "file": "elemento-01-2x.webp",
+    "original": [
+      966,
+      1490
+    ],
+    "output": [
+      1932,
+      2980
+    ]
+  },
+  {
+    "source": "elemento-02.webp",
+    "file": "elemento-02-2x.webp",
+    "original": [
+      790,
+      1033
+    ],
+    "output": [
+      1580,
+      2066
+    ]
+  },
+  {
+    "source": "elemento-03.webp",
+    "file": "elemento-03-2x.webp",
+    "original": [
+      512,
+      1248
+    ],
+    "output": [
+      1024,
+      2496
+    ]
+  },
+  {
+    "source": "elemento-04.webp",
+    "file": "elemento-04-2x.webp",
+    "original": [
+      576,
+      1222
+    ],
+    "output": [
+      1152,
+      2444
+    ]
+  },
+  {
+    "source": "elemento-05.webp",
+    "file": "elemento-05-2x.webp",
+    "original": [
+      116,
+      193
+    ],
+    "output": [
+      232,
+      386
+    ]
+  },
+  {
+    "source": "elemento-06.webp",
+    "file": "elemento-06-2x.webp",
+    "original": [
+      703,
+      701
+    ],
+    "output": [
+      1406,
+      1402
+    ]
+  },
+  {
+    "source": "elemento-07.webp",
+    "file": "elemento-07-2x.webp",
+    "original": [
+      156,
+      203
+    ],
+    "output": [
+      312,
+      406
+    ]
+  },
+  {
+    "source": "elemento-08.webp",
+    "file": "elemento-08-2x.webp",
+    "original": [
+      116,
+      155
+    ],
+    "output": [
+      232,
+      310
+    ]
+  },
+  {
+    "source": "elemento-09.webp",
+    "file": "elemento-09-2x.webp",
+    "original": [
+      430,
+      908
+    ],
+    "output": [
+      860,
+      1816
+    ]
+  },
+  {
+    "source": "elemento-10.webp",
+    "file": "elemento-10-2x.webp",
+    "original": [
+      720,
+      740
+    ],
+    "output": [
+      1440,
+      1480
+    ]
+  },
+  {
+    "source": "elemento-11.webp",
+    "file": "elemento-11-2x.webp",
+    "original": [
+      1007,
+      642
+    ],
+    "output": [
+      2014,
+      1284
+    ]
+  },
+  {
+    "source": "elemento-12.webp",
+    "file": "elemento-12-2x.webp",
+    "original": [
+      372,
+      630
+    ],
+    "output": [
+      744,
+      1260
+    ]
+  },
+  {
+    "source": "elemento-13.webp",
+    "file": "elemento-13-2x.webp",
+    "original": [
+      623,
+      657
+    ],
+    "output": [
+      1246,
+      1314
+    ]
+  },
+  {
+    "source": "elemento-14.webp",
+    "file": "elemento-14-2x.webp",
+    "original": [
+      583,
+      463
+    ],
+    "output": [
+      1166,
+      926
+    ]
+  },
+  {
+    "source": "elemento-15.webp",
+    "file": "elemento-15-2x.webp",
+    "original": [
+      775,
+      417
+    ],
+    "output": [
+      1550,
+      834
+    ]
+  },
+  {
+    "source": "elemento-16.webp",
+    "file": "elemento-16-2x.webp",
+    "original": [
+      604,
+      420
+    ],
+    "output": [
+      1208,
+      840
+    ]
+  },
+  {
+    "source": "elemento-17.webp",
+    "file": "elemento-17-2x.webp",
+    "original": [
+      351,
+      351
+    ],
+    "output": [
+      702,
+      702
+    ]
+  },
+  {
+    "source": "elemento-18.webp",
+    "file": "elemento-18-2x.webp",
+    "original": [
+      227,
+      1342
+    ],
+    "output": [
+      454,
+      2684
+    ]
+  },
+  {
+    "source": "elemento-19.webp",
+    "file": "elemento-19-2x.webp",
+    "original": [
+      770,
+      530
+    ],
+    "output": [
+      1540,
+      1060
+    ]
+  },
+  {
+    "source": "elemento-20.webp",
+    "file": "elemento-20-2x.webp",
+    "original": [
+      456,
+      434
+    ],
+    "output": [
+      912,
+      868
+    ]
+  },
+  {
+    "source": "elemento-21.webp",
+    "file": "elemento-21-2x.webp",
+    "original": [
+      256,
+      545
+    ],
+    "output": [
+      512,
+      1090
+    ]
+  },
+  {
+    "source": "elemento-22.webp",
+    "file": "elemento-22-2x.webp",
+    "original": [
+      444,
+      396
+    ],
+    "output": [
+      888,
+      792
+    ]
+  },
+  {
+    "source": "elemento-23.webp",
+    "file": "elemento-23-2x.webp",
+    "original": [
+      384,
+      518
+    ],
+    "output": [
+      768,
+      1036
+    ]
+  },
+  {
+    "source": "elemento-24.webp",
+    "file": "elemento-24-2x.webp",
+    "original": [
+      500,
+      753
+    ],
+    "output": [
+      1000,
+      1506
+    ]
+  },
+  {
+    "source": "elemento-25.webp",
+    "file": "elemento-25-2x.webp",
+    "original": [
+      1070,
+      684
+    ],
+    "output": [
+      2140,
+      1368
+    ]
+  },
+  {
+    "source": "elemento-26.webp",
+    "file": "elemento-26-2x.webp",
+    "original": [
+      668,
+      684
+    ],
+    "output": [
+      1336,
+      1368
+    ]
+  },
+  {
+    "source": "elemento-27.webp",
+    "file": "elemento-27-2x.webp",
+    "original": [
+      409,
+      314
+    ],
+    "output": [
+      818,
+      628
+    ]
+  },
+  {
+    "source": "elemento-28.webp",
+    "file": "elemento-28-2x.webp",
+    "original": [
+      217,
+      409
+    ],
+    "output": [
+      434,
+      818
+    ]
+  },
+  {
+    "source": "elemento-29.webp",
+    "file": "elemento-29-2x.webp",
+    "original": [
+      191,
+      204
+    ],
+    "output": [
+      382,
+      408
+    ]
+  },
+  {
+    "source": "elemento-30.webp",
+    "file": "elemento-30-2x.webp",
+    "original": [
+      208,
+      220
+    ],
+    "output": [
+      416,
+      440
+    ]
+  },
+  {
+    "source": "elemento-31.webp",
+    "file": "elemento-31-2x.webp",
+    "original": [
+      190,
+      179
+    ],
+    "output": [
+      380,
+      358
+    ]
+  },
+  {
+    "source": "elemento-32.webp",
+    "file": "elemento-32-2x.webp",
+    "original": [
+      185,
+      204
+    ],
+    "output": [
+      370,
+      408
+    ]
+  },
+  {
+    "source": "Foto do autor(1).webp",
+    "file": "autor-retrato-2x.webp",
+    "original": [
+      1080,
+      1835
+    ],
+    "output": [
+      2160,
+      3670
+    ]
+  },
+  {
+    "source": "Imagem do autor.webp",
+    "file": "autor-2x.webp",
+    "original": [
+      900,
+      900
+    ],
+    "output": [
+      1800,
+      1800
+    ]
+  }
+]

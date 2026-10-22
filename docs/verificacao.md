@@ -17,3 +17,14 @@ Não foi enviada inscrição real nem validado recebimento/descadastro. Não for
 O build herdado emite avisos de dependências sobre diretivas `use client` e resolução de caminhos; conclui com sucesso. A política de privacidade e as imagens continuam pendentes, conforme o escopo aprovado. O horário de envio deve ser configurado no Kit; o site apenas comunica a frequência informada.
 
 Teste adicional do servidor de produção: HTTP 200, ordem das seções, preço, idioma e disponibilidade de scripts/CSS/fontes aprovados. Nenhum erro de console foi observado na revisão final do navegador.
+
+## Atualização de 20/10/2026 — timeline, quiz e FAQ
+
+- Build de produção e TypeScript passaram; `git diff --check` sem erros.
+- Teste da função do quiz: sete resultados alcançáveis, maioria, desempate e rejeição de respostas incompletas.
+- Navegador: fluxo completo de seis respostas, resultado Recorte de memória, destaque dourado e diferença de centralização de 0px na timeline; refazer e voltar preservando a seleção conferidos.
+- Tela estreita: viewport solicitado de 375px, área útil medida em 360px devido à barra de rolagem; largura do documento também 360px, sem transbordamento horizontal.
+- FAQ abriu pelo teclado e mostrou o texto fornecido; quatro logos carregaram. Nenhum erro registrado no console da sessão de verificação.
+- Movimento reduzido tratado em CSS e no observador; conteúdo permanece visível sem JavaScript. Efeito de máquina de escrever preservado sem alterações.
+- Prévia de produção: http://127.0.0.1:4173/ . O servidor precisa continuar em execução para o endereço funcionar.
+- Propostas adicionais da lista de 140 itens estão em `revisao-visual-aprovacao.md`, pendentes de aprovação individual. Nenhuma publicação ou junção com main foi feita.
