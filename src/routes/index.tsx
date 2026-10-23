@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { BookOpen, X, Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { book, testimonials } from "../data/book";
+import { ReadingArtwork } from "../components/ReadingArtwork";
 import { HeroArtwork } from "../components/HeroArtwork";
 import { TypewriterTitle } from "../components/TypewriterTitle";
 import { Excerpts } from "../components/Excerpts";
@@ -204,87 +205,90 @@ function Home() {
           </div>
         </section>
 
-        <section
-          id="depoimentos"
-          className="section testimonials"
-          aria-labelledby="testimonials-title"
-        >
-          <div className="container">
-            <div className="section-heading centered">
-              <span className="eyebrow">Depois da última página</span>
-              <h2 id="testimonials-title">O que fica com quem lê.</h2>
+        <div className="reading-sections">
+          <ReadingArtwork key={`reading-${entrance}`} />
+          <section
+            id="depoimentos"
+            className="section testimonials"
+            aria-labelledby="testimonials-title"
+          >
+            <div className="container">
+              <div className="section-heading centered">
+                <span className="eyebrow">Depois da última página</span>
+                <h2 id="testimonials-title">O que fica com quem lê.</h2>
+              </div>
+              <div className="testimonial-grid">
+                {testimonials.map((item) => (
+                  <TestimonialCard item={item} key={item.name} />
+                ))}
+              </div>
             </div>
-            <div className="testimonial-grid">
-              {testimonials.map((item) => (
-                <TestimonialCard item={item} key={item.name} />
-              ))}
-            </div>
-          </div>
-        </section>
+          </section>
 
-        <section id="comprar" className="section purchase" aria-labelledby="purchase-title">
-          <div className="container">
-            <div className="section-heading centered">
-              <span className="eyebrow">A próxima página é sua</span>
-              <h2 id="purchase-title">Abra espaço para uma leitura.</h2>
-              <p>Escolha o formato que combina com o seu jeito de ler.</p>
-            </div>
-            <div className="purchase-grid">
-              <article className="purchase-card physical">
-                <div className="purchase-top">
-                  <span className="edition-badge">Edição física</span>
-                  <span className="store-name">UICLAP</span>
-                </div>
-                <div className="physical-body">
-                  <BookCover />
-                  <div>
-                    <h3>Livro físico</h3>
-                    <p className="price">{book.physicalPrice}</p>
-                    <p className="fine-print">+ frete calculado na loja</p>
+          <section id="comprar" className="section purchase" aria-labelledby="purchase-title">
+            <div className="container">
+              <div className="section-heading centered">
+                <span className="eyebrow">A próxima página é sua</span>
+                <h2 id="purchase-title">Abra espaço para uma leitura.</h2>
+                <p>Escolha o formato que combina com o seu jeito de ler.</p>
+              </div>
+              <div className="purchase-grid">
+                <article className="purchase-card physical">
+                  <div className="purchase-top">
+                    <span className="edition-badge">Edição física</span>
+                    <span className="store-name">UICLAP</span>
                   </div>
-                </div>
-                <a
-                  className="button primary"
-                  href={book.physicalUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Comprar na UICLAP
-                </a>
-                <p className="fine-print">Consulte o prazo de produção e entrega na loja.</p>
-              </article>
-              <article className="purchase-card digital">
-                <div className="purchase-top">
-                  <span className="eyebrow">Na sua tela</span>
-                  <span className="store-name">AMAZON</span>
-                </div>
-                <div className="physical-body">
-                  <BookCover />
-                  <div>
-                    <h3>Livro digital</h3>
-                    <p className="price">R$ 9,90</p>
-                    <p className="kindle-unlimited">Incluído na assinatura Kindle Unlimited.</p>
-                    <p className="fine-print">
-                      Para ler no Kindle ou no aplicativo Kindle, no seu ritmo.
-                    </p>
+                  <div className="physical-body">
+                    <BookCover />
+                    <div>
+                      <h3>Livro físico</h3>
+                      <p className="price">{book.physicalPrice}</p>
+                      <p className="fine-print">+ frete calculado na loja</p>
+                    </div>
                   </div>
-                </div>
-                <a
-                  className="button outline"
-                  href={book.kindleUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Ver edição Kindle
-                </a>
-              </article>
+                  <a
+                    className="button primary"
+                    href={book.physicalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Comprar na UICLAP
+                  </a>
+                  <p className="fine-print">Consulte o prazo de produção e entrega na loja.</p>
+                </article>
+                <article className="purchase-card digital">
+                  <div className="purchase-top">
+                    <span className="eyebrow">Na sua tela</span>
+                    <span className="store-name">AMAZON</span>
+                  </div>
+                  <div className="physical-body">
+                    <BookCover />
+                    <div>
+                      <h3>Livro digital</h3>
+                      <p className="price">R$ 9,90</p>
+                      <p className="kindle-unlimited">Incluído na assinatura Kindle Unlimited.</p>
+                      <p className="fine-print">
+                        Para ler no Kindle ou no aplicativo Kindle, no seu ritmo.
+                      </p>
+                    </div>
+                  </div>
+                  <a
+                    className="button outline"
+                    href={book.kindleUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ver edição Kindle
+                  </a>
+                </article>
+              </div>
+              <p className="purchase-note">
+                A compra é concluída na loja escolhida. Preços e condições podem ser alterados pelas
+                plataformas.
+              </p>
             </div>
-            <p className="purchase-note">
-              A compra é concluída na loja escolhida. Preços e condições podem ser alterados pelas
-              plataformas.
-            </p>
-          </div>
-        </section>
+          </section>
+        </div>
         <FAQ />
       </main>
       <footer className="site-footer">

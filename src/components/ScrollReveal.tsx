@@ -5,7 +5,7 @@ export function ScrollReveal() {
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (motion.matches || !("IntersectionObserver" in window)) return;
     const elements = document.querySelectorAll<HTMLElement>(
-      "main > section:not(.hero) > .container, .site-footer > .container",
+      "main > section:not(.hero) > .container, .reading-sections > section > .container, .site-footer > .container",
     );
     const observer = new IntersectionObserver(
       (entries) => {

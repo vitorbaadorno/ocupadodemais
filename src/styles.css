@@ -1765,6 +1765,20 @@ a:hover {
 .faq-list summary svg {
   flex-shrink: 0;
 }
+.quiz-reveal,
+.faq-list details[open] > p {
+  animation: content-reveal 500ms ease-out both;
+}
+@keyframes content-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .faq-list details[open] summary svg {
   transform: rotate(45deg);
 }
@@ -2070,4 +2084,46 @@ a:hover {
   font-weight: 600;
   line-height: 1.5;
   margin: 0 0 10px;
+}
+
+/* One continuous decorative canvas behind readers and purchase. */
+.reading-sections {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--cream) 35%, var(--section) 65%);
+}
+.reading-sections > section {
+  position: relative;
+  z-index: 1;
+}
+.reading-sections > .purchase {
+  background: transparent;
+  border-top: 0;
+}
+.reading-artwork {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.reading-artwork img {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: auto;
+  max-height: 115px;
+  object-fit: contain;
+  opacity: 0;
+  transform: rotate(var(--rotation));
+}
+.reading-artwork img.artwork-loaded.artwork-visible {
+  opacity: var(--visible-opacity, var(--opacity));
+  animation: artwork-enter 850ms var(--delay) both;
+}
+@media (max-width: 760px) {
+  .reading-artwork img {
+    width: calc(var(--size) * 0.65);
+    --visible-opacity: calc(var(--opacity) * 0.7);
+  }
 }

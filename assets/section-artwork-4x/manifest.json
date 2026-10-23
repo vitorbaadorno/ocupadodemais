@@ -1,0 +1,422 @@
+[
+  {
+    "source": "escrita-01.png",
+    "original": [
+      970,
+      1240
+    ],
+    "master": [
+      3880,
+      4960
+    ],
+    "web": [
+      313,
+      400
+    ]
+  },
+  {
+    "source": "escrita-02.png",
+    "original": [
+      885,
+      1221
+    ],
+    "master": [
+      3540,
+      4884
+    ],
+    "web": [
+      290,
+      400
+    ]
+  },
+  {
+    "source": "escrita-03.png",
+    "original": [
+      934,
+      1145
+    ],
+    "master": [
+      3736,
+      4580
+    ],
+    "web": [
+      320,
+      392
+    ]
+  },
+  {
+    "source": "escrita-04.png",
+    "original": [
+      844,
+      1198
+    ],
+    "master": [
+      3376,
+      4792
+    ],
+    "web": [
+      282,
+      400
+    ]
+  },
+  {
+    "source": "escrita-05.png",
+    "original": [
+      571,
+      560
+    ],
+    "master": [
+      2284,
+      2240
+    ],
+    "web": [
+      320,
+      314
+    ]
+  },
+  {
+    "source": "escrita-06.png",
+    "original": [
+      665,
+      536
+    ],
+    "master": [
+      2660,
+      2144
+    ],
+    "web": [
+      320,
+      258
+    ]
+  },
+  {
+    "source": "escrita-07.png",
+    "original": [
+      452,
+      949
+    ],
+    "master": [
+      1808,
+      3796
+    ],
+    "web": [
+      191,
+      400
+    ]
+  },
+  {
+    "source": "escrita-08.png",
+    "original": [
+      1347,
+      623
+    ],
+    "master": [
+      5388,
+      2492
+    ],
+    "web": [
+      320,
+      148
+    ]
+  },
+  {
+    "source": "mente-01.png",
+    "original": [
+      852,
+      1179
+    ],
+    "master": [
+      3408,
+      4716
+    ],
+    "web": [
+      289,
+      400
+    ]
+  },
+  {
+    "source": "mente-02.png",
+    "original": [
+      669,
+      966
+    ],
+    "master": [
+      2676,
+      3864
+    ],
+    "web": [
+      277,
+      400
+    ]
+  },
+  {
+    "source": "mente-03.png",
+    "original": [
+      920,
+      844
+    ],
+    "master": [
+      3680,
+      3376
+    ],
+    "web": [
+      320,
+      294
+    ]
+  },
+  {
+    "source": "mente-04.png",
+    "original": [
+      923,
+      1062
+    ],
+    "master": [
+      3692,
+      4248
+    ],
+    "web": [
+      320,
+      368
+    ]
+  },
+  {
+    "source": "mente-05.png",
+    "original": [
+      862,
+      946
+    ],
+    "master": [
+      3448,
+      3784
+    ],
+    "web": [
+      320,
+      351
+    ]
+  },
+  {
+    "source": "mente-06.png",
+    "original": [
+      852,
+      939
+    ],
+    "master": [
+      3408,
+      3756
+    ],
+    "web": [
+      320,
+      353
+    ]
+  },
+  {
+    "source": "mente-07.png",
+    "original": [
+      880,
+      889
+    ],
+    "master": [
+      3520,
+      3556
+    ],
+    "web": [
+      320,
+      323
+    ]
+  },
+  {
+    "source": "mente-08.png",
+    "original": [
+      580,
+      841
+    ],
+    "master": [
+      2320,
+      3364
+    ],
+    "web": [
+      276,
+      400
+    ]
+  },
+  {
+    "source": "mente-09.png",
+    "original": [
+      968,
+      860
+    ],
+    "master": [
+      3872,
+      3440
+    ],
+    "web": [
+      320,
+      284
+    ]
+  },
+  {
+    "source": "papeis-01.png",
+    "original": [
+      1047,
+      1494
+    ],
+    "master": [
+      4188,
+      5976
+    ],
+    "web": [
+      280,
+      400
+    ]
+  },
+  {
+    "source": "papeis-02.png",
+    "original": [
+      1109,
+      1503
+    ],
+    "master": [
+      4436,
+      6012
+    ],
+    "web": [
+      295,
+      400
+    ]
+  },
+  {
+    "source": "papeis-03.png",
+    "original": [
+      1009,
+      984
+    ],
+    "master": [
+      4036,
+      3936
+    ],
+    "web": [
+      320,
+      312
+    ]
+  },
+  {
+    "source": "papeis-04.png",
+    "original": [
+      938,
+      1208
+    ],
+    "master": [
+      3752,
+      4832
+    ],
+    "web": [
+      311,
+      400
+    ]
+  },
+  {
+    "source": "papeis-05.png",
+    "original": [
+      922,
+      908
+    ],
+    "master": [
+      3688,
+      3632
+    ],
+    "web": [
+      320,
+      315
+    ]
+  },
+  {
+    "source": "papeis-06.png",
+    "original": [
+      1305,
+      956
+    ],
+    "master": [
+      5220,
+      3824
+    ],
+    "web": [
+      320,
+      234
+    ]
+  },
+  {
+    "source": "pessoas-01.png",
+    "original": [
+      1043,
+      1352
+    ],
+    "master": [
+      4172,
+      5408
+    ],
+    "web": [
+      309,
+      400
+    ]
+  },
+  {
+    "source": "pessoas-02.png",
+    "original": [
+      1092,
+      1337
+    ],
+    "master": [
+      4368,
+      5348
+    ],
+    "web": [
+      320,
+      392
+    ]
+  },
+  {
+    "source": "pessoas-03.png",
+    "original": [
+      1072,
+      1281
+    ],
+    "master": [
+      4288,
+      5124
+    ],
+    "web": [
+      320,
+      382
+    ]
+  },
+  {
+    "source": "pessoas-04.png",
+    "original": [
+      1038,
+      1188
+    ],
+    "master": [
+      4152,
+      4752
+    ],
+    "web": [
+      320,
+      366
+    ]
+  },
+  {
+    "source": "pessoas-05.png",
+    "original": [
+      1734,
+      1045
+    ],
+    "master": [
+      6936,
+      4180
+    ],
+    "web": [
+      320,
+      193
+    ]
+  }
+]

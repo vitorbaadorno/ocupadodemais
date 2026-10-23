@@ -6,12 +6,9 @@ import { Newsletter } from "./Newsletter";
 export function Excerpts() {
   const [index, setIndex] = useState(0);
   const [exiting, setExiting] = useState(false);
-  const [hovered, setHovered] = useState(false);
-  const [focused, setFocused] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [cycle, setCycle] = useState(0);
   const direction = useRef(1);
-  const paused = hovered || focused || hidden;
   useEffect(() => {
     const update = () => setHidden(document.hidden);
     update();
@@ -19,13 +16,13 @@ export function Excerpts() {
     return () => document.removeEventListener("visibilitychange", update);
   }, []);
   useEffect(() => {
-    if (paused) return;
+    if (hidden) return;
     const timer = window.setInterval(() => {
       direction.current = 1;
       setExiting(true);
     }, 7000);
     return () => window.clearInterval(timer);
-  }, [paused, cycle]);
+  }, [hidden, cycle]);
   useEffect(() => {
     if (!exiting) return;
     const timer = window.setTimeout(
@@ -51,23 +48,13 @@ export function Excerpts() {
           <h2 id="excerpts-title">Leia um pouco. Fique um pouco.</h2>
           <p>Antes de conhecer o livro inteiro, encontre suas palavras.</p>
         </div>
-        <div
-          className="excerpt-reader"
-          role="region"
-          aria-label="Trechos do livro"
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-          onFocus={() => setFocused(true)}
-          onBlur={(event) => {
-            if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);
-          }}
-        >
+        <div className="excerpt-reader" role="region" aria-label="Trechos do livro">
           <span className="quote-mark" aria-hidden="true">
             “
           </span>
           <div
             className={`excerpt-content${exiting ? " excerpt-exiting" : ""}`}
-            aria-live={paused ? "polite" : "off"}
+            aria-live="off"
             aria-atomic="true"
           >
             <blockquote>“{excerpts[index]}”</blockquote>

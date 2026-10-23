@@ -128,7 +128,7 @@ export function ChapterTimeline() {
           ) : null}
           <div id="quiz-content" hidden={!open}>
             {open && result === null && (
-              <>
+              <div className="quiz-reveal" key={step}>
                 <p className="quiz-step">Pergunta {step + 1} de 6</p>
                 <h4 ref={quizHeading} tabIndex={-1} className="quiz-question">
                   {quizQuestions[step].question}
@@ -172,10 +172,10 @@ export function ChapterTimeline() {
                     {step === 5 ? "Ver meu capítulo" : "Próxima pergunta"}
                   </button>
                 </div>
-              </>
+              </div>
             )}
             {result !== null && (
-              <div className="quiz-result">
+              <div className="quiz-result quiz-reveal">
                 <p>Seu encontro com estas páginas pode começar por:</p>
                 <h4 ref={quizHeading} tabIndex={-1} className="quiz-question">
                   {chapters[result].title}
