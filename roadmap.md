@@ -15,6 +15,6 @@
 - [x] Verify and adapt the existing layout on mobile devices.
 
 # Stable decorations and animated FAQ
-- [ ] Keep decoration positions independent of changing page content.
-- [ ] Animate FAQ answer expansion and collapse together with the text.
-- [ ] Verify FAQ interactions and decoration positions on desktop and mobile.
+- [x] Keep decoration positions independent of changing page content.
+- [x] Animate FAQ answer expansion and collapse together with the text.
+- [x] Verify FAQ interactions and decoration positions on desktop and mobile.
