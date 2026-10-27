@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import { BookOpen, ChevronDown, Instagram, ShoppingBag, Tablet, Truck } from "lucide-react";
+import { BookOpen, Instagram, ShoppingBag, Tablet, Truck } from "lucide-react";
 
 import { Reveal } from "@/components/Reveal";
 import { Particles } from "@/components/Atmosphere";
@@ -14,6 +14,7 @@ import { AutorShowcase } from "@/components/AutorShowcase";
 import { DetalhesLivro } from "@/components/DetalhesLivro";
 import { Typewriter } from "@/components/Typewriter";
 import { BordaElementos } from "@/components/BordaElementos";
+import { FaqItem } from "@/components/FaqItem";
 import { Button } from "@/components/ui/button";
 const capa = { url: "/assets/capa-arte.webp" };
 
@@ -464,16 +465,7 @@ function Index() {
           </h2>
           <div className="mt-10 space-y-2">
             {faq.map((f) => (
-              <details
-                key={f.p}
-                className="group rounded-lg border border-border/70 bg-card px-5 py-4"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold">
-                  {f.p}
-                  <ChevronDown className="size-5 shrink-0 text-primary transition-transform group-open:rotate-180" />
-                </summary>
-                <p className="mt-3 text-justify leading-relaxed text-foreground/80">{f.r}</p>
-              </details>
+              <FaqItem key={f.p} pergunta={f.p} resposta={f.r} />
             ))}
           </div>
         </section>

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /** Elementos ilustrados espalhados nas bordas da página, surgindo por dissolução. */
 const NOMES = [
@@ -26,6 +26,18 @@ const ITENS = ORDEM.map((nome, i) => {
 
 export function BordaElementos() {
   const ref = useRef<HTMLDivElement>(null);
+  const [altura, setAltura] = useState<number>();
+
+  useEffect(() => {
+    let cancelado = false;
+    // Capture once: FAQ, quiz and remote embeds must not redistribute decorations.
+    void document.fonts.ready.then(() => {
+      if (cancelado) return;
+      const pagina = ref.current?.parentElement;
+      if (pagina) setAltura(pagina.scrollHeight);
+    });
+    return () => { cancelado = true; };
+  }, []);
 
   useEffect(() => {
     const imgs = ref.current?.querySelectorAll("img");
@@ -49,7 +61,7 @@ export function BordaElementos() {
   }, []);
 
   return (
-    <div ref={ref} aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+    <div ref={ref} aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 z-0 overflow-hidden" style={{ height: altura ?? "100%" }}>
       {ITENS.map((it) => (
         <div
           key={it.src}

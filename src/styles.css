@@ -368,9 +368,20 @@
   min-height: 19rem;
 }
 
-.reference-layout #faq summary::-webkit-details-marker {
-  display: none;
+.reference-layout .faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: grid-template-rows 350ms ease, opacity 350ms ease, transform 350ms ease;
 }
+.reference-layout .faq-item[data-open="true"] .faq-answer {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transform: translateY(0);
+}
+.reference-layout .faq-chevron { transition: transform 350ms ease; }
+.reference-layout .faq-item[data-open="true"] .faq-chevron { transform: rotate(180deg); }
 
 @media (max-width: 767px) {
   .reference-layout #autor button[aria-label="Trocar foto do autor"] {
