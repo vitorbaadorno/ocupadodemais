@@ -19,5 +19,5 @@ export function Newsletter() {
     };
   }, []);
 
-  return <div ref={ref} className="newsletter-kit mx-auto mt-6 w-full max-w-md text-left" />;
+  return <div ref={ref} className="newsletter-kit mx-auto mt-6 w-full max-w-3xl" />;
 }
