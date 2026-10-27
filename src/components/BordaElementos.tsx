@@ -1,12 +1,20 @@
 import { useEffect, useRef } from "react";
 
 /** Elementos ilustrados espalhados nas bordas da página, surgindo por dissolução. */
-const ITENS = Array.from({ length: 32 }, (_, i) => {
-  const n = String(i + 1).padStart(2, "0");
+const NOMES = [
+  ...Array.from({ length: 8 }, (_, i) => `escrita-0${i + 1}`),
+  ...Array.from({ length: 9 }, (_, i) => `mente-0${i + 1}`),
+  ...Array.from({ length: 6 }, (_, i) => `papeis-0${i + 1}`),
+  ...Array.from({ length: 5 }, (_, i) => `pessoas-0${i + 1}`),
+];
+// Intercala as categorias para variar o que aparece ao longo da página.
+const ORDEM = NOMES.map((_, i) => NOMES[(i * 11) % NOMES.length]);
+
+const ITENS = ORDEM.map((nome, i) => {
   const esquerda = i % 2 === 0;
   return {
-    src: `/assets/elemento-${n}.webp`,
-    top: `${1.5 + i * 3}%`,
+    src: `/assets/borda-${nome}.webp`,
+    top: `${1.5 + i * 3.4}%`,
     lado: esquerda ? "left" : "right",
     offset: `${-1 + ((i * 7) % 4)}%`,
     width: 4.5 + ((i * 5) % 4),
