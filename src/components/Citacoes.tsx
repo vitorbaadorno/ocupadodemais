@@ -110,7 +110,7 @@ export function Citacoes() {
         <div className="mx-auto mt-14 max-w-xl border-y border-border/70 px-5 py-8 text-center">
           <h3 className="font-serif text-2xl font-semibold">Newsletter</h3>
           <p className="mt-2 text-foreground/75">
-            Um espaço para receber novos textos e novidades do livro (quem sabe um desconto...).
+            Um espaço para receber novos textos e novidades do livro toda quinta-feira às 19h!
           </p>
           <Newsletter />
         </div>
